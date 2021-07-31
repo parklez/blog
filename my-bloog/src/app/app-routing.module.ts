@@ -8,6 +8,9 @@ const routes: Routes = [
     // if I wanted to, I could redirect 404 pages to this component as well
     // by using '**'.
     path: '', component: HomePageComponent
+  },
+  {
+    path: '**', redirectTo: '' // Or some 404component
   }
 ];
 
