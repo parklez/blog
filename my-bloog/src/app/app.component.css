@@ -1,11 +1,32 @@
-#header {
-    background-color: rgb(205, 221, 255);
+#page {
+    padding: 2rem;
+    background-color: rgb(255, 246, 195);
 }
 
-#footer {
-    background-color:rgb(236, 255, 191);
+#header {
+    background-color: aliceblue;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border: 2px solid #000;
+    border-bottom: 0;
 }
 
 #main-content {
     background-color: pink;
+    border: 2px solid #000;
+    border-top: 0;
+    border-bottom: 0;
+    height: 20rem;
+}
+
+#navigation-bar {
+    background-color: rgb(221, 255, 214);
+    border: 2px solid #000;
+}
+
+#footer {
+    background-color:rgb(236, 255, 191);
+    border: 2px solid #000;
+    border-top: 0;
+    height: 8rem;
 }

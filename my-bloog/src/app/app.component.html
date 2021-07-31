@@ -1,9 +1,22 @@
-<div id="header">
+<div id="page">
+  <div id="header">
     <app-header></app-header>
-</div>
-<div id="main-content">
+  </div>
+  <nav id="navigation-bar" class="navbar">
+    <div class="navbar-item">
+      <a routerLink="" routerLinkActive="is-warning" [routerLinkActiveOptions]="{ exact: true }" class="button"> Home </a>
+    </div>
+    <div class="navbar-item">
+      <a routerLink="projects" routerLinkActive="is-warning" class="button"> Projects </a>
+    </div>
+    <div class="navbar-item">
+      <a routerLink="about" routerLinkActive="is-warning" class="button"> About </a>
+    </div>
+  </nav>
+  <div id="main-content">
     <router-outlet></router-outlet>
-</div>
-<div id="footer">
+  </div>
+  <div id="footer">
     <app-footer></app-footer>
+  </div>
 </div>
