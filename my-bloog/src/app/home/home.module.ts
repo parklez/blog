@@ -13,5 +13,11 @@ import { HomePageComponent } from './home-page/home-page.component';
     CommonModule,
     HomeRoutingModule
   ],
+  exports: [
+    // Exporting this component explicitly, so that other
+    // modules can access it directly. In this case, I want app-routing to
+    // use this component on '' path.
+    HomePageComponent 
+  ]
 })
 export class HomeModule { }
