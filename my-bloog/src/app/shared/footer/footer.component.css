@@ -1,0 +1,14 @@
+.footer {
+    background-color: rgb(34, 34, 34);
+    padding: 3rem;
+    color: white;
+}
+
+a {
+    padding-right: 2rem;
+    color: white;
+}
+
+a:hover {
+    color: rgb(202, 236, 174);
+}

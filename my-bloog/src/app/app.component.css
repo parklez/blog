@@ -1,32 +1,35 @@
 #page {
-    padding: 2rem;
-    background-color: rgb(255, 246, 195);
+    max-width: 60rem;
+    margin: auto;
 }
 
 #header {
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    border: 2px solid #000;
+    border: 1px solid rgba(0, 0, 0, 0.226);
     border-bottom: 0;
 }
 
 #main-content {
-    background-color: pink;
-    border: 2px solid #000;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.226);
     border-top: 0;
     border-bottom: 0;
-    height: 20rem;
+    height: 40rem;
+    padding: 1rem;
 }
 
 #navigation-bar {
-    background-color: rgb(221, 255, 214);
-    border: 2px solid #000;
+    background-color: rgb(248, 233, 166);
+    border: 1px solid rgba(0, 0, 0, 0.226);
 }
 
 #footer {
-    background-color:rgb(236, 255, 191);
-    border: 2px solid #000;
-    border-top: 0;
-    height: 8rem;
+    background-color:rgb(20, 20, 20);
+    border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+.is-black {
+    background-color: rgb(34, 34, 34);
 }

@@ -3,14 +3,16 @@
     <app-header></app-header>
   </div>
   <nav id="navigation-bar" class="navbar">
-    <div class="navbar-item">
-      <a routerLink="" routerLinkActive="is-warning" [routerLinkActiveOptions]="{ exact: true }" class="button"> Home </a>
-    </div>
-    <div class="navbar-item">
-      <a routerLink="projects" routerLinkActive="is-warning" class="button"> Projects </a>
-    </div>
-    <div class="navbar-item">
-      <a routerLink="about" routerLinkActive="is-warning" class="button"> About </a>
+    <div class="buttons">
+      <div class="navbar-item">
+        <a routerLink="" routerLinkActive="is-black" [routerLinkActiveOptions]="{ exact: true }" class="button"> Home </a>
+      </div>
+      <div class="navbar-item">
+        <a routerLink="projects" routerLinkActive="is-black" class="button"> Projects </a>
+      </div>
+      <div class="navbar-item">
+        <a routerLink="about" routerLinkActive="is-black" class="button"> About </a>
+      </div>
     </div>
   </nav>
   <div id="main-content">
