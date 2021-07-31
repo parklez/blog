@@ -9,9 +9,9 @@ const routes: Routes = [
     // by using '**'.
     path: '', component: HomePageComponent
   },
-  {
-    path: '**', redirectTo: '' // Or some 404component
-  }
+  // {
+  //   path: '**', redirectTo: '' // Or some 404component
+  // }
 ];
 
 @NgModule({
