@@ -13,23 +13,32 @@
 
 #main-content {
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgba(0, 0, 0, 0.226);
+    border: 1px solid rgb(0, 0, 0);
     border-top: 0;
     border-bottom: 0;
-    height: 40rem;
+    min-height: 40rem;
+    margin-bottom: auto;
     padding: 1rem;
 }
 
 #navigation-bar {
-    background-color: rgb(248, 233, 166);
+    background-color: rgb(202, 236, 174);
     border: 1px solid rgba(0, 0, 0, 0.226);
 }
 
 #footer {
-    background-color:rgb(20, 20, 20);
     border: 1px solid rgba(0, 0, 0, 0.226);
 }
 
 .is-black {
     background-color: rgb(34, 34, 34);
+}
+
+.panda {
+    /* Originally intended for a static picture of a panda */
+    width: 10rem;
+    right: 2rem;
+    top: -6.6rem;
+    position: absolute;
+    /*transform: scaleX(-1);*/
 }
