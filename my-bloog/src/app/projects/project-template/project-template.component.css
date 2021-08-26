@@ -1,3 +1,7 @@
-div {
+a {
     background-color: rgb(202, 236, 174);
+}
+
+a.box:hover, a.box:focus {
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(34, 34, 34);
 }
