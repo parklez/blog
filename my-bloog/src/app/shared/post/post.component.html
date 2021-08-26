@@ -1,0 +1,10 @@
+<h1 class="title">
+  {{ title }}
+</h1>
+<hr />
+<!-- 
+    innerHTML renders HTML safely into the DOM
+    https://angular.io/guide/security#sanitization-example 
+-->
+<div class="post" [innerHTML]="content"></div>
+<button class="button" (click)="goBack()">Go Back</button>
