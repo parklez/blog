@@ -5,6 +5,9 @@ const app = express();
 
 const port = require('./config/app');
 
+// Middleware
+app.use(express.json());
+
 // Routes
 const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
