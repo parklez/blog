@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostComponent } from './post/post.component';
+import { ToastyNotificationComponent } from './toasty-notification/toasty-notification.component';
 
 
 
@@ -10,14 +11,16 @@ import { PostComponent } from './post/post.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PostComponent
+    PostComponent,
+    ToastyNotificationComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ToastyNotificationComponent
   ]
 })
 export class SharedModule { }
