@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 // import { ProjectsModule } from './projects/projects.module';
 // import { AboutModule } from './about/about.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     // Commenting these out in order to implement 'lazy-loading'
     // HomeModule,
     // ProjectsModule,
