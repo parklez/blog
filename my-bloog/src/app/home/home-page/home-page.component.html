@@ -1,16 +1,26 @@
 <div id="content" class="block">
-    <h1 class="title"> Welcome </h1>
+  <h1 class="title">Welcome</h1>
   <hr />
   <div class="columns">
     <div id="page-content" class="column is-four-fifths">
-        <h1 class="title is-4"> Posts go down here </h1>
-        <br>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
-      debitis tenetur ut minima, sed inventore a velit sapiente vero porro
-      delectus et nulla magnam ullam quibusdam laborum impedit, fuga corrupti!
+      <div *ngFor="let post of retrievedPosts" class="box">
+        <article class="media-content">
+          <strong>
+            {{ post.title }}
+          </strong>
+          <small>
+            {{ post.published | date }}
+          </small>
+          <br />
+          <br />
+          <p>
+            {{ post.content }}
+          </p>
+        </article>
+      </div>
     </div>
-    <div id="side-panel" class="column is-one-fifth">
-        <h1 class="title is-4"> Side Panel</h1>
+    <div id="side-panel" class="column is-one-fifth message is-info is-light">
+      <h1 class="title is-4">Side Panel</h1>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime amet
       praesentium mollitia id aut saepe. Inventore sint doloremque velit eius
       aspernatur earum voluptatibus laborum eaque saepe, sed harum quas facere?
