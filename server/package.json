@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "testw": "jest --watch",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
@@ -13,10 +14,13 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
+    "node-mocks-http": "^1.11.0",
     "nodemon": "^2.0.12"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-config-ibm": "^1.15.0"
+    "eslint-config-ibm": "^1.15.0",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6"
   }
 }

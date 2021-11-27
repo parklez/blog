@@ -7,13 +7,13 @@ const getPost = async (req, res) => {
     if (req.params.id) {
       const something = await postModel.findById(req.params.id);
       if (something) {
-        return res.status(200).send(something);
+        return res.status(200).json(something);
       }
     // Returning 10 random documents - Should I split this function?
     } else {
       const results = await postModel.find().limit(maxDocuments).skip(0);
       if (results) {
-        return res.status(200).send(results);
+        return res.status(200).json(results);
       }
     }
 

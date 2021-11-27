@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "someOtherId",
+    "title": "Capybaras are wise",
+    "content": "",
+    "hidden": false,
+    "published": "2021-11-19T23:04:19.165Z"
+  },
+  {
+    "_id": "yetAnotherId",
+    "title": "Angular notes",
+    "content": "",
+    "hidden": false,
+    "published": "2021-11-24T03:44:52.336Z"
+  }
+]
