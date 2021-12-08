@@ -12,6 +12,9 @@ app.use(express.json());
 const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
 
+const projectsRoute = require('./routes/projects');
+app.use('/projects', projectsRoute);
+
 // Server static files
 app.use(express.static(`${__dirname}/../public`));
 

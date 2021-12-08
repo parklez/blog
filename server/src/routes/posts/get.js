@@ -1,4 +1,4 @@
-const postModel = require('../../lib/mongo');
+const {postModel} = require('../../lib/mongo');
 const maxDocuments = 10;
 
 const getPost = async (req, res) => {
