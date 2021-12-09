@@ -2,14 +2,19 @@
 <hr />
 <p>Take a look at my projects yes</p>
 <br />
-<div class="columns" *ngFor="let rowOfProjects of projects">
-  <ng-container *ngFor="let project of rowOfProjects">
-    <app-project-template
-      class="column is-4"
-      [title]="project.title"
-      [description]="project.description"
-      [thumbnail]="project.thumbnail"
-    >
-    </app-project-template>
-  </ng-container>
+<ng-container *ngIf="projects">
+  <div class="columns" *ngFor="let rowOfProjects of projects">
+    <ng-container *ngFor="let project of rowOfProjects">
+      <app-project-template
+        class="column is-4"
+        [title]="project.title"
+        [description]="project.description"
+        [thumbnail]="project.thumbnail"
+      >
+      </app-project-template>
+    </ng-container>
+  </div>
+</ng-container>
+<div *ngIf="projects.length === 0">
+  Panda not found...
 </div>
