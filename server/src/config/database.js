@@ -1,10 +1,10 @@
 const mongodbSettings = {
-  host: 'localhost',
-  port: 27017,
-  username: 'meumongo',
-  password: 'monguinho',
-  database: 'blog',
-  postCollection: 'posts',
+  host: process.env.MONGO_HOST || 'localhost',
+  port: process.env.MONGO_PORT || 27017,
+  user: process.env.MONGO_USER,
+  pass: process.env.MONGO_PASS,
+  database: process.env.MONGO_DATABASE || 'blog',
+  postCollection: process.env.MONGO_POST_COLLECTION || 'posts',
 };
 
 module.exports = mongodbSettings;
