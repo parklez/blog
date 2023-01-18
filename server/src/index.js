@@ -9,11 +9,8 @@ const port = require('./config/app');
 app.use(express.json());
 
 // Routes
-const postsRoute = require('./routes/posts');
-app.use('/posts', postsRoute);
-
-const projectsRoute = require('./routes/projects');
-app.use('/projects', projectsRoute);
+const routes = require('./routes');
+app.use('/api', routes);
 
 // Server static files
 app.use(express.static(`${__dirname}/../public`));
