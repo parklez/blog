@@ -6,13 +6,13 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 ## Setup
 - Use NodeJS 16 for this project.
 
-On both `my-bloog` and `server` directories, install dependencies:
+On both `blog` and `server` directories, install dependencies:
 ```sh
 npm install
 ```
 
 ## Dev
-On `my-bloog` you can start the dev server using the following:
+On `blog` you can start the dev server using the following:
 ```sh
 npx ng start
 ```
