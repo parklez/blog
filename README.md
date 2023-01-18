@@ -4,7 +4,7 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 ![early](front.png)
 
 ## Setup
-- Use NodeJS 16 for this project.
+- Use NodeJS 18 for this project.
 
 On both `blog` and `server` directories, install dependencies:
 ```sh
