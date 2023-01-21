@@ -1,26 +1,39 @@
+const mongoose = require('mongoose');
 const {postModel} = require('../../lib/mongo');
 const maxDocuments = 10;
 
 const getPost = async (req, res) => {
   try {
-    // In case specific id was provided
-    if (req.params.id) {
-      const something = await postModel.findById(req.params.id);
-      if (something) {
-        return res.status(200).json(something);
-      }
-    // Returning 10 random documents - Should I split this function?
-    } else {
-      const results = await postModel.find().limit(maxDocuments).skip(0);
-      if (results) {
-        return res.status(200).json(results);
-      }
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json();
     }
-
-    return res.status(404).send();
+    const post = await postModel.findById(req.params.id);
+    if (post) {
+      return res.status(200).json(post);
+    }
+    return res.status(404).json();
   } catch (error) {
+    console.log(error);
     return res.status(500).send();
   }
 };
 
-module.exports = getPost;
+const getPosts = async (req, res) => {
+  const page = req.query.page || 0;
+  try {
+    const results = await postModel
+      .find()
+      .limit(maxDocuments)
+      .sort({published: -1})
+      .skip(page * maxDocuments);
+    if (results) {
+      return res.status(200).json(results);
+    }
+    return res.status(404).json();
+  } catch (error) {
+    console.log(error);
+    res.status(500).send();
+  }
+};
+
+module.exports = {getPost, getPosts};

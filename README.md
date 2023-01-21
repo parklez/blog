@@ -6,10 +6,8 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 
 ## TO-DO list
 > Server-side
-- [ ] Implement paging for posts
-- [ ] Implement paging for projects
-- [ ] Implement update for posts & projects
-- [ ] Implement delete routes for posts & projects
+- [x] Implement CRUD for posts
+- [ ] Implement CRUD for projects
 - [ ] Implement authentication for certain routes
 
 > Client-side
