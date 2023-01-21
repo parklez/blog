@@ -7,7 +7,7 @@ const projectSchema = require('../models/project');
 mongoose.pluralize(null);
 
 const mongoConnection = mongoose.createConnection(
-  `mongodb://${mongoSettings.user}:${mongoSettings.pass}@${mongoSettings.host}:${mongoSettings.port}/${mongoSettings.database}?authSource=admin`
+  `mongodb://${mongoSettings.user}:${mongoSettings.pass}@${mongoSettings.host}:${mongoSettings.port}/${mongoSettings.database}?authSource=admin`,
 );
 // Where is a better place to have all these models?
 const postModel = mongoConnection.model(
