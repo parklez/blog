@@ -7,6 +7,14 @@ const port = require('./config/app');
 
 // Middleware
 app.use(express.json());
+app.use((err, req, res, next) => {
+  // https://github.com/expressjs/express/issues/4526
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    console.error(err);
+    return res.status(400).send(err.message);
+  }
+  next();
+});
 
 // Routes
 const routes = require('./routes');
