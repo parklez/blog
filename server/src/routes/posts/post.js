@@ -1,4 +1,4 @@
-const {postModel} = require('../../lib/mongo');
+const postModel = require('../../models/blogpost');
 
 const publishPost = async (req, res) => {
   try {

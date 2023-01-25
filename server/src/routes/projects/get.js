@@ -1,4 +1,4 @@
-const {projectModel} = require('../../lib/mongo');
+const projectModel = require('../../models/project');
 const docsPerPage = 10;
 
 const getProjects = async (req, res) => {

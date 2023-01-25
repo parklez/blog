@@ -1,4 +1,4 @@
-const {userModel} = require('../../lib/mongo');
+const userModel = require('../../models/user');
 const {hashPassword, signJwt} = require('../../utils');
 
 const register = async (req, res) => {

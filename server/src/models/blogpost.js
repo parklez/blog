@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoSettings = require('../config/database');
 
 const postSchema = new mongoose.Schema({
   title: {type: String, required: true},
@@ -7,4 +8,9 @@ const postSchema = new mongoose.Schema({
   hidden: {type: Boolean, default: false},
 }, {versionKey: false});
 
-module.exports = postSchema;
+const postModel = mongoose.model(
+  mongoSettings.postCollection,
+  postSchema,
+);
+
+module.exports = postModel;

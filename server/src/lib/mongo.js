@@ -1,29 +1,20 @@
 const mongoose = require('mongoose');
 
 const mongoSettings = require('../config/database');
-const postSchema = require('../models/blogpost');
-const projectSchema = require('../models/project');
-const userSchema = require('../models/user');
 
 mongoose.pluralize(null);
+// https://mongoosejs.com/docs/guide.html#strict
+mongoose.set('strictQuery', true);
 
-const mongoConnection = mongoose.createConnection(
-  `mongodb://${mongoSettings.user}:${mongoSettings.pass}@${mongoSettings.host}:${mongoSettings.port}/${mongoSettings.database}?authSource=admin`,
-);
-// Where is a better place to have all these models?
-const postModel = mongoConnection.model(
-  mongoSettings.postCollection,
-  postSchema,
-);
-
-const projectModel = mongoConnection.model(
-  'projects',
-  projectSchema,
-);
-
-const userModel = mongoConnection.model(
-  mongoSettings.usersCollection,
-  userSchema,
-);
-
-module.exports = {postModel, projectModel, userModel};
+mongoose.connect(
+  `mongodb://${mongoSettings.host}:${mongoSettings.port}/${mongoSettings.database}?authSource=admin`,
+  {
+    'user': mongoSettings.user,
+    'pass': mongoSettings.pass,
+  },
+).then(() => {
+  console.log('MongoDB Connection stablished!');
+}).catch((error) => {
+  console.log('MongoDB failed to connect!');
+  console.log(error);
+});

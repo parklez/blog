@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {postModel} = require('../../lib/mongo');
+const postModel = require('../../models/blogpost');
 
 const updatePost = async (req, res) => {
   try {

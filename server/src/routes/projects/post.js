@@ -1,4 +1,4 @@
-const {projectModel} = require('../../lib/mongo');
+const projectModel = require('../../models/project');
 
 const publishPost = async (req, res) => {
   console.log(req.body);

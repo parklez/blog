@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {postModel} = require('../../lib/mongo');
+const postModel = require('../../models/blogpost');
 const maxDocuments = 10;
 
 const getPost = async (req, res) => {

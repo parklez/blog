@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoSettings = require('../config/database');
 
 const projectSchema = new mongoose.Schema({
   title: {type: String, required: true},
@@ -8,4 +9,9 @@ const projectSchema = new mongoose.Schema({
   hidden: {type: Boolean, default: false},
 }, {versionKey: false});
 
-module.exports = projectSchema;
+const projectModel = mongoose.model(
+  mongoSettings.projectsCollection,
+  projectSchema,
+);
+
+module.exports = projectModel;
