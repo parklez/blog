@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const mongoSettings = require('../config/database');
 const postSchema = require('../models/blogpost');
 const projectSchema = require('../models/project');
+const userSchema = require('../models/user');
 
 mongoose.pluralize(null);
 
@@ -20,4 +21,9 @@ const projectModel = mongoConnection.model(
   projectSchema,
 );
 
-module.exports = {postModel, projectModel};
+const userModel = mongoConnection.model(
+  mongoSettings.usersCollection,
+  userSchema,
+);
+
+module.exports = {postModel, projectModel, userModel};

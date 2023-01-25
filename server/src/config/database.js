@@ -5,6 +5,7 @@ const mongodbSettings = {
   pass: process.env.MONGO_PASS,
   database: process.env.MONGO_DATABASE || 'blog',
   postCollection: process.env.MONGO_POST_COLLECTION || 'posts',
+  usersCollection: process.env.MONGO_USER_COLLECTION || 'users',
 };
 
 module.exports = mongodbSettings;
