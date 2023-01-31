@@ -7,8 +7,9 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 ## TO-DO list
 > Server-side
 - [x] Implement CRUD for posts
+- [x] Authentication for posts
 - [ ] Implement CRUD for projects
-- [ ] Implement authentication for certain routes
+- [ ] Authentication for projects
 
 > Client-side
 - [ ] Add create post screen
