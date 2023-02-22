@@ -1,6 +1,4 @@
-<div id="content" class="block">
-  <h1 class="title">Welcome</h1>
-  <hr />
+<div id="content">
   <div class="columns">
     <div id="page-content" class="column is-four-fifths">
       <div *ngFor="let post of retrievedPosts" class="box">
@@ -8,6 +6,7 @@
           <strong>
             {{ post.title }}
           </strong>
+          -
           <small>
             {{ post.published | date }}
           </small>
@@ -19,14 +18,16 @@
         </article>
       </div>
     </div>
-    <div id="side-panel" class="column is-one-fifth message is-info is-light">
-      <h1 class="title is-4">Side Panel</h1>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime amet
-      praesentium mollitia id aut saepe. Inventore sint doloremque velit eius
-      aspernatur earum voluptatibus laborum eaque saepe, sed harum quas facere?
-      <br />
-      <br />
-      Second column
+    <div class="column is-one-fifth" id="side-panel">
+      <div id="about-panel" class="box">
+        <h1 class="title is-4">Side Panel</h1>
+        Here's supposed to have some brief text on what this section is all
+        about. Below this I should add maybe links or cool information
+      </div>
+      <div id="generic" class="box">
+        <h1 class="title is-6">Lorem Ipsum</h1>
+        Lorem ipsum dolor sit amet
+      </div>
     </div>
   </div>
 </div>

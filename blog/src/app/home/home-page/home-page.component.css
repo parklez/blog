@@ -1,0 +1,36 @@
+h1 {
+    color: white;
+}
+
+.box {
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+
+strong {
+    color: rgb(247, 255, 210);
+}
+
+#side-panel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#about-panel {
+    background-color: rgb(163, 163, 198);
+}
+
+#about-panel > h1 {
+    color: black;
+    padding-bottom: 0.75rem;
+}
+
+#generic {
+    background-color: rgb(240, 226, 145);
+    color: black;
+}
+
+#generic > h1 {
+    color: black;
+    padding-bottom: 0.75rem;
+}
