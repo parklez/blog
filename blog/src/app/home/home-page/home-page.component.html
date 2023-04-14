@@ -1,6 +1,32 @@
 <div id="content">
   <div class="columns">
     <div id="page-content" class="column is-four-fifths">
+      <div *ngIf="isAuthenticated" id="create-content" class="box">
+        <a (click)="toggleEditor()"> [ Toggle Editor ] </a>
+      </div>
+      <div *ngIf="isEditorOpen" id="content-create-box" class="box">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+          <label class="label">New story</label>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Title" formControlName="title"/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" placeholder="..." formControlName="content"></textarea>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit" [disabled]="!postForm.valid">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light" type="reset" (click)="toggleEditor()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
       <div *ngFor="let post of retrievedPosts" class="box">
         <article class="media-content">
           <strong>

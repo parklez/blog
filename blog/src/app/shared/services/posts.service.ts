@@ -13,4 +13,18 @@ export class PostsService {
   public getSomePosts(): Observable<Post[]> {
     return this.http.get<Post[]>('./api/posts');
   }
+
+  public createPost(title: string, content: string): Observable<Post> {
+    return this.http.post<Post>(
+      './api/posts',
+      { title, content },
+      // TODO: Add http interceptor to add authentication header!
+      {
+        headers: {
+          authorization:
+            `Bearer <>`,
+        },
+      }
+    );
+  }
 }

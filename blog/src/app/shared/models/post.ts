@@ -1,5 +1,6 @@
 export interface Post {
-    id: number,
+    _id: number,
+    userId: number,
     title: string,
     content: string,
     hidden: boolean,

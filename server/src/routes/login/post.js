@@ -25,8 +25,10 @@ const login = async (req, res) => {
       });
     }
     return res.status(200).json(
-      {token: await signJwt(newLogin._id),
-        expiresIn: 3600},
+      {
+        token: await signJwt(newLogin._id),
+        expiresIn: 3600,
+      },
     );
   } catch (error) {
     return res.status(500).json({

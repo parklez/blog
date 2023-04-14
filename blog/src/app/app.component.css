@@ -43,3 +43,8 @@
     position: absolute;
     /*transform: scaleX(-1);*/
 }
+
+#user-area {
+    position: sticky;
+    z-index: 31; /* This guarantees that the link is always on top of the panda */
+}

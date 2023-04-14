@@ -18,19 +18,19 @@ export class ProjectsHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.projects)
-    this.projservice.getSomePosts().subscribe(
-      (incomingProjects: Project[]) => {
+    this.projservice.getSomePosts().subscribe({
+      next: (incomingProjects: Project[]) => {
         this.projects = this.sliceIntoChunks(incomingProjects);
       },
-      (error) => {
+      error: (error) => {
         console.log(error); // Create toasty!
         this.toast.pushNewToasty(
-          'Oops! - Looks like panda couldnt get any projects -- ' + error.message,
+          'Oops! - Looks like panda couldnt get any projects -- ' +
+            error.message,
           'danger'
         );
-      }
-    );
+      },
+    });
   }
 
   // I'm attempting to create a new column, every 3 "Project"s,

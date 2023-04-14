@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostComponent } from './post/post.component';
 import { ToastyNotificationComponent } from './toasty-notification/toasty-notification.component';
+import { RouterModule } from '@angular/router';
+import { UserAreaComponent } from './user-area/user-area.component';
 
 
 
@@ -12,15 +14,19 @@ import { ToastyNotificationComponent } from './toasty-notification/toasty-notifi
     HeaderComponent,
     FooterComponent,
     PostComponent,
-    ToastyNotificationComponent
+    ToastyNotificationComponent,
+    UserAreaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // UserAreaComponent has router links:
+    RouterModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    ToastyNotificationComponent
+    ToastyNotificationComponent,
+    UserAreaComponent
   ]
 })
 export class SharedModule { }

@@ -12,9 +12,9 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 - [ ] Authentication for projects
 
 > Client-side
-- [ ] Add create post screen
+- [x] Add create post screen
 - [ ] Add create project screen
-- [ ] Add login screen
+- [x] Add login screen
 - [ ] Add edit button for posts/projects
 - [ ] Delete button for posts/projects
 - [ ] Add 404 page

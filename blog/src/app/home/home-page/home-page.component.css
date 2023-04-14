@@ -34,3 +34,15 @@ strong {
     color: black;
     padding-bottom: 0.75rem;
 }
+
+#create-content {
+	margin-bottom: 1rem;
+}
+
+#create-content > a {
+    color: pink;
+}
+
+.label {
+    color: rgb(247, 255, 210);
+}
