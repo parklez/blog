@@ -45,7 +45,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     });
 
     // Is this necessary? Shouldn't the subscriber below get the latest values?
-    this.isAuthenticated = this.auth.isAuthenticated();
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
         this.isAuthenticated = user.isAuthenticated;

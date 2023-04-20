@@ -3,17 +3,18 @@ import { Injectable } from '@angular/core';
 
 import { AuthData } from '../models/auth-data';
 import { LoginData } from '../models/login-data';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  userJWT: string = '';
+  userJWT!: string;
   username!: string;
   authenticated = false;
-  private authListener = new Subject<{username: string, isAuthenticated: boolean}>();
+  // https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject
+  private authListener = new BehaviorSubject({username: '', isAuthenticated: false})
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +31,8 @@ export class AuthenticationService {
           // Save to local storage
           this.saveLocalAuthData(
             response.token,
-            new Date(now.getTime() + response.expiresIn * 1000)
+            new Date(now.getTime() + response.expiresIn * 1000),
+            username
           )
           this.authListener.next({username: username, isAuthenticated: true});
         }
@@ -55,7 +57,8 @@ export class AuthenticationService {
           // Save to local storage
           this.saveLocalAuthData(
             response.token,
-            new Date(now.getTime() + response.expiresIn * 1000)
+            new Date(now.getTime() + response.expiresIn * 1000),
+            username
           )
           this.authListener.next({username: username, isAuthenticated: true});
         }
@@ -67,25 +70,39 @@ export class AuthenticationService {
     })
   }
 
-  private saveLocalAuthData(token: string, expiresAt: Date) {
+  private saveLocalAuthData(token: string, expiresAt: Date, username: string) {
     localStorage.setItem('token', token);
     localStorage.setItem('expiresAt', expiresAt.toISOString());
+    localStorage.setItem('username', username);
   };
 
   private clearLocalAuthData() {
     localStorage.removeItem('token');
     localStorage.removeItem('expiresAt');
+    localStorage.removeItem('username');
   }
 
-  private fetchLocalAuthData() {
-    const token = localStorage.getItem("token");
+  fetchLocalAuthData() {
+    const token = localStorage.getItem('token');
     const expirationDate = localStorage.getItem('expiresAt');
-    if (!token || !expirationDate) {
+    const username = localStorage.getItem('username');
+    if (!token || !expirationDate || !username) {
       return;
     }
     return {
       token: token,
-      expiresAt: expirationDate
+      expiresAt: expirationDate,
+      username: username
+    }
+  }
+
+  loadSessionFromCookie() {
+    const cookie = this.fetchLocalAuthData();
+    if (cookie) {
+      this.userJWT = cookie.token;
+      this.username = cookie.username;
+      this.authenticated = true;
+      this.authListener.next({username: this.username, isAuthenticated: true})
     }
   }
 
@@ -100,4 +117,9 @@ export class AuthenticationService {
   getAuthListener() {
     return this.authListener.asObservable();
   }
+
+  getJWT() {
+    return this.userJWT;
+  }
+
 }

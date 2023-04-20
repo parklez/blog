@@ -7,12 +7,11 @@ import { AppComponent } from './app.component';
 // import { ProjectsModule } from './projects/projects.module';
 // import { AboutModule } from './about/about.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -23,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule, // This goes down the list, so that Angular routes to our other routes first.
     SharedModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

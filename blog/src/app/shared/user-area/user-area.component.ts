@@ -20,7 +20,6 @@ export class UserAreaComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.isAuthenticated = this.auth.isAuthenticated();
     // This constantly checks for any change in the state of authentication, true or false.
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
