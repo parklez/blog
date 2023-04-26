@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
+import { Router } from '@angular/router';
+import { ToastyService } from '../../shared/services/toasty.service';
 
 @Component({
   selector: 'app-login-home',
@@ -20,12 +22,31 @@ export class LoginHomeComponent {
     ]))
   });
 
-  constructor(public auth: AuthenticationService) { }
+  constructor(
+    public auth: AuthenticationService,
+    private router: Router,
+    private toast: ToastyService
+  ) { }
 
   onSubmit(): void {
-    console.log(this.loginForm.value)
-    // Should the component handle an observable?
-    this.auth.signInUser(this.loginForm.value.username, this.loginForm.value.password);
+    this.auth
+      .signInUser(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          this.toast.pushNewToasty(
+            error.error.error,
+            // Hello there, this looks horrible doesn't it? Well let me break
+            // it down for you from left to right:
+            // 1 - the error object being passed as parameter above "(error)"
+            // 2 - Whenever there's a BAD http request, any body message is contained in an "error" object.
+            // 3 - I made the API to return {error: reason} whenever the login process fails;
+            'danger'
+          );
+        },
+      });
     this.loginForm.reset();
   }
 

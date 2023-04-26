@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { AuthData } from '../models/auth-data';
 import { LoginData } from '../models/login-data';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,28 +20,45 @@ export class AuthenticationService {
 
   signInUser(username: string, password: string) {
     const bodyData: AuthData = {username, password};
-    this.http.post<LoginData>('/api/login', bodyData).subscribe({
-      next: (response) => {
-        if (response) {
-          // Save JWT & Set authentication to true
-          this.userJWT = response.token;
-          this.authenticated = true;
-          this.username = username;
-          const now = new Date();
-          // Save to local storage
-          this.saveLocalAuthData(
-            response.token,
-            new Date(now.getTime() + response.expiresIn * 1000),
-            username
-          )
-          this.authListener.next({username: username, isAuthenticated: true});
-        }
-      },
-      error: (e) => {
-        // console.log(e);
-        this.authListener.error(e);
-      },
-    })
+
+    return this.http.post<LoginData>('/api/login', bodyData).pipe(
+      // There's no need for pipe since there's only one operator here.
+      // map operator only operates on success, doesn't handle errors,
+      // I couldn't find proper documentation about this statement. 
+      // https://rxjs.dev/api/operators/map
+      // Another possiblity here is to use tap() and only add success function.
+      map((response) => {
+        // Save JWT & Set authentication to true
+        this.userJWT = response.token;
+        this.authenticated = true;
+        this.username = username;
+        const now = new Date();
+        // Save to local storage
+        this.saveLocalAuthData(
+          response.token,
+          new Date(now.getTime() + response.expiresIn * 1000),
+          username
+        );
+        this.authListener.next({ username: username, isAuthenticated: true });
+        return { username: username, isAuthenticated: true };
+      })
+      // catchError would "eat" the regular HttpErrorResponse above,
+      // which isn't all that useful, since I want the components to have
+      // the full context of it.
+      //
+      // The code below creates a new Error() object with different atributes,
+      // (while it isn't all wrong) - It's not what I want.
+      //
+      //   catchError(err => {
+      //     // An important lesson about using the .error on BehaviorSubject:
+      //     // "calling the .error() method kills the streams from all subscribers"
+      //     // which isn't what I want - I want components to always fetch the latest
+      //     // status from this service.
+      //     // https://stackoverflow.com/a/41828984
+      //     //this.authListener.error(err)
+      //     return throwError(() => new Error(err))})
+      // );
+    )
   }
 
   signUpUser(username: string, password: string) {
