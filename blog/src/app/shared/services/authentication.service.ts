@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { AuthData } from '../models/auth-data';
 import { LoginData } from '../models/login-data';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,11 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  signInUser(username: string, password: string) {
-    const bodyData: AuthData = {username, password};
+  signInUser(username: string, password: string): Observable<{
+    username: string;
+    isAuthenticated: boolean;
+  }> {
+    const bodyData: AuthData = { username, password };
 
     return this.http.post<LoginData>('/api/login', bodyData).pipe(
       // There's no need for pipe since there's only one operator here.
@@ -61,30 +64,34 @@ export class AuthenticationService {
     )
   }
 
-  signUpUser(username: string, password: string) {
-    const bodyData: AuthData = {username, password};
-    this.http.post<LoginData>('/api/register', bodyData).subscribe({
-      next: (response) => {
-        if (response) {
-          // Save JWT & Set authentication to true
-          this.userJWT = response.token;
-          this.authenticated = true;
-          this.username = username;
-          const now = new Date();
-          // Save to local storage
-          this.saveLocalAuthData(
-            response.token,
-            new Date(now.getTime() + response.expiresIn * 1000),
-            username
-          )
-          this.authListener.next({username: username, isAuthenticated: true});
-        }
-      },
-      error: (e) => {
-        // console.log(e)
-        this.authListener.error(e);
-      },
-    })
+  signUpUser(username: string, password: string): Observable<{
+    username: string;
+    isAuthenticated: boolean;
+  }> {
+    const bodyData: AuthData = { username, password };
+
+    return this.http.post<LoginData>('/api/register', bodyData).pipe(
+      map((response) => {
+        // Save JWT & Set authentication to true
+        this.userJWT = response.token;
+        this.authenticated = true;
+        this.username = username;
+        const now = new Date();
+        // Save to local storage
+        this.saveLocalAuthData(
+          response.token,
+          new Date(now.getTime() + response.expiresIn * 1000),
+          username
+        )
+        this.authListener.next({ username: username, isAuthenticated: true });
+        return { username: username, isAuthenticated: true };
+      }
+      ))
+  }
+
+  signOut() {
+    this.clearLocalAuthData();
+    this.authListener.next({username: '', isAuthenticated: false})
   }
 
   private saveLocalAuthData(token: string, expiresAt: Date, username: string) {
@@ -113,14 +120,20 @@ export class AuthenticationService {
     }
   }
 
-  loadSessionFromCookie() {
+  loadSession() {
     const cookie = this.fetchLocalAuthData();
-    if (cookie) {
-      this.userJWT = cookie.token;
-      this.username = cookie.username;
-      this.authenticated = true;
-      this.authListener.next({username: this.username, isAuthenticated: true})
+    if (!cookie) {
+      return;
     }
+    if (new Date() > new Date(cookie.expiresAt)) {
+      this.clearLocalAuthData();
+      return;
+    }
+
+    this.userJWT = cookie.token;
+    this.username = cookie.username;
+    this.authenticated = true;
+    this.authListener.next({username: this.username, isAuthenticated: true})
   }
 
   isAuthenticated(): boolean {

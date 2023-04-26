@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
+import { Router } from '@angular/router';
+import { ToastyService } from '../../shared/services/toasty.service';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
@@ -18,7 +20,9 @@ export class SigninHomeComponent {
     ])),
   });
 
-  constructor(public auth: AuthenticationService) { }
+  constructor(public auth: AuthenticationService,
+              private router: Router,
+              private toast: ToastyService) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +30,19 @@ export class SigninHomeComponent {
   onSubmit(): void {
     console.log(this.signinForm.value)
     // Should the component handle an observable?
-    this.auth.signUpUser(this.signinForm.value.username, this.signinForm.value.password);
+    this.auth
+      .signUpUser(this.signinForm.value.username, this.signinForm.value.password)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          this.toast.pushNewToasty(
+            error.error.error,
+            'danger'
+          );
+        }
+      })
     this.signinForm.reset();
   }
 

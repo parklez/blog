@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class UserAreaComponent implements OnInit, OnDestroy {
 
   private authListener!: Subscription;
 
-  constructor(private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService,
+              private router: Router,) {}
 
   ngOnInit(): void {
     // This constantly checks for any change in the state of authentication, true or false.
@@ -23,6 +25,11 @@ export class UserAreaComponent implements OnInit, OnDestroy {
         this.username = user.username;
       },
     });
+  }
+
+  logOut(): void {
+    this.auth.signOut();
+    this.router.navigate(['/']);
   }
 
   ngOnDestroy() {
