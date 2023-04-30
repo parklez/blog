@@ -19,15 +19,16 @@ const getPost = async (req, res) => {
 };
 
 const getPosts = async (req, res) => {
-  const page = req.query.page || 0;
+  const page = Number(req.query.page) || 0;
   try {
     const results = await postModel
       .find()
       .limit(maxDocuments)
       .sort({published: -1})
       .skip(page * maxDocuments);
-    if (results) {
-      return res.status(200).json(results);
+    if (results && results.length > 0) {
+      const total = await postModel.countDocuments();
+      return res.status(200).json({results, total, page});
     }
     return res.status(404).json();
   } catch (error) {

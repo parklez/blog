@@ -1,5 +1,5 @@
 <div id="content">
-  <div class="columns">
+    <div class="columns" style="min-height: 35rem;">
     <div id="page-content" class="column is-four-fifths">
       <div *ngIf="isAuthenticated" id="create-content" class="box">
         <a (click)="toggleEditor()"> [ Toggle Editor ] </a>
@@ -27,7 +27,7 @@
           </div>
         </form>
       </div>
-      <div *ngFor="let post of retrievedPosts" class="box">
+      <div *ngFor="let post of retrievedPosts.results" class="box">
         <article class="media-content">
           <strong>
             {{ post.title }}
@@ -43,6 +43,13 @@
           </p>
         </article>
       </div>
+      <nav *ngIf="retrievedPosts.results.length" class="pagination">
+        <!-- https://angular.io/guide/attribute-binding
+        https://www.joshuacolvin.net/angular-conditional-attributes/
+        https://stackoverflow.com/a/36745752 -->
+        <a class="pagination-previous" [attr.disabled]="!previous ? previous : null" (click)="previous && goToPrevious()">Previous</a>
+        <a class="pagination-next" [attr.disabled]="!next ? next : null" (click)="next && goToNext()">Next page</a>
+      </nav>
     </div>
     <div class="column is-one-fifth" id="side-panel">
       <div id="about-panel" class="box">

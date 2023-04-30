@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostsService } from '../../shared/services/posts.service';
-import { Post } from '../../shared/models/post';
+import { Posts } from '../../shared/models/post';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,15 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
-  retrievedPosts: Post[] = [];
+  retrievedPosts: Posts = {
+    results: [],
+    total: 0,
+    page: 0,
+  };
+
+  itemsPerPage = 10;
+  next: boolean = false;
+  previous: boolean = false;
 
   isAuthenticated: boolean = false;
   private authListener!: Subscription;
@@ -31,20 +39,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.postsService.getSomePosts().subscribe({
-      next: (posts: Post[]) => {
-        this.retrievedPosts = posts;
-      },
-      error: (error) => {
-        console.log(error); // Create toasty!
-        this.toast.pushNewToasty(
-          'Oops! - Looks like panda couldnt get any posts -- ' + error.message,
-          'danger'
-        );
-      },
-    });
+    this.getPosts();
 
-    // Is this necessary? Shouldn't the subscriber below get the latest values?
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
         this.isAuthenticated = user.isAuthenticated;
@@ -64,8 +60,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     console.log(this.postForm.value)
     this.postsService.createPost(this.postForm.value.title, this.postForm.value.content).subscribe({
       next: (post) => {
-        console.log('Post sent successfully!')
-        this.retrievedPosts.unshift(post);
+        this.retrievedPosts.results.unshift(post);
       },
       error: (error) => {
         console.log(error); // Create toasty!
@@ -77,4 +72,31 @@ export class HomePageComponent implements OnInit, OnDestroy {
     })
     this.postForm.reset();
   }
+
+  getPosts(page: number = 0): void {
+    this.postsService.getSomePosts(page).subscribe({
+      next: (posts: Posts) => {
+        this.retrievedPosts = posts;
+        this.next = posts.total > this.itemsPerPage ? (page * this.itemsPerPage) + posts.results.length < posts.total : false;
+        this.previous = ((page * this.itemsPerPage) + posts.results.length) - this.itemsPerPage > 0 ? true : false;
+        document.documentElement.scrollTop = 0;
+      },
+      error: (error) => {
+        console.log(error); // Create toasty!
+        this.toast.pushNewToasty(
+          'Oops! - Looks like panda couldnt get any posts -- ' + error.message,
+          'danger'
+        );
+      },
+    });
+  }
+
+  goToPrevious(): void {
+    this.getPosts(this.retrievedPosts.page - 1)
+  }
+
+  goToNext(): void {
+    this.getPosts(this.retrievedPosts.page + 1)
+  }
+
 }

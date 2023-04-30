@@ -46,3 +46,7 @@ strong {
 .label {
     color: rgb(247, 255, 210);
 }
+
+nav > a {
+    background-color: rgb(255, 255, 255);
+}
