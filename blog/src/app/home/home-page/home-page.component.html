@@ -38,9 +38,10 @@
           </small>
           <br />
           <br />
-          <p>
-            {{ post.content }}
-          </p>
+          <!-- https://bulma.io/documentation/elements/content/
+          Use of innerHTML to make Angular render HTML instead of pure text:
+          https://angular.io/guide/security#sanitization-example -->
+          <div class="content" [innerHTML]="post.content | markdown"></div>
         </article>
       </div>
       <nav *ngIf="retrievedPosts.results.length" class="pagination">

@@ -28,3 +28,8 @@ html {
 .input::placeholder, .textarea::placeholder, .select select::placeholder {
 	color: rgb(255, 255, 255);
 }
+
+/* Overwrites content class for markdown pipe */
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	color: #ffffff;
+}
