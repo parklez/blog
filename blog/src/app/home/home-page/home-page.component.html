@@ -5,7 +5,8 @@
         <a (click)="toggleEditor()"> [ Toggle Editor ] </a>
       </div>
       <div *ngIf="isEditorOpen" id="content-create-box" class="box">
-        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <!-- Forms -->
+        <form *ngIf="!isPreview" [formGroup]="postForm" (ngSubmit)="onSubmit()">
           <label class="label">New story</label>
           <div class="field">
             <div class="control">
@@ -24,8 +25,31 @@
             <div class="control">
               <button class="button is-link is-light" type="reset" (click)="toggleEditor()">Cancel</button>
             </div>
+            <div>
+              <button class="button is-warning" type="button" (click)="togglePreview()" [disabled]="!postForm.valid">Preview</button>
+            </div>
+          </div>
+          <div>
+            <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown reference</a>
           </div>
         </form>
+        <!-- Preview
+        This needs refactoring, de-duplicate code! -->
+        <div *ngIf="isPreview">
+          <strong>
+            {{ this.postForm.value.title }}
+          </strong>
+          -
+          <small>
+            {{  getDate() | date }}
+          </small>
+          <br />
+          <br />
+          <div class="content" [innerHTML]="this.postForm.value.content | markdown"></div>
+          <div>
+            <button class="button is-warning" type="button" (click)="togglePreview()">Go back to editor</button>
+          </div>
+        </div>
       </div>
       <div *ngFor="let post of retrievedPosts.results" class="box">
         <article class="media-content">

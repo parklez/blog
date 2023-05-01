@@ -26,6 +26,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   private authListener!: Subscription;
 
   isEditorOpen: boolean = false;
+  isPreview: boolean = false;
 
   postForm = new UntypedFormGroup({
     "title": new UntypedFormControl(null, Validators.required),
@@ -54,6 +55,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   toggleEditor() {
     this.isEditorOpen = !this.isEditorOpen;
+  }
+
+  togglePreview() {
+   this.isPreview = !this.isPreview; 
   }
 
   onSubmit(): void {
@@ -97,6 +102,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   goToNext(): void {
     this.getPosts(this.retrievedPosts.page + 1)
+  }
+
+  getDate() {
+    return new Date();
   }
 
 }
