@@ -33,40 +33,18 @@
             <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown reference</a>
           </div>
         </form>
-        <!-- Preview
-        This needs refactoring, de-duplicate code! -->
+        <!-- Preview  -->
         <div *ngIf="isPreview">
-          <strong>
-            {{ this.postForm.value.title }}
-          </strong>
-          -
-          <small>
-            {{  getDate() | date }}
-          </small>
-          <br />
-          <br />
-          <div class="content" [innerHTML]="this.postForm.value.content | markdown"></div>
+        <app-post
+          [post]="{_id: 0, userId: 0, title: this.postForm.value.title, content: this.postForm.value.content, hidden: false, published: getDate()}"></app-post>
+          <br>
           <div>
             <button class="button is-warning" type="button" (click)="togglePreview()">Go back to editor</button>
           </div>
         </div>
       </div>
       <div *ngFor="let post of retrievedPosts.results" class="box">
-        <article class="media-content">
-          <strong>
-            {{ post.title }}
-          </strong>
-          -
-          <small>
-            {{ post.published | date }}
-          </small>
-          <br />
-          <br />
-          <!-- https://bulma.io/documentation/elements/content/
-          Use of innerHTML to make Angular render HTML instead of pure text:
-          https://angular.io/guide/security#sanitization-example -->
-          <div class="content" [innerHTML]="post.content | markdown"></div>
-        </article>
+        <app-post [post]="post"></app-post>
       </div>
       <nav *ngIf="retrievedPosts.results.length" class="pagination">
         <!-- https://angular.io/guide/attribute-binding

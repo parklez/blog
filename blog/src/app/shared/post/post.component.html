@@ -1,10 +1,15 @@
-<h1 class="title">
-  {{ title }}
-</h1>
-<hr />
-<!-- 
-    innerHTML renders HTML safely into the DOM
-    https://angular.io/guide/security#sanitization-example 
--->
-<div class="post" [innerHTML]="content"></div>
-<button class="button" (click)="goBack()">Go Back</button>
+<article class="media-content">
+  <strong>
+    {{ post.title }}
+  </strong>
+  -
+  <small>
+    {{ post.published | date }}
+  </small>
+  <br />
+  <br />
+  <!-- https://bulma.io/documentation/elements/content/
+  Use of innerHTML to make Angular render HTML instead of pure text:
+  https://angular.io/guide/security#sanitization-example -->
+  <div class="content" [innerHTML]="post.content | markdown"></div>
+</article>

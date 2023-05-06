@@ -6,7 +6,7 @@ import { PostComponent } from './post/post.component';
 import { ToastyNotificationComponent } from './toasty-notification/toasty-notification.component';
 import { RouterModule } from '@angular/router';
 import { UserAreaComponent } from './user-area/user-area.component';
-
+import { MarkdownPipe } from './pipes/markdown.pipe';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { UserAreaComponent } from './user-area/user-area.component';
     FooterComponent,
     PostComponent,
     ToastyNotificationComponent,
-    UserAreaComponent
+    UserAreaComponent,
+    MarkdownPipe
   ],
   imports: [
     CommonModule,
@@ -26,7 +27,8 @@ import { UserAreaComponent } from './user-area/user-area.component';
     HeaderComponent,
     FooterComponent,
     ToastyNotificationComponent,
-    UserAreaComponent
+    UserAreaComponent,
+    PostComponent
   ]
 })
 export class SharedModule { }

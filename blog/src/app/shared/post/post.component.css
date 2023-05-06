@@ -1,9 +1,3 @@
-button {
-    background-color: rgb(255, 228, 255);
-    margin-top: 2rem;
-}
-
-.post {
-    min-height: 30rem;
-    margin-bottom: auto;
+strong {
+    color: rgb(247, 255, 210);
 }
