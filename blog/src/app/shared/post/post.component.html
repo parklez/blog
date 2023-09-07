@@ -1,4 +1,11 @@
 <article class="media-content">
+  <span id="editor" *ngIf="isAuthenticated">
+    [
+    <a>Edit</a>
+    /
+    <a (click)="deletePost()">Trash</a>
+    ]
+  </span>
   <strong>
     {{ post.title }}
   </strong>

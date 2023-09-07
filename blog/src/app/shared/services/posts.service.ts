@@ -19,14 +19,14 @@ export class PostsService {
   public createPost(title: string, content: string): Observable<Post> {
     return this.http.post<Post>(
       './api/posts',
-      { title, content },
-      // TODO: Add http interceptor to add authentication header!
-      {
-        headers: {
-          authorization:
-            `Bearer <>`,
-        },
-      }
+      { title, content }
     );
   }
+
+  public deletePost(id: string): Observable<{acknowledged: boolean, deletedCount: number}> {
+    return this.http.delete<{acknowledged: boolean, deletedCount: number}>(
+      './api/posts/' + id
+    )
+  }
+
 }

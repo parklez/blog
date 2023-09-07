@@ -5,7 +5,7 @@ export interface Posts {
 }
 
 export interface Post {
-  _id: number;
+  _id: string;
   userId: number;
   title: string;
   content: string;
