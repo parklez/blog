@@ -17,8 +17,8 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 - [x] Add login screen
 - [ ] Add edit button for posts/projects
 - [ ] Delete button for posts/projects
-- [ ] Add 404 page
-- [ ] Add pagination
+- [x] Add 404 page
+- [x] Add pagination
 - [ ] Beautify header
 
 #### Setup

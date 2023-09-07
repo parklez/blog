@@ -7,6 +7,7 @@ import { ToastyNotificationComponent } from './toasty-notification/toasty-notifi
 import { RouterModule } from '@angular/router';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MarkdownPipe } from './pipes/markdown.pipe';
     PostComponent,
     ToastyNotificationComponent,
     UserAreaComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
