@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PostEditorComponent } from './post-editor/post-editor.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,13 +17,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HeaderComponent,
     FooterComponent,
     PostComponent,
+    PostEditorComponent,
     ToastyNotificationComponent,
     UserAreaComponent,
     MarkdownPipe,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     // UserAreaComponent has router links:
     RouterModule
   ],
@@ -30,7 +34,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     ToastyNotificationComponent,
     UserAreaComponent,
-    PostComponent
+    PostComponent,
+    PostEditorComponent
   ]
 })
 export class SharedModule { }

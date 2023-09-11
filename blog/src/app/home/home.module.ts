@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -15,7 +14,6 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     //Disable angular routing for this module
     HomeRoutingModule,
-    ReactiveFormsModule,
     SharedModule
   ],
   exports: [

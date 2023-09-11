@@ -4,7 +4,6 @@ import { Posts } from '../../shared/models/post';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Subscription } from 'rxjs';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
@@ -26,12 +25,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
   private authListener!: Subscription;
 
   isEditorOpen: boolean = false;
-  isPreview: boolean = false;
-
-  postForm = new UntypedFormGroup({
-    "title": new UntypedFormControl(null, Validators.required),
-    "content": new UntypedFormControl(null, Validators.required)
-  })
 
   constructor(
     private postsService: PostsService,
@@ -55,27 +48,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   toggleEditor() {
     this.isEditorOpen = !this.isEditorOpen;
-  }
-
-  togglePreview() {
-   this.isPreview = !this.isPreview; 
-  }
-
-  onSubmit(): void {
-    console.log(this.postForm.value)
-    this.postsService.createPost(this.postForm.value.title, this.postForm.value.content).subscribe({
-      next: (post) => {
-        this.retrievedPosts.results.unshift(post);
-      },
-      error: (error) => {
-        console.log(error); // Create toasty!
-        this.toast.pushNewToasty(
-          error.message,
-          'danger'
-        );
-      },
-    })
-    this.postForm.reset();
   }
 
   getPosts(page: number = 0): void {
@@ -102,10 +74,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   goToNext(): void {
     this.getPosts(this.retrievedPosts.page + 1)
-  }
-
-  getDate() {
-    return new Date();
   }
 
 }
