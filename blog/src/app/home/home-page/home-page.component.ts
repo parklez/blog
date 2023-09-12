@@ -23,6 +23,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   isAuthenticated: boolean = false;
   private authListener!: Subscription;
+  private postListener!: Subscription;
 
   isEditorOpen: boolean = false;
 
@@ -35,6 +36,12 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getPosts();
 
+    this.postListener = this.postsService.getPostsListener().subscribe({
+      next: (posts) => {
+        this.retrievedPosts = posts;
+      }
+    })
+
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
         this.isAuthenticated = user.isAuthenticated;
@@ -44,6 +51,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authListener.unsubscribe();
+    this.postListener.unsubscribe();
   }
 
   toggleEditor() {
@@ -51,9 +59,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   getPosts(page: number = 0): void {
-    this.postsService.getSomePosts(page).subscribe({
+    this.postsService.fetchPosts(page).subscribe({
       next: (posts: Posts) => {
-        this.retrievedPosts = posts;
         this.next = posts.total > this.itemsPerPage ? (page * this.itemsPerPage) + posts.results.length < posts.total : false;
         this.previous = ((page * this.itemsPerPage) + posts.results.length) - this.itemsPerPage > 0 ? true : false;
         document.documentElement.scrollTop = 0;
