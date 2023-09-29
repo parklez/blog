@@ -7,16 +7,16 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 ## TO-DO list
 > Server-side
 - [x] Implement CRUD for posts
-- [x] Authentication for posts
+- [x] Authentication (create, login, sign out)
 - [ ] Implement CRUD for projects
-- [ ] Authentication for projects
+
 
 > Client-side
 - [x] Add create post screen
 - [ ] Add create project screen
 - [x] Add login screen
-- [ ] Add edit button for posts/projects
-- [ ] Delete button for posts/projects
+- [x] Add edit/delete button for posts
+- [ ] Add edit/delete button for projects
 - [x] Add 404 page
 - [x] Add pagination
 - [ ] Beautify header
