@@ -40,6 +40,13 @@ export class PostsService {
       }));
   }
 
+  public updatePost(id: string, post: Post): Observable<{ acknowledged: boolean, modifiedCount: number }> {
+    return this.http.put<{ acknowledged: boolean, modifiedCount: number }>(
+      './api/posts/' + id,
+      { title: post.title, content: post.content }
+    )
+  }
+
   public deletePost(id: string): Observable<{ acknowledged: boolean, deletedCount: number }> {
     return this.http.delete<{ acknowledged: boolean, deletedCount: number }>(
       './api/posts/' + id

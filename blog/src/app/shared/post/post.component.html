@@ -1,7 +1,7 @@
-<article class="media-content">
-  <span id="editor" *ngIf="isAuthenticated">
+<article *ngIf="!isEditorOpen" class="media-content">
+  <span id="editor" *ngIf="isAuthenticated  && !isDeleted && !isPreview">
     [
-    <a>Edit</a>
+    <a (click)="toggleEditor()">Edit</a>
     /
     <a (click)="deletePost()">Trash</a>
     ]
@@ -20,3 +20,4 @@
   https://angular.io/guide/security#sanitization-example -->
   <div class="content" [innerHTML]="post.content | markdown"></div>
 </article>
+<app-post-editor [(post)]="post" (cancelFunction)="toggleEditor()" *ngIf="isEditorOpen"></app-post-editor>

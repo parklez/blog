@@ -16,7 +16,7 @@
         <button class="button is-link" type="submit" [disabled]="!postForm.valid">Submit</button>
     </div>
     <div class="control">
-        <button class="button is-link is-light" type="reset">Cancel</button>
+        <button class="button is-danger is-light" type="reset" (click)="this.cancelFunction.emit()">Cancel</button>
     </div>
     <div>
         <button class="button is-warning" type="button" (click)="togglePreview()" [disabled]="!postForm.valid">Preview</button>
@@ -29,7 +29,8 @@
 <!-- Preview  -->
 <div *ngIf="isPreview">
 <app-post
-    [post]="{_id: '', userId: 0, title: this.postForm.value.title, content: this.postForm.value.content, hidden: false, published: getDate()}"></app-post>
+    [isPreview]="true"
+    [post]="getEditedPost()"></app-post>
     <br>
     <div>
     <button class="button is-warning" type="button" (click)="togglePreview()">Go back to editor</button>

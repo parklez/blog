@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../models/post';
 import { PostsService } from '../services/posts.service';
 import { Subscription } from 'rxjs';
@@ -10,9 +10,10 @@ import { ToastyService } from '../services/toasty.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent {
+export class PostComponent implements OnInit{
 
   isAuthenticated: boolean = false;
+  isEditorOpen: boolean = false;
   private authListener!: Subscription;
 
   constructor(
@@ -29,6 +30,10 @@ export class PostComponent {
     hidden: false,
     published: new Date()
   };
+
+  @Input() isPreview: boolean = false;
+
+  isDeleted = false;
 
   ngOnInit(): void {
     // This constantly checks for any change in the state of authentication, true or false.
@@ -52,6 +57,7 @@ export class PostComponent {
           'Post deleted successfully!',
           'success'
         );
+        this.isDeleted = true;
       },
       error: (error) => {
         this.toast.pushNewToasty(
@@ -61,6 +67,10 @@ export class PostComponent {
       }
     })
 
+  }
+
+  toggleEditor() {
+    this.isEditorOpen = !this.isEditorOpen;
   }
 
 }
