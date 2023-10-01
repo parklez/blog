@@ -4,9 +4,10 @@
 html {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  background-image: linear-gradient(#424242 1px, transparent 1px),
-    linear-gradient(to right, #424242 1px, #222222 1px);
-  background-size: 1.5rem 1.5rem;
+  background-image: url("https://i.imgur.com/e47ScRz.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 /* Changes below overwrite default styles from bulma.css */
@@ -23,6 +24,10 @@ html {
 .button:focus, .button.is-focused {
 	border-color: #000000;
 	color: #363636;
+}
+
+.button:focus:not(:active), .button.is-focused:not(:active) {
+	box-shadow: 0 0 0 0.125em rgba(0, 0, 0, 0.25);
 }
 
 .input::placeholder, .textarea::placeholder, .select select::placeholder {

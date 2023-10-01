@@ -20,6 +20,8 @@ since I can't beutifully align to any sides. */
     position: absolute;
     left: 84%; 
     color: #4a4a4a;
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
 }
 
 article:hover #editor{

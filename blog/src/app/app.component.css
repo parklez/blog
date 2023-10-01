@@ -3,36 +3,25 @@
     margin: auto;
 }
 
-#header {
-    background-color: rgb(44, 44, 44);
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border: 1px solid rgb(0, 0, 0);
-    border-bottom: 0;
-}
-
 #main-content {
-    background-color: rgb(37, 37, 37);
-    border: 1px solid rgb(0, 0, 0);
-    border-top: 0;
-    border-bottom: 0;
     min-height: 40rem;
     margin-bottom: auto;
     padding: 1rem;
 }
 
 #navigation-bar {
-    background-color: rgb(202, 236, 174);
-    border: 1px solid rgba(0, 0, 0, 0.226);
+    background-color: rgba(0, 0, 0, 0.338);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    display: flex; /* This prevents this bar from expanding ever so slightly */
 }
 
-#footer {
-    border: 1px solid rgb(0, 0, 0);
+.button {
+    background-color: rgba(255, 255, 255, 0.711);
 }
 
 .active-nav {
-    background-color: rgb(131, 152, 115);
-    color: white;
+    background-color: rgba(255, 255, 255);
 }
 
 .panda {

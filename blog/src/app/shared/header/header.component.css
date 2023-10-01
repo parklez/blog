@@ -1,5 +1,6 @@
 div h1 {
     color: rgb(202, 236, 174);
     padding: 3rem 3rem 3rem 3rem;
-    text-align: left;   
+    text-align: left;
+    text-shadow: 1px 1px #000000;
 }

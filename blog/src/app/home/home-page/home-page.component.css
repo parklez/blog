@@ -1,15 +1,14 @@
 .box {
-    background-color: rgb(46, 46, 46);
     color: white;
-}
-
-#side-panel {
-    padding-left: 0;
-    padding-right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(50px);
+    border-radius: 6px;
 }
 
 #about-panel {
-    background-color: rgb(163, 163, 198);
+    background-color: rgba(163, 163, 198, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
 }
 
 #about-panel > h1 {
@@ -18,7 +17,8 @@
 }
 
 #generic {
-    background-color: rgb(240, 226, 145);
+    background-color: rgba(255, 248, 211, 0.7);
+    backdrop-filter: blur(10px);
     color: black;
 }
 
@@ -33,4 +33,9 @@
 
 nav > a {
     background-color: rgb(255, 255, 255);
+}
+
+/* Improves disabled button clarity */
+.pagination-previous[disabled], .pagination-next[disabled], .pagination-link[disabled] {
+	opacity: 0.8;
 }
