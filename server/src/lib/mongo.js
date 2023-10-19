@@ -7,7 +7,7 @@ mongoose.pluralize(null);
 mongoose.set('strictQuery', true);
 
 mongoose.connect(
-  `mongodb://${mongoSettings.host}:${mongoSettings.port}/${mongoSettings.database}?authSource=admin`,
+  `mongodb+srv://${mongoSettings.host}/${mongoSettings.database}?retryWrites=true&w=majority`,
   {
     'user': mongoSettings.user,
     'pass': mongoSettings.pass,
