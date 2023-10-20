@@ -21,6 +21,9 @@ My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
 - [x] Add pagination
 - [ ] Beautify header
 
+> Github Pages
+- [ ] Add support for static blog posts
+
 #### Setup
 - Use NodeJS 18 for this project.
 
