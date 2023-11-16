@@ -5,7 +5,7 @@
   <div id="user-area">
     <!-- Could this component be written on the header itself?
     It's been a pain to make sure this piece floats on the top right -->
-    <app-user-area></app-user-area>
+    <app-user-area *ngIf="static"></app-user-area>
   </div>
   <div id="header">
     <app-header></app-header>

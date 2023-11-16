@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Posts, Post } from '../models/post';
 import { BehaviorSubject, Observable, map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class PostsService {
   }
 
   public fetchPosts(page: number = 0): Observable<Posts> {
+    if (environment?.static) {
+        return this.http.get<Posts>(`./assets/static-${page}.json`).pipe(
+          map((response) => {
+            this.postList.next(response);
+            return response;
+          })
+        );
+    }
+
     return this.http.get<Posts>('./api/posts', {
       params: new HttpParams().set('page', page)
     }).pipe(
