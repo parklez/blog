@@ -1,0 +1,35 @@
+name: Angular Github-Pages Workflow
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["18"]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: blog/package-lock.json
+      - run: npm ci
+        working-directory: blog
+      - run: npm run build-git-pages
+        working-directory: blog
+      # In the future, I'd love to go through the steps of publishing 
+      # the content from the previous step to a separate branch, but for now
+      # I'll use what this person has done so I can focus on developing
+      - name: Deploy build to "gh-pages" branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: docs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
