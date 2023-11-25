@@ -6,24 +6,27 @@ article {
     position: relative;
 }
 
-/* In order to hide the editor and only show on hover,
+/* In order to hide the editor and only show 'on hover',
 the child <span> must be marked as display: none by default - 
 the parent <article> needs to be marked as display: block.*/
 
 /* Now, in order to place these "icons/text" on top of article,
 given the hierarchy I'm using <article> -> <span> I opted for 
 position: absolute. In the future I want to explore better ways,
-since I can't beutifully align to any sides. */
+since I can't beutifully align to any sides.
 
-#editor {
+Edit: Using right:0% fixes aligning issues, I don't know why
+I haven't tried that before. */
+
+#hover {
     display: none;
     position: absolute;
-    left: 84%; 
+    right: 0%;
     color: #4a4a4a;
     backdrop-filter: blur(10px);
     border-radius: 6px;
 }
 
-article:hover #editor{
+article:hover #hover{
     display: block;
 }

@@ -55,14 +55,14 @@ export class PostComponent implements OnInit{
         this.post.title = 'deleted'
         this.toast.pushNewToasty(
           'Post deleted successfully!',
-          'success'
+          'is-light is-success'
         );
         this.isDeleted = true;
       },
       error: (error) => {
         this.toast.pushNewToasty(
           error.error?.error ? error.error.error : `${error.status} - ${error.statusText}`,
-          'danger'
+          'is-light is-danger'
         );
       }
     })
@@ -71,6 +71,12 @@ export class PostComponent implements OnInit{
 
   toggleEditor() {
     this.isEditorOpen = !this.isEditorOpen;
+  }
+
+  copyShareLink() {
+    const link = `${window.location.href}post/${this.post._id}`
+    navigator.clipboard.writeText(link);
+    this.toast.pushNewToasty('Copied to clipboard!', 'is-dark', 1.5)
   }
 
 }

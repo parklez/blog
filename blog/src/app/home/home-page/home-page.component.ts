@@ -69,7 +69,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
         console.log(error); // Create toasty!
         this.toast.pushNewToasty(
           'Oops! - Looks like panda couldnt get any posts -- ' + error.message,
-          'danger'
+          'is-light is-danger'
         );
       },
     });

@@ -43,7 +43,7 @@ export class LoginHomeComponent {
             // 1 - the error object being passed as parameter above "(error)"
             // 2 - Whenever there's a BAD http request, any body message is contained in an "error" object.
             // 3 - I made the API to return {error: reason} whenever the login process fails;
-            'danger'
+            'is-light is-danger'
           );
         },
       });

@@ -27,7 +27,7 @@ export class ProjectsHomeComponent implements OnInit {
         this.toast.pushNewToasty(
           'Oops! - Looks like panda couldnt get any projects -- ' +
             error.message,
-          'danger'
+          'is-light is-danger'
         );
       },
     });

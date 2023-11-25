@@ -39,7 +39,7 @@ export class SigninHomeComponent {
         error: (error) => {
           this.toast.pushNewToasty(
             error.error.error,
-            'danger'
+            'is-light is-danger'
           );
         }
       })

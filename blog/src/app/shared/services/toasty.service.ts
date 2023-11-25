@@ -4,11 +4,13 @@ export class ToastyMessage {
   id: number = 0;
   content: string;
   style: string;
+  vanish: number;
 
-  constructor(id: number, content: string, style?: string) {
+  constructor(id: number, content: string, style?: string, vanishInSeconds?: number) {
     this.id = id;
     this.content = content;
-    this.style = style || 'info'
+    this.style = style || 'is-light is-info'
+    this.vanish = vanishInSeconds || 0
   }
 
 }
@@ -23,10 +25,21 @@ export class ToastyService {
 
   constructor() { }
 
-  pushNewToasty(message: string, style?: string): void {
+  /**
+   * 
+   * @param message The string to be displayed.
+   * @param style See https://bulma.io/documentation/overview/colors/, default: 'is-light is-info'.
+   * @param vanishInSeconds time in seconds for vanishing, default: 0 (never).
+   */
+  pushNewToasty(message: string, style?: string, vanishInSeconds?: number): void {
     const newToasty = new ToastyMessage(this.i, message, style)
     this.messagesArray.push(newToasty);
     this.i += 1;
+    if (vanishInSeconds && vanishInSeconds > 0) {
+      setTimeout(() => {
+        this.dismissToasty(newToasty.id)
+      }, vanishInSeconds*1000)
+    }
   }
 
   fetchAllToasties(): ToastyMessage[] {

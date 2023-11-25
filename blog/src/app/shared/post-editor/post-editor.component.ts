@@ -65,7 +65,7 @@ export class PostEditorComponent implements OnInit{
         console.log(error);
         this.toast.pushNewToasty(
           error.message,
-          'danger'
+          'is-light is-danger'
         );
       },
     })
@@ -82,7 +82,7 @@ export class PostEditorComponent implements OnInit{
         console.log(error); // Create toasty!
         this.toast.pushNewToasty(
           error.message,
-          'danger'
+          'is-light is-danger'
         );
       },
     })
