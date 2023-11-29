@@ -4,6 +4,7 @@ import { PostsService } from '../services/posts.service';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 import { ToastyService } from '../services/toasty.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,8 @@ export class PostComponent implements OnInit{
   constructor(
     private postsService: PostsService,
     private auth: AuthenticationService,
-    private toast: ToastyService
+    private toast: ToastyService,
+    private router: Router
   ) { }
 
   @Input() post: Post = {
@@ -73,9 +75,14 @@ export class PostComponent implements OnInit{
     this.isEditorOpen = !this.isEditorOpen;
   }
 
+  goToReader() {
+    if (!this.isPreview){
+      this.router.navigate(['/post', this.post._id])
+    }
+  }
+
   copyShareLink() {
-    const link = `${window.location.href}post/${this.post._id}`
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(`${document.head.baseURI}post/${this.post._id}`);
     this.toast.pushNewToasty('Copied to clipboard!', 'is-dark', 1.5)
   }
 

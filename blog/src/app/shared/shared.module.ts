@@ -10,6 +10,7 @@ import { MarkdownPipe } from './pipes/markdown.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostEditorComponent } from './post-editor/post-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostReaderComponent } from './post-reader/post-reader.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserAreaComponent,
     MarkdownPipe,
     NotFoundComponent,
+    PostReaderComponent
   ],
   imports: [
     CommonModule,

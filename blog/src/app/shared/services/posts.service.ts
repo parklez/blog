@@ -63,4 +63,11 @@ export class PostsService {
     );
   }
 
+  public getPost(id: string): Observable<Post> {
+    if (environment?.static) {
+        return this.http.get<Post>(`./assets/static-${id}.json`);
+    }
+    return this.http.get<Post>(`./api/posts/${id}`);
+  }
+
 }

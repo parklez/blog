@@ -11,6 +11,7 @@
     <a (click)="copyShareLink()">Share</a>
     ]
   </span>
+  <a (click)="goToReader()">
   <strong>
     {{ post.title }}
   </strong>
@@ -18,6 +19,7 @@
   <small>
     {{ post.published | date }}
   </small>
+  </a>
   <br />
   <br />
   <!-- https://bulma.io/documentation/elements/content/
