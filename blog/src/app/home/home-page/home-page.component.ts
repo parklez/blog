@@ -45,6 +45,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
         this.isAuthenticated = user.isAuthenticated;
+        if (!this.isAuthenticated && this.isEditorOpen) {
+          this.toggleEditor();
+        }
       }
     })
   }

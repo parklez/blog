@@ -42,6 +42,9 @@ export class PostComponent implements OnInit{
     this.authListener = this.auth.getAuthListener().subscribe({
       next: (user) => {
         this.isAuthenticated = user.isAuthenticated;
+        if (!this.isAuthenticated && this.isEditorOpen) {
+          this.toggleEditor();
+        }
       },
     });
   }
