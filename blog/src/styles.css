@@ -4,6 +4,7 @@
 html {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  /* Fix pathing for Github Pages */
   background-image: url("./assets/_52a616c1-6f9b-4c1b-af5c-30a721546131.jpeg");
   background-size: cover;
   background-attachment: fixed;
