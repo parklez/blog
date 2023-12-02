@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Posts, Post } from '../models/post';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import fm from 'front-matter';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,19 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   public postList = new BehaviorSubject<Posts>({ results: [], total: 0, page: 0 });
+
+  private preloadedPost: Post = {
+    _id: '',
+    userId: 0,
+    title: '',
+    content: '',
+    hidden: false,
+    published: new Date()
+  };
+
+  public setPreloadedPost(post: Post) {
+    this.preloadedPost = post;
+  }
 
   getPostsListener() {
     return this.postList.asObservable();
@@ -64,9 +78,43 @@ export class PostsService {
   }
 
   public getPost(id: string): Observable<Post> {
-    if (environment?.static) {
-        return this.http.get<Post>(`./assets/static-${id}.json`);
+    if (this.preloadedPost._id == id) {
+      // https://rxjs.dev/api/index/function/of
+      return of(this.preloadedPost);
     }
+
+    if (environment?.static) {
+      // TODO: Set up user/repo/branch name instead of hardcoding here
+      // TODO: Github Pages doesn't work well with routes,
+      // so find a solution like scully to make it work.
+      const adress = `https://raw.githubusercontent.com/parklez/blog/master/_posts/${id}`;
+      // Adding <string> here does not work! use responseType instead!
+      // https://stackoverflow.com/a/49771753
+      return this.http.get(adress, { responseType: 'text' }).pipe(
+        map((data) => {
+          const content = fm(data);
+          return {
+            _id: id,
+            userId: 0,
+            // The FrontMatterResult "attribute" uses <T> as some kind of generic type that
+            // is not quite working here, so I'm casting its type to <any>.
+            // https://stackoverflow.com/questions/49622045/in-typescript-what-does-t-mean
+            // https://www.totaltypescript.com/concepts/object-is-of-type-unknown
+            title: (content.attributes as any).title
+              ? (content.attributes as any).title
+              : id,
+            content: content.body,
+            hidden: false,
+            published: new Date(),
+          };
+        }),
+        // https://blog.angular-university.io/rxjs-error-handling/
+        catchError((error) => {
+          return throwError(() => new Error(error.error));
+        })
+      );
+    }
+
     return this.http.get<Post>(`./api/posts/${id}`);
   }
 

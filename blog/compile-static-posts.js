@@ -18,7 +18,7 @@ function readPost(filename) {
   const [date, title] = readFileName(filename);
 
   return {
-    _id: 0,
+    _id: filename,
     userId: 0,
     title: content.attributes.title
       ? content.attributes.title

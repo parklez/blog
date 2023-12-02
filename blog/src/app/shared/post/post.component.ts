@@ -80,6 +80,7 @@ export class PostComponent implements OnInit{
 
   goToReader() {
     if (!this.isPreview){
+      this.postsService.setPreloadedPost(this.post)
       this.router.navigate(['/post', this.post._id])
     }
   }
