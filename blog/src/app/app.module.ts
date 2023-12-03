@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
     // ProjectsModule,
     // AboutModule,
     AppRoutingModule, // This goes down the list, so that Angular routes to our other routes first.
-    SharedModule
+    SharedModule,
+    ScullyLibModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

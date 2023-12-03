@@ -1,11 +1,12 @@
 {
-  "name": "my-bloog",
+  "name": "blog",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build-git-pages": "node compile-static-posts.js && ng build --configuration static --base-href ./ && rm -f src/assets/static-*.json",
+    "post-build-scully": "npx scully --project blog",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -16,9 +17,12 @@
     "@angular/compiler": "^17.0.2",
     "@angular/core": "^17.0.2",
     "@angular/forms": "^17.0.2",
-    "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/platform-browser": "^17.0.2",
+    "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
+    "@scullyio/ng-lib": "^2.1.41",
+    "@scullyio/scully": "^2.1.41",
+    "@scullyio/scully-plugin-puppeteer": "^2.1.41",
     "bulma": "^0.9.4",
     "front-matter": "^4.0.2",
     "marked": "^10.0.0",

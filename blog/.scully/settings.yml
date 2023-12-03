@@ -1,0 +1,11 @@
+identifier: l7p6p8i8y1y0357e
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: blog
+homeFolder: /Users/azzi/Documents/Github/mybloog/blog
+distFolder: ../docs
+outDir: /Users/azzi/Documents/Github/mybloog/scullyOutput
+handle404: ''
+allowErrorCollect: false
