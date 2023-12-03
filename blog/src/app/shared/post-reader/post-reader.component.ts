@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 import { ToastyService } from '../services/toasty.service';
 import { Post } from '../models/post';
@@ -20,7 +20,7 @@ export class PostReaderComponent implements OnInit{
     private route: ActivatedRoute
   ) {}
 
-  @Input() post: Post = {
+  post: Post = {
     _id: '',
     userId: 0,
     title: '',
