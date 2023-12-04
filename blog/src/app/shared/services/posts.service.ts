@@ -93,6 +93,13 @@ export class PostsService {
       return this.http.get(adress, { responseType: 'text' }).pipe(
         map((data) => {
           const content = fm(data);
+          const filename = id.match(/(\d{2,4}-\d{2}-\d{2})-(.*)/);
+          // I'm allowing the string to go through to keep the consistency
+          // of Angular's date pipe. If I generate a new Date() object,
+          // there's a bug where timezone is applied and posts can change
+          // to a day earlier! - Can this be done better in a single line?
+          const date = filename?.length ? (filename[1] as unknown as Date): new Date();
+
           return {
             _id: id,
             userId: 0,
@@ -105,7 +112,7 @@ export class PostsService {
               : id,
             content: content.body,
             hidden: false,
-            published: new Date(),
+            published: date,
           };
         }),
         // https://blog.angular-university.io/rxjs-error-handling/

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 import { ToastyService } from '../services/toasty.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post',
@@ -86,7 +87,8 @@ export class PostComponent implements OnInit{
   }
 
   copyShareLink() {
-    navigator.clipboard.writeText(`${document.head.baseURI}post/${this.post._id}`);
+    const useHash = environment.static ? '#/' : ''
+    navigator.clipboard.writeText(`${document.head.baseURI}${useHash}post/${this.post._id}`);
     this.toast.pushNewToasty('Copied to clipboard!', 'is-dark', 1.5)
   }
 
