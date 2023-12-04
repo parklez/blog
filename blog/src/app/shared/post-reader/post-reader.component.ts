@@ -32,6 +32,7 @@ export class PostReaderComponent implements OnInit{
   ngOnInit(): void {
     // https://angular.io/api/router/ActivatedRouteSnapshot#description
     const postId = this.route.snapshot.params.id;
+    document.documentElement.scrollTop = 0;
 
     if (!postId) {
       this.loading = false
