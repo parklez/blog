@@ -1,6 +1,6 @@
 const projectModel = require('../../models/project');
 
-const publishPost = async (req, res) => {
+const publishProject = async (req, res) => {
   console.log(req.body);
 
   const incomingProject = projectModel(req.body);
@@ -13,4 +13,4 @@ const publishPost = async (req, res) => {
   }
 };
 
-module.exports = publishPost;
+module.exports = publishProject;

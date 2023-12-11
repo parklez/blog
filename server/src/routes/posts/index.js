@@ -8,7 +8,7 @@ const publishPost = require('./post');
 const auth = require('../../middleware/auth');
 
 router.get('/:id', getPost);
-router.get('/', getPosts);
+router.get('/:page?', getPosts);
 router.put('/:id', auth, updatePost);
 router.delete('/:id', auth, deletePost);
 router.post('/', auth, publishPost);
