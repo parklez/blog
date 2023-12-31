@@ -37,7 +37,8 @@ import { PostReaderComponent } from './post-reader/post-reader.component';
     ToastyNotificationComponent,
     UserAreaComponent,
     PostComponent,
-    PostEditorComponent
+    PostEditorComponent,
+    NotFoundComponent
   ]
 })
 export class SharedModule { }

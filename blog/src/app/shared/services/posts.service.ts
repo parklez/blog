@@ -33,7 +33,7 @@ export class PostsService {
 
   public fetchPosts(page: number = 0): Observable<Posts> {
     if (environment?.static) {
-        return this.http.get<Posts>(`./assets/static-${page}.json`).pipe(
+        return this.http.get<Posts>(`./assets/posts-${page}.json`).pipe(
           map((response) => {
             this.postList.next(response);
             return response;

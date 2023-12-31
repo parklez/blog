@@ -1,20 +1,22 @@
-<h1 class="title">Projects</h1>
-<hr />
-<p>Take a look at my projects yes</p>
-<br />
-<ng-container *ngIf="projects">
-  <div class="columns" *ngFor="let rowOfProjects of projects">
+<div class="box" *ngIf="loading">
+  Loading, please wait!
+</div>
+<ng-container *ngIf="projects.length > 0">
+  <div id="filters" class="box">
+    Filter: [<a>Games</a>] [<a>Tools</a>] [<a>Other</a>]
+    -
+    Sorting: [<a>Newer</a>] [<a>Older</a>]
+  </div>
+  <div class="columns is-variable is-1" *ngFor="let rowOfProjects of projects">
     <ng-container *ngFor="let project of rowOfProjects">
       <app-project-template
-        class="column is-4"
-        [title]="project.title"
-        [description]="project.description"
-        [thumbnail]="project.thumbnail"
+        class="column is-one-third"
+        [project]="project"
       >
       </app-project-template>
     </ng-container>
   </div>
 </ng-container>
-<div *ngIf="projects.length === 0">
-  Panda not found...
+<div *ngIf="!success">
+  <app-not-found></app-not-found>
 </div>

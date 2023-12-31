@@ -1,7 +1,16 @@
 export interface Project {
-  id: number,
+  _id: string,
   title: string,
-  thumbnail: string,
+  category: string,
   description: string,
-  published: Date
+  link: string,
+  thumbnail: string,
+  published: Date,
+  hidden: boolean,
+}
+
+export interface Projects {
+  results: Project[];
+  total: number;
+  page: number;
 }

@@ -1,16 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { Project } from '../../shared/models/project';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Project, Projects } from '../../shared/models/project';
 import { ProjectsService } from '../../shared/services/projects.service';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects-home',
   templateUrl: './projects-home.component.html',
   styleUrls: ['./projects-home.component.css'],
 })
-export class ProjectsHomeComponent implements OnInit {
-  // An array, containing Project arrays.
-  projects: Project[][] = [];
+export class ProjectsHomeComponent implements OnInit, OnDestroy {
+  retrievedProjects: Projects = {
+    results: [],
+    total: 0,
+    page: 0,
+  };
+
+  projects: Project[][] = []
+  success: boolean = true;
+  loading: boolean = false;
+
+  itemsPerPage = 10;
+  next: boolean = false;
+  previous: boolean = false;
+
+  private projectListener!: Subscription;
 
   constructor(
     private projservice: ProjectsService,
@@ -18,19 +32,34 @@ export class ProjectsHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projservice.getSomePosts().subscribe({
-      next: (incomingProjects: Project[]) => {
-        this.projects = this.sliceIntoChunks(incomingProjects);
+    this.getProjects();
+
+    this.projectListener = this.projservice.getProjectListener().subscribe({
+      next: (projects: Projects) => {
+        this.retrievedProjects = projects;
+        this.projects = this.sliceIntoChunks(projects.results)
+      }
+    })
+  }
+
+  getProjects(page: number = 0): void {
+    this.projservice.fetchProjects(page).subscribe({
+      next: (projects: Projects) => {
+        this.next = projects.total > this.itemsPerPage ? (page * this.itemsPerPage) + projects.results.length < projects.total : false;
+        this.previous = ((page * this.itemsPerPage) + projects.results.length) - this.itemsPerPage > 0 ? true : false;
+        document.documentElement.scrollTop = 0;
       },
       error: (error) => {
-        console.log(error); // Create toasty!
         this.toast.pushNewToasty(
-          'Oops! - Looks like panda couldnt get any projects -- ' +
-            error.message,
+          'Oops! - Looks like panda couldnt get any projects -- ' + error.message,
           'is-light is-danger'
         );
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.projectListener.unsubscribe();
   }
 
   // I'm attempting to create a new column, every 3 "Project"s,

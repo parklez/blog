@@ -9,7 +9,11 @@ const getProjects = async (req, res) => {
       .limit(docsPerPage)
       .skip(docsPerPage * page)
       .sort('-published');
-    return res.status(200).json(results);
+    if (results && results.length > 0) {
+      const total = await projectModel.countDocuments();
+      return res.status(200).json({results, total, page});
+    }
+    return res.status(404).json();
   } catch (error) {
     return res.status(500).send({error});
   }
