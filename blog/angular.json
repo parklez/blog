@@ -93,6 +93,9 @@
             },
             "development": {
               "buildTarget": "my-bloog:build:development"
+            },
+            "static": {
+              "buildTarget": "my-bloog:build:static"
             }
           },
           "defaultConfiguration": "development",
