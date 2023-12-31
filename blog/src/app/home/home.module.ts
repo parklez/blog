@@ -4,14 +4,26 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { PostComponent } from './post/post.component';
+import { PostEditorComponent } from './post-editor/post-editor.component';
+import { PostReaderComponent } from './post-reader/post-reader.component';
+
+import { MarkdownPipe } from '../shared/pipes/markdown.pipe';
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    PostComponent,
+    PostEditorComponent,
+    PostReaderComponent,
+    MarkdownPipe
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     //Disable angular routing for this module
     HomeRoutingModule,
     SharedModule

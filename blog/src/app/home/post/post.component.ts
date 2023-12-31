@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../models/post';
-import { PostsService } from '../services/posts.service';
+import { Post } from '../../shared/models/post';
+import { PostsService } from '../../shared/services/posts.service';
 import { Subscription } from 'rxjs';
-import { AuthenticationService } from '../services/authentication.service';
-import { ToastyService } from '../services/toasty.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
+import { ToastyService } from '../../shared/services/toasty.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 

@@ -1,8 +1,8 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { PostsService } from '../services/posts.service';
-import { ToastyService } from '../services/toasty.service';
-import { Post } from '../models/post';
+import { PostsService } from '../../shared/services/posts.service';
+import { ToastyService } from '../../shared/services/toasty.service';
+import { Post } from '../../shared/models/post';
 
 @Component({
   selector: 'app-post-editor',

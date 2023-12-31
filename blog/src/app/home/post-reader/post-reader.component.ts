@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../services/posts.service';
-import { ToastyService } from '../services/toasty.service';
-import { Post } from '../models/post';
+import { PostsService } from '../../shared/services/posts.service';
+import { ToastyService } from '../../shared/services/toasty.service';
+import { Post } from '../../shared/models/post';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
