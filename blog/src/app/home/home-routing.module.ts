@@ -9,6 +9,12 @@ const routes: Routes = [
   },
   {
     path: 'post/:id', component: PostReaderComponent
+  },
+  // It's not possible to add queryParams without a path,
+  // So I'm adding this path instead.
+  // https://github.com/angular/angular/issues/9505#issuecomment-231429914
+  {
+    path: 'posts', component: HomePageComponent
   }
 ];
 

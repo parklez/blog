@@ -4,6 +4,7 @@ import { Posts } from '../../shared/models/post';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -30,11 +31,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
   constructor(
     private postsService: PostsService,
     private toast: ToastyService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.getPosts();
+    const page = this.route.snapshot.queryParams.page 
+    this.getPosts(Number(page) ? Number(page) : 0);
 
     this.postListener = this.postsService.getPostsListener().subscribe({
       next: (posts) => {
@@ -80,10 +84,12 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   goToPrevious(): void {
     this.getPosts(this.retrievedPosts.page - 1)
+    this.router.navigate(['/posts'], {queryParams: {page: this.retrievedPosts.page - 1}})
   }
 
   goToNext(): void {
     this.getPosts(this.retrievedPosts.page + 1)
+    this.router.navigate(['/posts'], {queryParams: {page: this.retrievedPosts.page + 1}})
   }
 
 }
