@@ -11,14 +11,25 @@
     <a (click)="copyShareLink()">Share</a>
     ]
   </span>
-  <a (click)="goToReader()">
-  <strong>
-    {{ post.title }}
-  </strong>
-  -
-  <small>
-    {{ post.published | date }}
-  </small>
+  <a *ngIf="!isPreview" (click)="setPreloadedPost()" routerLink="/post/{{post._id}}">
+    <strong>
+      {{ post.title }}
+    </strong>
+    -
+    <small>
+      {{ post.published | date }}
+    </small>
+  </a>
+  <!-- This prevents routing while using post-editor.
+      I'm favoring routerLink over (click) for crawlers -->
+  <a *ngIf="isPreview">
+    <strong>
+      {{ post.title }}
+    </strong>
+    -
+    <small>
+      {{ post.published | date }}
+    </small>
   </a>
   <br />
   <br />

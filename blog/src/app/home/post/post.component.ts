@@ -4,7 +4,6 @@ import { PostsService } from '../../shared/services/posts.service';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { ToastyService } from '../../shared/services/toasty.service';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -22,7 +21,6 @@ export class PostComponent implements OnInit{
     private postsService: PostsService,
     private auth: AuthenticationService,
     private toast: ToastyService,
-    private router: Router
   ) { }
 
   @Input() post: Post = {
@@ -79,10 +77,9 @@ export class PostComponent implements OnInit{
     this.isEditorOpen = !this.isEditorOpen;
   }
 
-  goToReader() {
+  setPreloadedPost() {
     if (!this.isPreview){
       this.postsService.setPreloadedPost(this.post)
-      this.router.navigate(['/post', this.post._id])
     }
   }
 

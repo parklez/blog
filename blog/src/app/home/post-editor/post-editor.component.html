@@ -1,6 +1,7 @@
 <!-- Forms -->
 <form *ngIf="!isPreview" [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <label class="label">{{editorContext}}</label>
+    <br>
     <div class="field">
     <div class="control">
         <input class="input" type="text" placeholder="Title" formControlName="title"/>
