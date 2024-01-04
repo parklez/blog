@@ -2,7 +2,9 @@
     <div class="columns" style="min-height: 35rem;">
     <div id="page-content" class="column is-four-fifths">
       <div *ngIf="isAuthenticated" id="create-content" class="box">
-        <a (click)="toggleEditor()"> [ Toggle Editor ] </a>
+        [
+        <a (click)="toggleEditor()">Toggle Creator</a>
+        ]
       </div>
       <div *ngIf="isEditorOpen" class="box">
         <app-post-editor></app-post-editor>
