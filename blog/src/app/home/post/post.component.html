@@ -1,12 +1,17 @@
 <article *ngIf="!isEditorOpen" class="media-content">
-  <span id="hover" *ngIf="isAuthenticated && !isDeleted && !isPreview">
+  <span class="show-on-hover" *ngIf="isAuthenticated && !isDeleted && !isPreview">
     [
     <a (click)="toggleEditor()">Edit</a>
     /
     <a (click)="deletePost()">Trash</a>
     ]
   </span>
-  <span id="hover" style="bottom: 0%" *ngIf="!isDeleted && !isPreview">
+  <span class="expand-content" *ngIf="!isDeleted && !isPreview && isCollapseable">
+    [
+    <a (click)="toggleCollapse()">{{ this.isCollapsed ?  'Show more': 'Show less' }}</a>
+    ]
+  </span>
+  <span class="show-on-hover" style="bottom: 0%" *ngIf="!isDeleted && !isPreview">
     [
     <a (click)="copyShareLink()">Share</a>
     ]
@@ -37,5 +42,9 @@
   Use of innerHTML to make Angular render HTML instead of pure text:
   https://angular.io/guide/security#sanitization-example -->
   <div class="content" [innerHTML]="post.content | markdown"></div>
+  <div *ngIf="!isCollapsed">
+    <!-- This prevents the expand button from overlaping the content -->
+    <br>
+  </div>
 </article>
 <app-post-editor [(post)]="post" (cancelFunction)="toggleEditor()" *ngIf="isEditorOpen"></app-post-editor>

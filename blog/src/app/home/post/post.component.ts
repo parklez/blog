@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Post } from '../../shared/models/post';
 import { PostsService } from '../../shared/services/posts.service';
 import { Subscription } from 'rxjs';
@@ -11,16 +11,21 @@ import { environment } from 'src/environments/environment';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit{
+export class PostComponent implements OnInit, OnDestroy{
 
   isAuthenticated: boolean = false;
   isEditorOpen: boolean = false;
   private authListener!: Subscription;
 
+  isCollapsed: boolean = true;
+  isCollapseable: boolean = false;
+
   constructor(
     private postsService: PostsService,
     private auth: AuthenticationService,
     private toast: ToastyService,
+    private element: ElementRef,
+    private renderer: Renderer2,
   ) { }
 
   @Input() post: Post = {
@@ -33,6 +38,7 @@ export class PostComponent implements OnInit{
   };
 
   @Input() isPreview: boolean = false;
+  @Input() isReaderMode: boolean = false;
 
   isDeleted = false;
 
@@ -46,6 +52,26 @@ export class PostComponent implements OnInit{
         }
       },
     });
+  }
+
+  ngAfterViewInit() {
+    if (this.isReaderMode || this.isPreview) {
+      return;
+    }
+    // It's not particularly easy to keep track of the height of components
+    // dynamically, not to mention the performance hit that comes with it.
+    // The solution below considers the user won't resize the browser window
+    const height = this.element.nativeElement.firstChild.offsetHeight
+    // https://stackoverflow.com/a/45001255
+    const remSize = parseInt(getComputedStyle(document.documentElement).fontSize)
+    // https://angular.io/errors/NG0100
+    Promise.resolve().then(() => {
+      if (height / remSize > 12) {
+        this.renderer.addClass(this.element.nativeElement.firstChild, 'collapsed')
+        this.isCollapseable = true;
+      }
+    })
+
   }
 
   ngOnDestroy(): void {
@@ -75,6 +101,15 @@ export class PostComponent implements OnInit{
 
   toggleEditor() {
     this.isEditorOpen = !this.isEditorOpen;
+  }
+
+  toggleCollapse() {
+    if (this.isCollapsed) {
+      this.renderer.removeClass(this.element.nativeElement.firstChild, 'collapsed')
+    } else {
+      this.renderer.addClass(this.element.nativeElement.firstChild, 'collapsed')
+    }
+    this.isCollapsed = !this.isCollapsed;
   }
 
   setPreloadedPost() {
