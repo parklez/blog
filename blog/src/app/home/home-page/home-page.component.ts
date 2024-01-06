@@ -28,6 +28,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   isEditorOpen: boolean = false;
 
+  specialMessage: boolean = true;
+
   constructor(
     private postsService: PostsService,
     private toast: ToastyService,
