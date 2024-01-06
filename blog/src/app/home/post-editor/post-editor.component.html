@@ -1,6 +1,6 @@
 <!-- Forms -->
 <form *ngIf="!isPreview" [formGroup]="postForm" (ngSubmit)="onSubmit()">
-    <label class="label">{{editorContext}}</label>
+    <label class="label">{{this.post._id ? "Update this post" : "Write a new story"}}</label>
     <br>
     <div class="field">
     <div class="control">
@@ -17,7 +17,7 @@
         <button class="button is-link" type="submit" [disabled]="!postForm.valid">Submit</button>
     </div>
     <div class="control">
-        <button class="button is-danger is-light" type="reset" (click)="this.cancelFunction.emit()">Clear</button>
+        <button class="button is-danger is-light" type="reset" (click)="this.cancelFunction.emit()">{{this.post._id ? "Cancel" : "Clear"}}</button>
     </div>
     <div>
         <button class="button is-warning" type="button" (click)="togglePreview()" [disabled]="!postForm.valid">Preview</button>

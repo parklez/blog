@@ -34,12 +34,10 @@ export class PostEditorComponent implements OnInit{
   })
 
   isPreview: boolean = false;
-  editorContext: string = ""
 
   ngOnInit(): void {
     this.postForm.patchValue({title: this.post.title})
     this.postForm.patchValue({content: this.post.content})
-    this.editorContext = this.post._id ? "Update this post" : "Write a new story"
   }
 
   togglePreview() {
