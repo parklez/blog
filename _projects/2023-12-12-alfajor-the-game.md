@@ -1,6 +1,5 @@
 ---
 title: Alfajor Game
-category: game
+category: Game
 link: https://github.com/parklez/alfajor-pygame
 ---
-Cool game please download )
