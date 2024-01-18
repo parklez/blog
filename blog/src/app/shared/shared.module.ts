@@ -6,6 +6,7 @@ import { ToastyNotificationComponent } from './toasty-notification/toasty-notifi
 import { RouterModule } from '@angular/router';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SpecialMessageComponent } from './special-message/special-message.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ToastyNotificationComponent,
     UserAreaComponent,
     NotFoundComponent,
+    SpecialMessageComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     ToastyNotificationComponent,
     UserAreaComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SpecialMessageComponent
   ]
 })
 export class SharedModule { }

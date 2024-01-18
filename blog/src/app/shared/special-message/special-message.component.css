@@ -1,0 +1,13 @@
+#container {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0rem 1rem 1rem 1rem;
+}
+
+#scrolling-message {
+    transform: translateX(100%);
+    text-shadow: 1px 1px #000;
+    color: rgb(246, 255, 198);
+    position: relative;
+    font-weight: bold;
+}

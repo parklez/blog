@@ -44,32 +44,3 @@ nav > a {
 .pagination-previous[disabled], .pagination-next[disabled], .pagination-link[disabled] {
 	opacity: 0.8;
 }
-
-#special-message {
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 0rem 1rem 1rem 1rem;
-}
-
-#scrolling-message {
-    transform: translateX(100%);
-    animation: scroll-right-to-left 15s linear infinite;
-    text-shadow: 1px 1px #000;
-    width: 105%;
-    block-size: fit-content;
-    color: rgb(246, 255, 198);
-}
-
-/* It's only possible to guarantee a certain speed with fixed width,
-   and since there's responsiveness and different text sizes, it would
-   require a special code to make it consistent in the future.
-   https://blog.hubspot.com/website/scrolling-text-css */
-@keyframes scroll-right-to-left {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}

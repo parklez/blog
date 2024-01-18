@@ -28,7 +28,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   isEditorOpen: boolean = false;
 
-  specialMessage: boolean = true;
+  message = "[01/06/24] This awesome scrollable text will show up during special" +
+            "events! [01/06/24] This awesome scrollable text will show up during special" +
+            "events! [01/06/24] This awesome scrollable text will show up during special" +
+            "events!"
 
   constructor(
     private postsService: PostsService,
@@ -40,7 +43,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const page = this.route.snapshot.queryParams.page 
-    this.getPosts(Number(page) ? Number(page) : 0);
+    this.getPosts(Number(page) ? Number(page) : 0);
 
     this.postListener = this.postsService.getPostsListener().subscribe({
       next: (posts) => {

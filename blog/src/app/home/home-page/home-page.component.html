@@ -1,11 +1,6 @@
 <div id="content">
-  <div id="special-message" *ngIf="specialMessage">
-    <!-- scroll-text must be a div, span or other tags won't work! -->
-    <div id="scrolling-message">
-      <b>[01/06/24] This awesome scrollable text will show up during special events!</b>
-    </div>
-  </div>
-    <div class="columns" style="min-height: 35rem;">
+  <app-special-message message="{{message}}"></app-special-message>
+  <div class="columns" style="min-height: 35rem;">
     <div id="page-content" class="column is-four-fifths">
       <div *ngIf="isAuthenticated" id="create-content" class="box">
         [
