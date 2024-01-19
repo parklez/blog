@@ -28,10 +28,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   isEditorOpen: boolean = false;
 
-  message = "[01/06/24] This awesome scrollable text will show up during special" +
-            "events! [01/06/24] This awesome scrollable text will show up during special" +
-            "events! [01/06/24] This awesome scrollable text will show up during special" +
-            "events!"
+  message = "[01/06/24] This awesome scrollable text will show up during special events!"
+            + " - [01/19/24] It's been reworked to use pure, efficient CSS - Yay!"
 
   constructor(
     private postsService: PostsService,

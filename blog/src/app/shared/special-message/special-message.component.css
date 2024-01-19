@@ -1,13 +1,34 @@
-#container {
-    overflow: hidden;
+.marquee {
+    width: 100%;
+    /* This prevents longer text from being wrapped */
     white-space: nowrap;
+    /* This hides overflown text from the container */
+    overflow: hidden;
+    /* This helps the child paragraph to be properly padded 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+    box-sizing: border-box;
     padding: 0rem 1rem 1rem 1rem;
 }
 
-#scrolling-message {
-    transform: translateX(100%);
+.marquee p {
+    /* This helps the div to expand based on the text size
+    https://stackoverflow.com/a/61414571 */
+    display: inline-block;
+    /* Sets the start position at the hidden right edge of the container */
+    padding-left: calc(100% + 1rem);
+    padding-right: 1rem;
+    animation: marquee 15s linear infinite;
     text-shadow: 1px 1px #000;
     color: rgb(246, 255, 198);
-    position: relative;
     font-weight: bold;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
 }
