@@ -17,7 +17,7 @@
     /* Sets the start position at the hidden right edge of the container */
     padding-left: calc(100% + 1rem);
     padding-right: 1rem;
-    animation: marquee 15s linear infinite;
+    animation: marquee 20s linear infinite;
     text-shadow: 1px 1px #000;
     color: rgb(246, 255, 198);
     font-weight: bold;
