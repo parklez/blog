@@ -48,6 +48,7 @@ function readProject(filename) {
 function compilePages(fileNamePrefix, contentDir, readFunction, itemsPerPage = 10) {
   const content = fs
     .readdirSync(contentDir)
+    .filter((filename) => filename.endsWith('.md'))
     .map((filename) => readFunction(filename))
     .sort((a, b) => new Date(b.published) - new Date(a.published));
 
