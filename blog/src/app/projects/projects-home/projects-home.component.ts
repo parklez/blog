@@ -19,6 +19,7 @@ export class ProjectsHomeComponent implements OnInit, OnDestroy {
   projects: Project[][] = []
   success: boolean = true;
   loading: boolean = false;
+  viewAsGrid: boolean = true;
 
   itemsPerPage = 10;
   next: boolean = false;
@@ -71,5 +72,25 @@ export class ProjectsHomeComponent implements OnInit, OnDestroy {
       result.push(chunk);
     }
     return result;
+  }
+
+  sortByDate(ascending: boolean): void {
+    if (ascending) {
+      this.projects = this.sliceIntoChunks(
+        this.retrievedProjects.results.sort(
+          (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime()
+        )
+      )
+    } else {
+      this.projects = this.sliceIntoChunks(
+        this.retrievedProjects.results.sort(
+          (a, b) => new Date(a.published).getTime() - new Date(b.published).getTime()
+        )
+      )
+    }
+  }
+
+  setViewAsGrid(bool: boolean): void {
+    this.viewAsGrid = bool;
   }
 }

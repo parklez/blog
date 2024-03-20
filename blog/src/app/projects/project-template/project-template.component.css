@@ -7,33 +7,17 @@ article {
 }
 
 a.box:hover, a.box:focus {
-    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(34, 34, 34);
-}
-
-#hover {
-    display: none;
-    position: absolute;
-    color: #4a4a4a;
-    backdrop-filter: blur(10px);
-    z-index: 1;
-    text-align: center;
-    width: 100%;
-    top: 0%;
+    box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%), 0 0 0 1px rgb(202, 236, 174);
 }
 
 #corner {
     display: block;
     position: absolute;
     color: #4a4a4a;
-    backdrop-filter: blur(10px);
     z-index: 1;
     text-align: center;
     bottom: 0%;
     right: 0%;
-    background-color: rgb(255, 178, 134);
-    padding: 0rem 1rem;
-}
-
-article:hover #hover{
-    display: block;
+    padding: 0rem 0.5rem;
+    border-radius: 6px;
 }

@@ -1,8 +1,10 @@
 <article>
   <a class="box" target="_blank" href="{{ project.link }}">
     <figure class="image is-16by9">
-      <span id="hover">{{ project.title }}</span>
-      <span id="corner">{{ project.category }}</span>
+      <!-- https://angular.io/guide/class-binding#binding-to-a-single-style -->
+      <span id="corner" [style.backgroundColor]="getColor()">
+        {{ getCategory() }}
+      </span>
       <img src="{{ project.thumbnail }}" />
     </figure>
   </a>
