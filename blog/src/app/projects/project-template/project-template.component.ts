@@ -13,7 +13,7 @@ export class ProjectTemplateComponent implements OnInit{
     _id: '',
     title: '',
     category: 'Other',
-    thumbnail: 'assets/640x360.png',
+    thumbnail: 'assets/thumbs/640x360.png',
     description: '',
     published: new Date(),
     hidden: false,

@@ -37,7 +37,7 @@ function readProject(filename) {
     _id: filename,
     category: frontMatter.attributes.category || "Other",
     title: frontMatter.attributes.title || title.slice(0, -3).replaceAll("-", " "),
-    thumbnail: frontMatter.attributes.thumbnail || "assets/640x360.png",
+    thumbnail: frontMatter.attributes.thumbnail || "assets/thumbs/640x360.png",
     link: frontMatter.attributes.link || "",
     description: frontMatter.body,
     hidden: false,
