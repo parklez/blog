@@ -1,32 +1,14 @@
-<div class="box" *ngIf="loading">
-  Loading, please wait!
+<div class="box" *ngIf="loading">Loading, please wait!</div>
+<div id="filters" class="box">
+  View: [<a (click)="setViewAsGrid(true)">Grid</a>] [<a (click)="setViewAsGrid(false)">List</a>] - Sorting: [<a
+    (click)="sortByDate(true)">Newer</a>] [<a (click)="sortByDate(false)">Older</a>]
 </div>
 <ng-container *ngIf="projects.length > 0">
-  <div id="filters" class="box">
-    View: [<a (click)="setViewAsGrid(true)">Grid</a>] [<a (click)="setViewAsGrid(false)">List</a>]
-    -
-    Sorting: [<a (click)="sortByDate(true)">Newer</a>] [<a (click)="sortByDate(false)">Older</a>]
-  </div>
-  <ng-container *ngIf="viewAsGrid">
-    <div class="columns is-variable is-1" *ngFor="let rowOfProjects of projects">
-      <ng-container *ngFor="let project of rowOfProjects">
-        <app-project-template
-          class="column is-one-third"
-          [project]="project"
-        >
-        </app-project-template>
-      </ng-container>
+  <div class="grid  is-col-min-10">
+    <div class="cell" *ngFor="let project of projects">
+      <app-project-template [project]="project"> </app-project-template>
     </div>
-  </ng-container>
-  <ng-container *ngIf="!viewAsGrid">
-      <ng-container *ngFor="let project of retrievedProjects.results">
-        <app-project-template
-          [project]="project"
-          class="column"
-        >
-        </app-project-template>
-      </ng-container>
-  </ng-container>
+  </div>
 </ng-container>
 <div *ngIf="!success">
   <app-not-found></app-not-found>

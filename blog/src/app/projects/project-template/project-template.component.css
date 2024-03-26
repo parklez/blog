@@ -1,5 +1,6 @@
 a.box {
     padding: 0.75rem;
+    padding-top: 0.5rem;
 }
 
 article {
@@ -7,7 +8,7 @@ article {
 }
 
 a.box:hover, a.box:focus {
-    box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%), 0 0 0 1px rgb(202, 236, 174);
+    box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%), 0 0 0 1px #b6ff79;
 }
 
 #corner {
@@ -20,4 +21,11 @@ a.box:hover, a.box:focus {
     right: 0%;
     padding: 0rem 0.5rem;
     border-radius: 6px;
+}
+
+#title {
+    color: rgba(255, 255, 255, 0.711);
+    padding: 0rem;
+    white-space: nowrap;
+    overflow: hidden;
 }

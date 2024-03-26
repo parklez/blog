@@ -13,3 +13,7 @@
 .roundy {
   border-radius: 10px;
 }
+
+#content {
+  padding-right: 2.5rem;
+}

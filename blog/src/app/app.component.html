@@ -10,19 +10,15 @@
   <div id="header">
     <app-header></app-header>
   </div>
-  <nav id="navigation-bar" class="navbar">
+  <nav id="navigation-bar" role="navigation" class="navbar">
     <img class="panda" src="./assets/panda.gif" alt="">
-    <div class="buttons">
       <div class="navbar-item">
-        <a routerLink="" routerLinkActive="active-nav" [routerLinkActiveOptions]="{ exact: true }" class="button"> Home </a>
+        <div class="buttons">
+          <a routerLink="" routerLinkActive="active-nav" [routerLinkActiveOptions]="{ exact: true }" role="button" class="button nav-item"> Home </a>
+          <a routerLink="projects" routerLinkActive="active-nav" role="button" class="button nav-item"> Projects </a>
+          <a routerLink="about" routerLinkActive="active-nav" role="button" class="button nav-item"> About </a>
+        </div>
       </div>
-      <div class="navbar-item">
-        <a routerLink="projects" routerLinkActive="active-nav" class="button"> Projects </a>
-      </div>
-      <div class="navbar-item">
-        <a routerLink="about" routerLinkActive="active-nav" class="button"> About </a>
-      </div>
-    </div>
   </nav>
   <div id="main-content">
     <router-outlet></router-outlet>

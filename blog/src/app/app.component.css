@@ -16,12 +16,14 @@
     display: flex; /* This prevents this bar from expanding ever so slightly */
 }
 
-.button {
-    background-color: rgba(255, 255, 255, 0.711);
+.nav-item {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
 }
 
 .active-nav {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.742);
+    color: black;
 }
 
 .panda {

@@ -16,7 +16,7 @@ export class ProjectsHomeComponent implements OnInit, OnDestroy {
     page: 0,
   };
 
-  projects: Project[][] = []
+  projects: Project[] = []
   success: boolean = true;
   loading: boolean = false;
   viewAsGrid: boolean = true;
@@ -38,7 +38,7 @@ export class ProjectsHomeComponent implements OnInit, OnDestroy {
     this.projectListener = this.projservice.getProjectListener().subscribe({
       next: (projects: Projects) => {
         this.retrievedProjects = projects;
-        this.projects = this.sliceIntoChunks(projects.results)
+        this.projects = projects.results;
       }
     })
   }
@@ -63,30 +63,16 @@ export class ProjectsHomeComponent implements OnInit, OnDestroy {
     this.projectListener.unsubscribe();
   }
 
-  // I'm attempting to create a new column, every 3 "Project"s,
-  // So I'll be splitting into arrays of 3 of them.
-  sliceIntoChunks(array: Project[], size = 3): Project[][] {
-    const result = [];
-    for (let i = 0; i < array.length; i += size) {
-      const chunk = array.slice(i, i + size);
-      result.push(chunk);
-    }
-    return result;
-  }
-
   sortByDate(ascending: boolean): void {
     if (ascending) {
-      this.projects = this.sliceIntoChunks(
+      this.projects = 
         this.retrievedProjects.results.sort(
           (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime()
-        )
       )
     } else {
-      this.projects = this.sliceIntoChunks(
         this.retrievedProjects.results.sort(
           (a, b) => new Date(a.published).getTime() - new Date(b.published).getTime()
         )
-      )
     }
   }
 

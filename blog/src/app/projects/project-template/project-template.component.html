@@ -1,5 +1,6 @@
 <article>
   <a class="box" target="_blank" href="{{ project.link }}">
+  <span id="title" class="title is-6">{{ project.title }}</span>
     <figure class="image is-16by9">
       <!-- https://angular.io/guide/class-binding#binding-to-a-single-style -->
       <span id="corner" [style.backgroundColor]="getColor()">

@@ -6,7 +6,7 @@ html {
   padding-bottom: 2rem;
   /* https://github.com/angular/angular-cli/issues/12797#issuecomment-598559534
   https://github.com/angular/angular/issues/32811 */
-  background-image: url("^./assets/background.jpeg");
+  background-image: url("^./assets/cyberpunk_pandas.jpeg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -32,15 +32,6 @@ html {
 	border-color: #4da74b;
 }
 
-.button:focus, .button.is-focused {
-	border-color: #000000;
-	color: #363636;
-}
-
-.button:focus:not(:active), .button.is-focused:not(:active) {
-	box-shadow: 0 0 0 0.125em rgba(0, 0, 0, 0.25);
-}
-
 .input::placeholder, .textarea::placeholder, .select select::placeholder {
 	color: rgb(255, 255, 255);
 }
@@ -51,5 +42,5 @@ html {
 }
 
 a, a:hover {
-  color: pink;
+  color: #b6ff79;
 }

@@ -1,5 +1,13 @@
 strong {
-    color: rgb(247, 255, 210);
+    color: rgb(204, 216, 248);
+}
+
+small {
+    color: rgb(142, 142, 142);
+}
+
+.dash {
+    color: rgb(203, 198, 192)
 }
 
 article {
