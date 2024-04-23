@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { PostEditorComponent } from './post-editor/post-editor.component';
 import { PostReaderComponent } from './post-reader/post-reader.component';
+import { TagsPageComponent } from './tags-page/tags-page.component';
 
 import { MarkdownPipe } from '../shared/pipes/markdown.pipe';
 
@@ -19,6 +20,7 @@ import { MarkdownPipe } from '../shared/pipes/markdown.pipe';
     PostComponent,
     PostEditorComponent,
     PostReaderComponent,
+    TagsPageComponent,
     MarkdownPipe
   ],
   imports: [

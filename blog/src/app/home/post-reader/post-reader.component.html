@@ -2,5 +2,5 @@
     <app-post class="box" *ngIf="success && !loading" [post]="post" [isReaderMode]="true"></app-post>
     <div class="box" *ngIf="loading">Loading, please wait!</div>
     <app-not-found *ngIf="!success && !loading"></app-not-found>
-    <a routerLink="" class="button is-warning is-light">Go Back</a>
+    <button (click)="goBack()" class="button">Go Back</button>
 </div>

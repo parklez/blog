@@ -1,0 +1,18 @@
+<div *ngIf="!success && loading">Loading tags...</div>
+<div class="box" *ngIf="success && !loading">
+  <h1 class="title">🏷️ {{ postsByTag.name.toUpperCase() }}</h1>
+  <ng-container *ngFor="let post of postsByTag.results">
+    <a class="alternating" routerLink="/post/{{ post._id }}">
+      <article>
+        <strong>
+          {{ post.title }}
+        </strong>
+        <span class="dash">-</span>
+        <small>
+          {{ post.published | date }}
+        </small>
+      </article>
+    </a>
+  </ng-container>
+</div>
+<app-not-found *ngIf="!success && !loading"></app-not-found>

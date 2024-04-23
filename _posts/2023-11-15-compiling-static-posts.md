@@ -1,5 +1,6 @@
 ---
 title: Why did I make a static version of this feature-rich blog?
+tags: angular 
 ---
 #### How does the static version work?
 - I created an Angular environment called "static" that will make functions like ["fetching posts"](https://github.com/parklez/blog/commit/3077856fa84ce1a038bed5bfc336ef53b3615497#diff-09332a8008ef020b3debfe12146fc06830c396342256f440176e66ebe8863ca7) to call for local "MongoDB"-like paylods.

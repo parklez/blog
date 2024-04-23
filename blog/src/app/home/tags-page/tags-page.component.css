@@ -1,0 +1,45 @@
+strong {
+    color: rgb(204, 216, 248);
+}
+
+small {
+    color: rgb(142, 142, 142);
+}
+
+.dash {
+    color: rgb(203, 198, 192)
+}
+
+h1 {
+    text-shadow: 1px 1px #000;
+    color: rgb(255, 234, 216);
+}
+
+.alternating {
+    background-color: rgba(62, 62, 62, 0.6);
+    backdrop-filter: blur(10px);
+    color: rgb(249, 249, 249);
+    text-shadow: 1px 1px #000;
+    padding: 0.8rem;
+    /* The properties below expands the anchor tag 
+    to fill the entirety of the article */
+    display:inline-block;
+    width:100%;
+}
+
+.alternating:hover {
+    box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%) inset, 0 0 0 1px #b6ff79 inset;
+    position: relative;
+}
+
+.alternating:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.36);
+}
+
+.alternating:last-child {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.alternating:nth-child(2) {
+    border-radius: 5px 5px 0px 0px;
+}

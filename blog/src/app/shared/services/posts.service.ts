@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Posts, Post } from '../models/post';
+import { Posts, Post, PostsByTag } from '../models/post';
 import { BehaviorSubject, Observable, catchError, of, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import fm from 'front-matter';
@@ -123,6 +123,20 @@ export class PostsService {
     }
 
     return this.http.get<Post>(`./api/posts/${id}`);
+  }
+
+  public fetchPostsByTag(tagName: string): Observable<PostsByTag> {
+    if (environment?.static) {
+      return this.http.get<PostsByTag>(`./assets/tags-${tagName}.json`)
+  }
+    return this.http.get<PostsByTag>(`./api/posts/tags/${tagName}`);
+  }
+
+  public fetchTagsIndex(): Observable<{name: string, count: number}[]> {
+    if (environment?.static) {
+      return this.http.get<{name: string, count: number}[]>(`./assets/tags-index.json`)
+  }
+    return this.http.get<{name: string, count: number}[]>(`./api/posts/tags`);
   }
 
 }

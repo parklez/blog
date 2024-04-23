@@ -60,4 +60,9 @@ export class PostReaderComponent implements OnInit{
     });
   }
 
+  goBack(): void {
+    document.documentElement.scrollTop = 0;
+    history.back();
+  }
+
 }

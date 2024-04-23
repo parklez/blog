@@ -1,5 +1,6 @@
 ---
 title: Creating a scrolling text bar effect for special announcements!
+tags: angular, css
 ---
 
 Inspired by Let It Die's interface, I wanted to add a scrolling text bar on the top of my homepage whenever I had something important going on that my visitors might want to know. \

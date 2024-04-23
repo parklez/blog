@@ -69,5 +69,64 @@ function compilePages(fileNamePrefix, contentDir, readFunction, itemsPerPage = 1
   });
 }
 
+function readPostTags(filename) {
+  const fileContent = fs.readFileSync(path.join(postsDirectory, filename), "utf8");
+  const frontMatter = fm(fileContent);
+  const [published, postTitle] = parseFileName(filename);
+
+  return {
+    _id: filename,
+    title: frontMatter.attributes.title || postTitle.slice(0, -3).replaceAll("-", " "),
+    tags: frontMatter.attributes.tags.replace(' ', '').split(',') || ['uncategorized'],
+    published: published,
+  };
+}
+
+function compileTags(fileNamePrefix, contentDir, readFunction) {
+  const tags = {};
+
+  const content = fs
+    .readdirSync(contentDir)
+    .filter((filename) => filename.endsWith('.md'))
+    .map((filename) => readFunction(filename))
+    .sort((a, b) => new Date(b.published) - new Date(a.published))
+
+  content.forEach((post) => {
+    const year = new Date(post.published).getFullYear();
+
+    post.tags.forEach((tag) => {
+      tags[tag] = tags[tag] || [];
+      tags[tag].push(post);
+    });
+
+    tags[year] = tags[year] || [];
+    tags[year].push(post);
+  })
+
+  Object.keys(tags).forEach((tag) => {
+    fs.writeFileSync(
+      path.join(__dirname, `/src/assets/${fileNamePrefix}-${tag}.json`),
+      JSON.stringify({
+        results: tags[tag],
+        name: tag,
+        total: tags[tag].length,
+      })
+    );
+  })
+
+  tagsIndex = [];
+  Object.keys(tags).forEach((tag) => {
+    tagsIndex.push({
+      name: tag,
+      count: tags[tag].length
+    })
+    fs.writeFileSync(
+      path.join(__dirname, `/src/assets/${fileNamePrefix}-index.json`),
+      JSON.stringify(tagsIndex)
+    );
+  })
+}
+
+compileTags("tags", postsDirectory, readPostTags);
 compilePages("projects", projectsDirectory, readProject);
 compilePages("posts", postsDirectory, readPost);

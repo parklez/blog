@@ -1,5 +1,6 @@
 ---
 title: AI / My notes are well titled, now It's time to search through them!
+tags: ai
 ---
 I just recently used [Codeium](https://codeium.com/) to fix my curiosity of "AI" to assist me in my personal coding sessions, and well, it does help with some optimization or suggesting better names but if I didn't know any better it wouldn't be able to write something decent out of it. Overall a fun/productive thing I'll have around for now.
 

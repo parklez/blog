@@ -1,5 +1,6 @@
 ---
 title: Github Actions is impressive
+tags: github
 ---
 I had few job oppotunities arriving at my LinkedIn page recently for DevOps careers and I realized I'm not well acquainted with the variety of tools out there - I've only been using Travis (really simple things) and the in-house solution my company is doing at the moment.
 

@@ -1,5 +1,6 @@
 ---
 title: Hosting static Github Pages with routing
+tags: github, angular
 ---
 After a ton of trial and error, turns out Github fetches urls directly as if fetching files, e.g. "/posts/some-file" instead of working like you'd expect in a server running NodeJS/Express for example.
 
