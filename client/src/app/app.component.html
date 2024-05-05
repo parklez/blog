@@ -1,0 +1,28 @@
+<div id="notifications">
+  <app-toasty-notification></app-toasty-notification>
+</div>
+<div id="page">
+  <div id="user-area">
+    <!-- Could this component be written on the header itself?
+    It's been a pain to make sure this piece floats on the top right -->
+    <app-user-area *ngIf="static"></app-user-area>
+  </div>
+  <div id="header">
+    <app-header></app-header>
+  </div>
+  <nav id="navigation-bar" role="navigation" class="navbar">
+    <img class="panda" src="./assets/logo.png" alt="">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a routerLink="" routerLinkActive="active-nav" [routerLinkActiveOptions]="{ exact: true }" role="button" class="button nav-item"> Home </a>
+          <a routerLink="projects" routerLinkActive="active-nav" role="button" class="button nav-item"> Players </a>
+        </div>
+      </div>
+  </nav>
+  <div id="main-content">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="filters" class="box">
+  <h1 class="title is-4">Search for players by rank</h1>
+  <div class="select">
+    <select
+    #game
+    (change)="onChangeGame($event)">
+      <option default>Pick a game</option>
+      <option *ngFor="let game of games">{{game.game}}</option>
+    </select>
+  </div>
+  <div class="select">
+    <select #rank (change)="onChangeRank($event)">
+      <option default>Any Rank</option>
+      <option *ngFor="let rank of ranks">{{rank}}</option>
+    </select>
+  </div>
+  <button id="search-button" class="button" (click)="searchPlayers()">Search</button>
+</div>
+<div *ngIf="players.length > 0" class="box">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>In-game nickname</th>
+        <th>Game</th>
+        <th>Rank</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{player.firstname}}</td>
+        <td>{{player.username}}</td>
+        <td>{{player.game}}</td>
+        <td>{{player.rank}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

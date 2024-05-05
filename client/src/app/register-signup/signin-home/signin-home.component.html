@@ -1,0 +1,55 @@
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()" id="main">
+    <h4 class="title is-4">
+        Sign Up - Register account
+    </h4>
+    <hr>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="Username" formControlName="username">
+            <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password" formControlName="password">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </p>
+    </div>
+    <hr>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="First Name" formControlName="firstname">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </p>
+    </div>
+    <div class="field">
+      <div class="select">
+        <select (change)="onChangeGame($event)" formControlName="game">
+            <option value="none" selected>-- Select an Option --</option> 
+            <option *ngFor="let game of games">{{game.game}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" *ngIf="signinForm.get('game')?.value">
+      <div class="select">
+        <select formControlName="rank">
+            <option value="none" selected>-- Select an Option --</option> 
+            <option *ngFor="let rank of ranks">{{rank}}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="field" id="button-right-container">
+        <p class="control">
+            <button class="button" type="submit" [disabled]="!signinForm.valid">
+                Register
+            </button>
+        </p>
+    </div>
+</form>

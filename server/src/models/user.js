@@ -5,6 +5,9 @@ const userSchema = new mongoose.Schema(
   {
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true},
+    firstname: {type: String, required: true},
+    rank: {type: String, required: true},
+    game: {type: String, required: true},
     createdAt: {type: Date, default: Date.now},
     token: {type: String},
   },

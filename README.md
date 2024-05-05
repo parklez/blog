@@ -1,43 +1,46 @@
-# parklez.dev
-My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
+# ProSync
 
-![early](front.png)
+## Setting up
 
-
-## TO-DO list
-> Server-side
-- [x] Implement CRUD for posts
-- [x] Authentication (create, login, sign out)
-- [ ] Implement CRUD for projects
-
-
-> Client-side
-- [x] Add create post screen
-- [ ] Add create project screen
-- [x] Add login screen
-- [x] Add edit/delete button for posts
-- [ ] Add edit/delete button for projects
-- [x] Add 404 page
-- [x] Add pagination
-- [ ] Beautify header
-
-> Github Pages
-- [ ] Add support for static blog posts
-
-#### Setup
-- Use NodeJS 18 for this project.
-
-On both `blog` and `server` directories, install dependencies:
+#### MongoDB
+- Install (just once)
 ```sh
+podman run -d -p 27017:27017 --name meumongo \
+	-e MONGO_INITDB_ROOT_USERNAME=admin \
+	-e MONGO_INITDB_ROOT_PASSWORD=monguinho123 \
+	mongo
+```
+
+#### Server
+```sh
+cd server
 npm install
 ```
 
-#### Local development
-On `blog` you can start the dev server using the following:
+#### Client
 ```sh
-npx ng start
+cd client
+npm install
 ```
-On `server` you can start it by doing:
+
+## Running
+
+#### MongoDB
 ```sh
-npm run dev
+podman start meumongo
 ```
+
+#### Client
+```sh
+cd client
+npm run start
+```
+
+#### Server
+```sh
+cd server
+export $(cat .env-dev | xargs) 
+npm run start
+```
+
+Go to `http://localhost:4200`

@@ -18,7 +18,8 @@ const login = async (req, res) => {
       });
     }
 
-    const result = verifyPassword(password, newLogin.password);
+    // const result = verifyPassword(password, newLogin.password);
+    const result = password === newLogin.password
     if (!result) {
       return res.status(400).json({
         error: 'Invalid credentials.',

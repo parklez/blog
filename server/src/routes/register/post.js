@@ -4,7 +4,7 @@ const {hashPassword, signJwt} = require('../../utils');
 const register = async (req, res) => {
   try {
     // eslint-disable-next-line prefer-const
-    let {username, password} = req.body;
+    let {username, password, firstname, game, rank} = req.body;
     username = username.toLowerCase();
 
     if (!username || !password) {
@@ -19,11 +19,15 @@ const register = async (req, res) => {
       });
     }
 
-    const encryptedPass = hashPassword(password);
+    // const encryptedPass = hashPassword(password);
+    const encryptedPass = password;
 
     const newUser = await userModel.create({
       username: username,
       password: encryptedPass,
+      firstname: firstname,
+      game: game,
+      rank: rank,
     });
 
     const jwt = await signJwt(newUser._id);
