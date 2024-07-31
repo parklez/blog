@@ -8,7 +8,7 @@ import {
   ɵɵelementEnd,
   ɵɵelementStart,
   ɵɵtext
-} from "./chunk-LBCE36CT.js";
+} from "./chunk-RB76LCDH.js";
 
 // src/app/about/about-home/about-home.component.ts
 var _AboutHomeComponent = class _AboutHomeComponent {
@@ -63,4 +63,4 @@ var AboutModule = _AboutModule;
 export {
   AboutModule
 };
-//# sourceMappingURL=about.module-3DCJDI37.js.map
+//# sourceMappingURL=about.module-QWQDDXMD.js.map

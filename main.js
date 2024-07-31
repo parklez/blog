@@ -6,13 +6,14 @@ import {
   ToastyNotificationComponent,
   UserAreaComponent,
   environment
-} from "./chunk-B4JF42AW.js";
+} from "./chunk-32RBURP6.js";
 import {
   AuthenticationService
-} from "./chunk-K3OYZ5CD.js";
+} from "./chunk-LA75226S.js";
 import {
   BrowserModule,
   HTTP_INTERCEPTORS,
+  HttpClientModule,
   NgIf,
   RouterLink,
   RouterLinkActive,
@@ -20,8 +21,6 @@ import {
   RouterOutlet,
   enableProdMode,
   platformBrowser,
-  provideHttpClient,
-  withInterceptorsFromDi,
   ɵsetClassDebugInfo,
   ɵɵadvance,
   ɵɵdefineComponent,
@@ -37,7 +36,7 @@ import {
   ɵɵpureFunction0,
   ɵɵtemplate,
   ɵɵtext
-} from "./chunk-LBCE36CT.js";
+} from "./chunk-RB76LCDH.js";
 
 // src/app/app-routing.module.ts
 var routes = [
@@ -51,23 +50,23 @@ var routes = [
   {
     // Is lazy-loading every module the best approach?
     path: "",
-    loadChildren: () => import("./home.module-3563FMRT.js").then((m) => m.HomeModule)
+    loadChildren: () => import("./home.module-IQRWPX36.js").then((m) => m.HomeModule)
   },
   {
     path: "projects",
-    loadChildren: () => import("./projects.module-OTMIUPEJ.js").then((m) => m.ProjectsModule)
+    loadChildren: () => import("./projects.module-Q2THQASM.js").then((m) => m.ProjectsModule)
   },
   {
     path: "about",
-    loadChildren: () => import("./about.module-3DCJDI37.js").then((m) => m.AboutModule)
+    loadChildren: () => import("./about.module-QWQDDXMD.js").then((m) => m.AboutModule)
   },
   {
     path: "login",
-    loadChildren: () => import("./login-signin.module-DOO5KX3T.js").then((m) => m.LoginSigninModule)
+    loadChildren: () => import("./login-signin.module-YE7WSTRX.js").then((m) => m.LoginSigninModule)
   },
   {
     path: "signup",
-    loadChildren: () => import("./register-signup.module-BWGVZYSB.js").then((m) => m.RegisterSignupModule)
+    loadChildren: () => import("./register-signup.module-W3I62TMG.js").then((m) => m.RegisterSignupModule)
   },
   {
     path: "not-found",
@@ -178,10 +177,10 @@ _AppModule.\u0275fac = function AppModule_Factory(t) {
 };
 _AppModule.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({ type: _AppModule, bootstrap: [AppComponent] });
 _AppModule.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({ providers: [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  provideHttpClient(withInterceptorsFromDi())
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 ], imports: [
   BrowserModule,
+  HttpClientModule,
   // Commenting these out in order to implement 'lazy-loading'
   // HomeModule,
   // ProjectsModule,

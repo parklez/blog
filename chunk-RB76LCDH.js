@@ -35901,8 +35901,7 @@ export {
   HttpParams,
   HttpClient,
   HTTP_INTERCEPTORS,
-  provideHttpClient,
-  withInterceptorsFromDi,
+  HttpClientModule,
   platformBrowser,
   BrowserModule,
   DomSanitizer,
@@ -36009,4 +36008,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-LBCE36CT.js.map
+//# sourceMappingURL=chunk-RB76LCDH.js.map

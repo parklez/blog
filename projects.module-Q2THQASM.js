@@ -2,10 +2,10 @@ import {
   NotFoundComponent,
   SharedModule,
   environment
-} from "./chunk-B4JF42AW.js";
+} from "./chunk-32RBURP6.js";
 import {
   ToastyService
-} from "./chunk-K3OYZ5CD.js";
+} from "./chunk-LA75226S.js";
 import {
   BehaviorSubject,
   CommonModule,
@@ -38,7 +38,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-LBCE36CT.js";
+} from "./chunk-RB76LCDH.js";
 
 // src/app/shared/services/projects.service.ts
 var _ProjectsService = class _ProjectsService {
@@ -350,4 +350,4 @@ var ProjectsModule = _ProjectsModule;
 export {
   ProjectsModule
 };
-//# sourceMappingURL=projects.module-OTMIUPEJ.js.map
+//# sourceMappingURL=projects.module-Q2THQASM.js.map
