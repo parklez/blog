@@ -3,9 +3,7 @@
 
 html {
   padding-bottom: 2rem;
-  /* https://github.com/angular/angular-cli/issues/12797#issuecomment-598559534
-  https://github.com/angular/angular/issues/32811 */
-  background-image: url("^./assets/wallhaven-4yzpxg.jpg");
+  background-image: url("./assets/cyberpunk_pandas.jpeg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
