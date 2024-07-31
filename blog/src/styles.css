@@ -2,7 +2,6 @@
 @import "bulma/css/bulma.css";
 
 html {
-  padding-top: 2rem;
   padding-bottom: 2rem;
   /* https://github.com/angular/angular-cli/issues/12797#issuecomment-598559534
   https://github.com/angular/angular/issues/32811 */
