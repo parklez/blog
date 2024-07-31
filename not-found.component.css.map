@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/not-found/not-found.component.css"],
+  "sourcesContent": [".center {\n  padding: 1rem;\n  text-align: center;\n}\n\nh1 {\n  color: aliceblue;\n}\n\ndiv {\n  margin: 0rem 4rem 1rem 4rem;\n}"],
+  "mappings": ";AAAA,CAAC;AACC,WAAS;AACT,cAAY;AACd;AAEA;AACE,SAAO;AACT;AAEA;AACE,UAAQ,KAAK,KAAK,KAAK;AACzB;",
+  "names": []
+}

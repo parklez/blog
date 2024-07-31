@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/header/header.component.css"],
+  "sourcesContent": ["div h1 {\n    color: rgb(221, 55, 79);\n    padding: 3rem 3rem 3rem 3rem;\n    text-align: left;\n    text-shadow: 1px 1px #000000;\n}"],
+  "mappings": ";AAAA,IAAI;AACA,SAAO,IAAI,GAAG,EAAE,EAAE,EAAE;AACpB,WAAS,KAAK,KAAK,KAAK;AACxB,cAAY;AACZ,eAAa,IAAI,IAAI;AACzB;",
+  "names": []
+}

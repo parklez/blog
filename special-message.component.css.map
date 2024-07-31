@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/special-message/special-message.component.css"],
+  "sourcesContent": [".marquee {\n    width: 100%;\n    /* This prevents longer text from being wrapped */\n    white-space: nowrap;\n    /* This hides overflown text from the container */\n    overflow: hidden;\n    /* This helps the child paragraph to be properly padded \n    https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */\n    box-sizing: border-box;\n    padding: 0rem 1rem 1rem 1rem;\n}\n\n.marquee p {\n    /* This helps the div to expand based on the text size\n    https://stackoverflow.com/a/61414571 */\n    display: inline-block;\n    /* Sets the start position at the hidden right edge of the container */\n    padding-left: calc(100% + 1rem);\n    padding-right: 1rem;\n    animation: marquee 20s linear infinite;\n    text-shadow: 1px 1px #000;\n    color: rgb(246, 255, 198);\n    font-weight: bold;\n}\n\n@keyframes marquee {\n    0% {\n        transform: translate(0, 0);\n    }\n\n    100% {\n        transform: translate(-100%, 0);\n    }\n}"],
+  "mappings": ";AAAA,CAAC;AACG,SAAO;AAEP,eAAa;AAEb,YAAU;AAGV,cAAY;AACZ,WAAS,KAAK,KAAK,KAAK;AAC5B;AAEA,CAZC,QAYQ;AAGL,WAAS;AAET,gBAAc,KAAK,KAAK,EAAE;AAC1B,iBAAe;AACf,aAAW,QAAQ,IAAI,OAAO;AAC9B,eAAa,IAAI,IAAI;AACrB,SAAO,IAAI,GAAG,EAAE,GAAG,EAAE;AACrB,eAAa;AACjB;AAEA,WAzBC;AA0BG;AACI,eAAW,UAAU,CAAC,EAAE;AAC5B;AAEA;AACI,eAAW,UAAU,KAAK,EAAE;AAChC;AACJ;",
+  "names": []
+}

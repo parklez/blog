@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/user-area/user-area.component.css"],
+  "sourcesContent": ["\n#login {\n    float: right;\n    padding: 0.5rem;\n    background-color: rgba(0, 0, 0, 0.338);\n    backdrop-filter: blur(10px);\n    border-radius: 6px;\n}\n\na {\n    color: pink;\n}"],
+  "mappings": ";AACA,CAAC;AACG,SAAO;AACP,WAAS;AACT,oBAAkB,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AAChC,2BAAiB,KAAK;AAAtB,mBAAiB,KAAK;AACtB,iBAAe;AACnB;AAEA;AACI,SAAO;AACX;",
+  "names": []
+}

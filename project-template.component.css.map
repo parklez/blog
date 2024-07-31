@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/projects/project-template/project-template.component.css"],
+  "sourcesContent": ["a.box {\n    padding: 0.75rem;\n    padding-top: 0.5rem;\n}\n\narticle {\n    position: relative;\n}\n\na.box:hover, a.box:focus {\n    box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%), 0 0 0 1px #b6ff79;\n}\n\n#corner {\n    display: block;\n    position: absolute;\n    color: #4a4a4a;\n    z-index: 1;\n    text-align: center;\n    bottom: 0%;\n    right: 0%;\n    padding: 0rem 0.5rem;\n    border-radius: 6px;\n}\n\n#title {\n    color: rgba(255, 255, 255, 0.711);\n    padding: 0rem;\n    white-space: nowrap;\n    overflow: hidden;\n}"],
+  "mappings": ";AAAA,CAAC,CAAC;AACE,WAAS;AACT,eAAa;AACjB;AAEA;AACI,YAAU;AACd;AAEA,CAAC,CATC,GASG;AAAQ,CAAC,CATZ,GASgB;AACd,cAAY,EAAE,MAAM,IAAI,SAAS,IAAI,IAAI,IAAI,IAAI,EAAE,IAAI,EAAE,EAAE,EAAE,EAAE,IAAI;AACvE;AAEA,CAAC;AACG,WAAS;AACT,YAAU;AACV,SAAO;AACP,WAAS;AACT,cAAY;AACZ,UAAQ;AACR,SAAO;AACP,WAAS,KAAK;AACd,iBAAe;AACnB;AAEA,CAAC;AACG,SAAO,KAAK,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE;AAC3B,WAAS;AACT,eAAa;AACb,YAAU;AACd;",
+  "names": []
+}

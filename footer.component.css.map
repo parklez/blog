@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/footer/footer.component.css"],
+  "sourcesContent": [".footer {\n    background-color: rgba(0, 0, 0, 0.338);\n    padding: 3rem;\n    color: white;\n    backdrop-filter: blur(10px);\n    border-radius: 6px;\n}\n\na {\n    padding-right: 2rem;\n    color: white;\n}\n\na:hover {\n    color: rgb(202, 236, 174);\n}"],
+  "mappings": ";AAAA,CAAC;AACG,oBAAkB,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AAChC,WAAS;AACT,SAAO;AACP,2BAAiB,KAAK;AAAtB,mBAAiB,KAAK;AACtB,iBAAe;AACnB;AAEA;AACI,iBAAe;AACf,SAAO;AACX;AAEA,CAAC;AACG,SAAO,IAAI,GAAG,EAAE,GAAG,EAAE;AACzB;",
+  "names": []
+}

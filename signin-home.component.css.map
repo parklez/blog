@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/register-signup/signin-home/signin-home.component.css"],
+  "sourcesContent": ["#main {\n    max-width: 30rem;\n    margin: auto;\n    background-color: rgba(0, 0, 0, 0.338);\n    padding: 2rem;\n    border-radius: 6px;\n}\n\nh4 {\n    color: rgb(255, 241, 181);\n}\n\n#button-right-container::after {\n    content: \"\";\n    display: block;\n    clear: both;\n}\n\nbutton {\n    float:right;\n}\n\nhr {\n    background-color: rgba(52, 52, 52, 0.8);\n}\n\n#terms {\n    color: rgba(52, 52, 52, 0.8);\n}"],
+  "mappings": ";AAAA,CAAC;AACG,aAAW;AACX,UAAQ;AACR,oBAAkB,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AAChC,WAAS;AACT,iBAAe;AACnB;AAEA;AACI,SAAO,IAAI,GAAG,EAAE,GAAG,EAAE;AACzB;AAEA,CAAC,sBAAsB;AACnB,WAAS;AACT,WAAS;AACT,SAAO;AACX;AAEA;AACI,SAAM;AACV;AAEA;AACI,oBAAkB,KAAK,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE;AACvC;AAEA,CAAC;AACG,SAAO,KAAK,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE;AAC5B;",
+  "names": []
+}

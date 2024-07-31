@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/projects/projects-home/projects-home.component.css"],
+  "sourcesContent": ["#filters {\n    background-color: rgba(0, 0, 0, 0.338);\n}"],
+  "mappings": ";AAAA,CAAC;AACG,oBAAkB,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AACpC;",
+  "names": []
+}
