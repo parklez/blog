@@ -3,7 +3,7 @@ import {
   SharedModule,
   SpecialMessageComponent,
   environment
-} from "./chunk-32RBURP6.js";
+} from "./chunk-GFOHXGKE.js";
 import {
   DefaultValueAccessor,
   FormControlName,
@@ -15,11 +15,11 @@ import {
   UntypedFormGroup,
   Validators,
   ɵNgNoValidate
-} from "./chunk-VYYQ6R2T.js";
+} from "./chunk-J4XXIY4M.js";
 import {
   AuthenticationService,
   ToastyService
-} from "./chunk-LA75226S.js";
+} from "./chunk-IQUIHAZP.js";
 import {
   ActivatedRoute,
   BehaviorSubject,
@@ -79,7 +79,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-RB76LCDH.js";
+} from "./chunk-E5V2QDAB.js";
 
 // node_modules/js-yaml/lib/js-yaml/common.js
 var require_common = __commonJS({
@@ -2905,7 +2905,7 @@ var require_front_matter = __commonJS({
 
 // src/app/shared/services/posts.service.ts
 var import_front_matter = __toESM(require_front_matter());
-var _PostsService = class _PostsService {
+var PostsService = class _PostsService {
   constructor(http) {
     this.http = http;
     this.postList = new BehaviorSubject({ results: [], total: 0, page: 0 });
@@ -2997,12 +2997,15 @@ var _PostsService = class _PostsService {
     }
     return this.http.get(`./api/posts/tags`);
   }
+  static {
+    this.\u0275fac = function PostsService_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _PostsService)(\u0275\u0275inject(HttpClient));
+    };
+  }
+  static {
+    this.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _PostsService, factory: _PostsService.\u0275fac, providedIn: "root" });
+  }
 };
-_PostsService.\u0275fac = function PostsService_Factory(t) {
-  return new (t || _PostsService)(\u0275\u0275inject(HttpClient));
-};
-_PostsService.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _PostsService, factory: _PostsService.\u0275fac, providedIn: "root" });
-var PostsService = _PostsService;
 
 // src/app/home/post-editor/post-editor.component.ts
 function PostEditorComponent_form_0_Template(rf, ctx) {
@@ -3080,7 +3083,7 @@ function PostEditorComponent_div_1_Template(rf, ctx) {
     \u0275\u0275property("isPreview", true)("post", ctx_r1.getEditedPost());
   }
 }
-var _PostEditorComponent = class _PostEditorComponent {
+var PostEditorComponent = class _PostEditorComponent {
   constructor(postsService, toast) {
     this.postsService = postsService;
     this.toast = toast;
@@ -3141,23 +3144,26 @@ var _PostEditorComponent = class _PostEditorComponent {
   getEditedPost() {
     return __spreadProps(__spreadValues({}, this.post), { title: this.postForm.value.title, content: this.postForm.value.content });
   }
-};
-_PostEditorComponent.\u0275fac = function PostEditorComponent_Factory(t) {
-  return new (t || _PostEditorComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService));
-};
-_PostEditorComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostEditorComponent, selectors: [["app-post-editor"]], inputs: { post: "post" }, outputs: { postChange: "postChange", cancelFunction: "cancelFunction" }, decls: 2, vars: 2, consts: [[3, "formGroup", "ngSubmit", 4, "ngIf"], [4, "ngIf"], [3, "ngSubmit", "formGroup"], [1, "label"], [1, "field"], [1, "control"], ["type", "text", "placeholder", "Title", "formControlName", "title", 1, "input"], ["placeholder", "...", "formControlName", "content", 1, "textarea"], [1, "field", "is-grouped"], ["type", "submit", 1, "button", "is-link", 3, "disabled"], ["type", "reset", 1, "button", "is-danger", "is-light", 3, "click"], ["type", "button", 1, "button", "is-warning", 3, "click", "disabled"], ["href", "https://www.markdownguide.org/basic-syntax/", "target", "_blank"], [3, "isPreview", "post"], ["type", "button", 1, "button", "is-warning", 3, "click"]], template: function PostEditorComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275template(0, PostEditorComponent_form_0_Template, 23, 5, "form", 0)(1, PostEditorComponent_div_1_Template, 6, 2, "div", 1);
+  static {
+    this.\u0275fac = function PostEditorComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _PostEditorComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService));
+    };
   }
-  if (rf & 2) {
-    \u0275\u0275property("ngIf", !ctx.isPreview);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.isPreview);
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostEditorComponent, selectors: [["app-post-editor"]], inputs: { post: "post" }, outputs: { postChange: "postChange", cancelFunction: "cancelFunction" }, standalone: false, decls: 2, vars: 2, consts: [[3, "formGroup", "ngSubmit", 4, "ngIf"], [4, "ngIf"], [3, "ngSubmit", "formGroup"], [1, "label"], [1, "field"], [1, "control"], ["type", "text", "placeholder", "Title", "formControlName", "title", 1, "input"], ["placeholder", "...", "formControlName", "content", 1, "textarea"], [1, "field", "is-grouped"], ["type", "submit", 1, "button", "is-link", 3, "disabled"], ["type", "reset", 1, "button", "is-danger", "is-light", 3, "click"], ["type", "button", 1, "button", "is-warning", 3, "click", "disabled"], ["href", "https://www.markdownguide.org/basic-syntax/", "target", "_blank"], [3, "isPreview", "post"], ["type", "button", 1, "button", "is-warning", 3, "click"]], template: function PostEditorComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275template(0, PostEditorComponent_form_0_Template, 23, 5, "form", 0)(1, PostEditorComponent_div_1_Template, 6, 2, "div", 1);
+      }
+      if (rf & 2) {
+        \u0275\u0275property("ngIf", !ctx.isPreview);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.isPreview);
+      }
+    }, styles: ["\n\n.label[_ngcontent-%COMP%] {\n  color: rgb(247, 255, 210);\n}\n/*# sourceMappingURL=post-editor.component.css.map */"] });
   }
-}, styles: ["\n\n.label[_ngcontent-%COMP%] {\n  color: rgb(247, 255, 210);\n}\n/*# sourceMappingURL=post-editor.component.css.map */"] });
-var PostEditorComponent = _PostEditorComponent;
+};
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostEditorComponent, { className: "PostEditorComponent", filePath: "src/app/home/post-editor/post-editor.component.ts", lineNumber: 12 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostEditorComponent, { className: "PostEditorComponent", filePath: "src/app/home/post-editor/post-editor.component.ts", lineNumber: 13 });
 })();
 
 // node_modules/marked/lib/marked.esm.js
@@ -5162,7 +5168,7 @@ var parser = _Parser.parse;
 var lexer = _Lexer.lex;
 
 // src/app/shared/pipes/markdown.pipe.ts
-var _MarkdownPipe = class _MarkdownPipe {
+var MarkdownPipe = class _MarkdownPipe {
   constructor(sanitizer) {
     this.sanitizer = sanitizer;
   }
@@ -5172,12 +5178,15 @@ var _MarkdownPipe = class _MarkdownPipe {
     }
     return value;
   }
+  static {
+    this.\u0275fac = function MarkdownPipe_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _MarkdownPipe)(\u0275\u0275directiveInject(DomSanitizer, 16));
+    };
+  }
+  static {
+    this.\u0275pipe = /* @__PURE__ */ \u0275\u0275definePipe({ name: "markdown", type: _MarkdownPipe, pure: true, standalone: false });
+  }
 };
-_MarkdownPipe.\u0275fac = function MarkdownPipe_Factory(t) {
-  return new (t || _MarkdownPipe)(\u0275\u0275directiveInject(DomSanitizer, 16));
-};
-_MarkdownPipe.\u0275pipe = /* @__PURE__ */ \u0275\u0275definePipe({ name: "markdown", type: _MarkdownPipe, pure: true });
-var MarkdownPipe = _MarkdownPipe;
 
 // src/app/home/post/post.component.ts
 function PostComponent_article_0_span_1_Template(rf, ctx) {
@@ -5349,7 +5358,7 @@ function PostComponent_app_post_editor_1_Template(rf, ctx) {
     \u0275\u0275twoWayProperty("post", ctx_r1.post);
   }
 }
-var _PostComponent = class _PostComponent {
+var PostComponent = class _PostComponent {
   constructor(postsService, auth, toast, element, renderer) {
     this.postsService = postsService;
     this.auth = auth;
@@ -5432,23 +5441,26 @@ var _PostComponent = class _PostComponent {
     navigator.clipboard.writeText(`${document.head.baseURI}${useHash}post/${this.post._id}`);
     this.toast.pushNewToasty("Copied to clipboard!", "is-dark", 1.5);
   }
-};
-_PostComponent.\u0275fac = function PostComponent_Factory(t) {
-  return new (t || _PostComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(AuthenticationService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Renderer2));
-};
-_PostComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostComponent, selectors: [["app-post"]], inputs: { post: "post", isPreview: "isPreview", isReaderMode: "isReaderMode" }, decls: 2, vars: 2, consts: [["class", "media-content", 4, "ngIf"], [3, "post", "postChange", "cancelFunction", 4, "ngIf"], [1, "media-content"], ["class", "show-on-hover", 4, "ngIf"], ["class", "expand-content", 4, "ngIf"], ["class", "show-on-hover", "style", "bottom: 0%", 4, "ngIf"], [3, "routerLink", "click", 4, "ngIf"], [4, "ngIf"], [1, "content", 3, "innerHTML"], [1, "show-on-hover"], [3, "click"], [1, "expand-content"], [1, "show-on-hover", 2, "bottom", "0%"], [3, "click", "routerLink"], [1, "dash"], [3, "postChange", "cancelFunction", "post"]], template: function PostComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275template(0, PostComponent_article_0_Template, 11, 9, "article", 0)(1, PostComponent_app_post_editor_1_Template, 1, 1, "app-post-editor", 1);
+  static {
+    this.\u0275fac = function PostComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _PostComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(AuthenticationService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Renderer2));
+    };
   }
-  if (rf & 2) {
-    \u0275\u0275property("ngIf", !ctx.isEditorOpen);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.isEditorOpen);
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostComponent, selectors: [["app-post"]], inputs: { post: "post", isPreview: "isPreview", isReaderMode: "isReaderMode" }, standalone: false, decls: 2, vars: 2, consts: [["class", "media-content", 4, "ngIf"], [3, "post", "postChange", "cancelFunction", 4, "ngIf"], [1, "media-content"], ["class", "show-on-hover", 4, "ngIf"], ["class", "expand-content", 4, "ngIf"], ["class", "show-on-hover", "style", "bottom: 0%", 4, "ngIf"], [3, "routerLink", "click", 4, "ngIf"], [4, "ngIf"], [1, "content", 3, "innerHTML"], [1, "show-on-hover"], [3, "click"], [1, "expand-content"], [1, "show-on-hover", 2, "bottom", "0%"], [3, "click", "routerLink"], [1, "dash"], [3, "postChange", "cancelFunction", "post"]], template: function PostComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275template(0, PostComponent_article_0_Template, 11, 9, "article", 0)(1, PostComponent_app_post_editor_1_Template, 1, 1, "app-post-editor", 1);
+      }
+      if (rf & 2) {
+        \u0275\u0275property("ngIf", !ctx.isEditorOpen);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.isEditorOpen);
+      }
+    }, dependencies: [NgIf, RouterLink, PostEditorComponent, DatePipe, MarkdownPipe], styles: ["\n\nstrong[_ngcontent-%COMP%] {\n  color: rgb(204, 216, 248);\n}\nsmall[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\n.dash[_ngcontent-%COMP%] {\n  color: rgb(203, 198, 192);\n}\narticle[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  overflow-wrap: break-word;\n}\n.show-on-hover[_ngcontent-%COMP%] {\n  display: none;\n  position: absolute;\n  right: 0%;\n  color: #4a4a4a;\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n}\n.expand-content[_ngcontent-%COMP%] {\n  display: block;\n  position: absolute;\n  bottom: 0%;\n  left: 50%;\n  transform: translate(-50%);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n  color: #4a4a4a;\n}\n.collapsed[_ngcontent-%COMP%] {\n  max-height: 12rem;\n}\n.expand-content[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\narticle[_ngcontent-%COMP%]:hover   .show-on-hover[_ngcontent-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=post.component.css.map */"] });
   }
-}, dependencies: [NgIf, RouterLink, PostEditorComponent, DatePipe, MarkdownPipe], styles: ["\n\nstrong[_ngcontent-%COMP%] {\n  color: rgb(204, 216, 248);\n}\nsmall[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\n.dash[_ngcontent-%COMP%] {\n  color: rgb(203, 198, 192);\n}\narticle[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  overflow-wrap: break-word;\n}\n.show-on-hover[_ngcontent-%COMP%] {\n  display: none;\n  position: absolute;\n  right: 0%;\n  color: #4a4a4a;\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n}\n.expand-content[_ngcontent-%COMP%] {\n  display: block;\n  position: absolute;\n  bottom: 0%;\n  left: 50%;\n  transform: translate(-50%);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n  color: #4a4a4a;\n}\n.collapsed[_ngcontent-%COMP%] {\n  max-height: 12rem;\n}\n.expand-content[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\narticle[_ngcontent-%COMP%]:hover   .show-on-hover[_ngcontent-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=post.component.css.map */"] });
-var PostComponent = _PostComponent;
+};
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostComponent, { className: "PostComponent", filePath: "src/app/home/post/post.component.ts", lineNumber: 14 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostComponent, { className: "PostComponent", filePath: "src/app/home/post/post.component.ts", lineNumber: 15 });
 })();
 
 // src/app/home/home-page/home-page.component.ts
@@ -5536,7 +5548,7 @@ function HomePageComponent_ng_container_16_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" (", tag_r5.count, ")");
   }
 }
-var _HomePageComponent = class _HomePageComponent {
+var HomePageComponent = class _HomePageComponent {
   constructor(postsService, toast, auth, route, router) {
     this.postsService = postsService;
     this.toast = toast;
@@ -5606,46 +5618,49 @@ var _HomePageComponent = class _HomePageComponent {
     this.getPosts(this.retrievedPosts.page + 1);
     this.router.navigate(["/posts"], { queryParams: { page: this.retrievedPosts.page + 1 } });
   }
-};
-_HomePageComponent.\u0275fac = function HomePageComponent_Factory(t) {
-  return new (t || _HomePageComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(AuthenticationService), \u0275\u0275directiveInject(ActivatedRoute), \u0275\u0275directiveInject(Router));
-};
-_HomePageComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HomePageComponent, selectors: [["app-home-page"]], decls: 17, vars: 6, consts: [["id", "content"], [3, "message"], [1, "columns", 2, "min-height", "35rem"], ["id", "page-content", 1, "column", "is-four-fifths"], ["id", "create-content", "class", "box", 4, "ngIf"], ["class", "box", 4, "ngIf"], ["class", "box", 4, "ngFor", "ngForOf"], ["class", "pagination", 4, "ngIf"], ["id", "side-panel", 1, "column", "is-one-fifth"], ["id", "about-panel", 1, "box"], [1, "title", "is-4"], ["id", "tags-panel", 1, "box"], [4, "ngFor", "ngForOf"], ["id", "create-content", 1, "box"], [3, "click"], [1, "box"], [3, "post"], [1, "pagination"], [1, "pagination-previous", 3, "click"], [1, "pagination-next", 3, "click"], [1, "tag", 3, "routerLink"]], template: function HomePageComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 0);
-    \u0275\u0275element(1, "app-special-message", 1);
-    \u0275\u0275elementStart(2, "div", 2)(3, "div", 3);
-    \u0275\u0275template(4, HomePageComponent_div_4_Template, 5, 0, "div", 4)(5, HomePageComponent_div_5_Template, 2, 0, "div", 5)(6, HomePageComponent_div_6_Template, 2, 1, "div", 6)(7, HomePageComponent_nav_7_Template, 5, 2, "nav", 7);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "div", 8)(9, "div", 9)(10, "h1", 10);
-    \u0275\u0275text(11, "Welcome ~");
-    \u0275\u0275elementEnd();
-    \u0275\u0275text(12, " You're in my personal blog where I write random articles and exibit my projects, thanks for visiting! ^_^ ");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "div", 11)(14, "h1", 10);
-    \u0275\u0275text(15, "Tags");
-    \u0275\u0275elementEnd();
-    \u0275\u0275template(16, HomePageComponent_ng_container_16_Template, 5, 4, "ng-container", 12);
-    \u0275\u0275elementEnd()()()();
+  static {
+    this.\u0275fac = function HomePageComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _HomePageComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(AuthenticationService), \u0275\u0275directiveInject(ActivatedRoute), \u0275\u0275directiveInject(Router));
+    };
   }
-  if (rf & 2) {
-    \u0275\u0275advance();
-    \u0275\u0275propertyInterpolate("message", ctx.message);
-    \u0275\u0275advance(3);
-    \u0275\u0275property("ngIf", ctx.isAuthenticated);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.isEditorOpen);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx.retrievedPosts.results);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.retrievedPosts.results.length);
-    \u0275\u0275advance(9);
-    \u0275\u0275property("ngForOf", ctx.tagsIndex);
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HomePageComponent, selectors: [["app-home-page"]], standalone: false, decls: 17, vars: 6, consts: [["id", "content"], [3, "message"], [1, "columns", 2, "min-height", "35rem"], ["id", "page-content", 1, "column", "is-four-fifths"], ["id", "create-content", "class", "box", 4, "ngIf"], ["class", "box", 4, "ngIf"], ["class", "box", 4, "ngFor", "ngForOf"], ["class", "pagination", 4, "ngIf"], ["id", "side-panel", 1, "column", "is-one-fifth"], ["id", "about-panel", 1, "box"], [1, "title", "is-4"], ["id", "tags-panel", 1, "box"], [4, "ngFor", "ngForOf"], ["id", "create-content", 1, "box"], [3, "click"], [1, "box"], [3, "post"], [1, "pagination"], [1, "pagination-previous", 3, "click"], [1, "pagination-next", 3, "click"], [1, "tag", 3, "routerLink"]], template: function HomePageComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "div", 0);
+        \u0275\u0275element(1, "app-special-message", 1);
+        \u0275\u0275elementStart(2, "div", 2)(3, "div", 3);
+        \u0275\u0275template(4, HomePageComponent_div_4_Template, 5, 0, "div", 4)(5, HomePageComponent_div_5_Template, 2, 0, "div", 5)(6, HomePageComponent_div_6_Template, 2, 1, "div", 6)(7, HomePageComponent_nav_7_Template, 5, 2, "nav", 7);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(8, "div", 8)(9, "div", 9)(10, "h1", 10);
+        \u0275\u0275text(11, "Welcome ~");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(12, " You're in my personal blog where I write random articles and exibit my projects, thanks for visiting! ^_^ ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(13, "div", 11)(14, "h1", 10);
+        \u0275\u0275text(15, "Tags");
+        \u0275\u0275elementEnd();
+        \u0275\u0275template(16, HomePageComponent_ng_container_16_Template, 5, 4, "ng-container", 12);
+        \u0275\u0275elementEnd()()()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance();
+        \u0275\u0275propertyInterpolate("message", ctx.message);
+        \u0275\u0275advance(3);
+        \u0275\u0275property("ngIf", ctx.isAuthenticated);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.isEditorOpen);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngForOf", ctx.retrievedPosts.results);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.retrievedPosts.results.length);
+        \u0275\u0275advance(9);
+        \u0275\u0275property("ngForOf", ctx.tagsIndex);
+      }
+    }, dependencies: [NgForOf, NgIf, RouterLink, SpecialMessageComponent, PostComponent, PostEditorComponent], styles: ["\n\n#about-panel[_ngcontent-%COMP%] {\n  background-color: rgba(163, 163, 198, 0.4);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n}\n#about-panel[_ngcontent-%COMP%]    > h1[_ngcontent-%COMP%] {\n  color: #e4edff;\n  padding-bottom: 0.75rem;\n  text-shadow: 1px 1px #000;\n}\n#tags-panel[_ngcontent-%COMP%] {\n  background-color: rgba(255, 223, 211, 0.2);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n}\n#tags-panel[_ngcontent-%COMP%]    > h1[_ngcontent-%COMP%] {\n  color: rgb(255, 234, 216);\n  padding-bottom: 0.75rem;\n  margin-bottom: 0;\n  text-shadow: 1px 1px #000;\n}\n.tag[_ngcontent-%COMP%] {\n  margin-right: 0.25rem;\n}\na[_ngcontent-%COMP%]    > span[_ngcontent-%COMP%] {\n  margin-left: 0.25rem;\n  color: rgb(255, 255, 255);\n}\n#create-content[_ngcontent-%COMP%] {\n  margin-bottom: 1rem;\n  background-color: rgba(0, 0, 0, 0.338);\n  color: #4a4a4a;\n}\nnav[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  background-color: rgb(255, 255, 255);\n}\n.pagination-previous[disabled][_ngcontent-%COMP%], \n.pagination-next[disabled][_ngcontent-%COMP%], \n.pagination-link[disabled][_ngcontent-%COMP%] {\n  opacity: 0.8;\n}\n/*# sourceMappingURL=home-page.component.css.map */"] });
   }
-}, dependencies: [NgForOf, NgIf, RouterLink, SpecialMessageComponent, PostComponent, PostEditorComponent], styles: ["\n\n#about-panel[_ngcontent-%COMP%] {\n  background-color: rgba(163, 163, 198, 0.4);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  border-radius: 6px;\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n}\n#about-panel[_ngcontent-%COMP%]    > h1[_ngcontent-%COMP%] {\n  color: #e4edff;\n  padding-bottom: 0.75rem;\n  text-shadow: 1px 1px #000;\n}\n#tags-panel[_ngcontent-%COMP%] {\n  background-color: rgba(255, 223, 211, 0.2);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n}\n#tags-panel[_ngcontent-%COMP%]    > h1[_ngcontent-%COMP%] {\n  color: rgb(255, 234, 216);\n  padding-bottom: 0.75rem;\n  margin-bottom: 0;\n  text-shadow: 1px 1px #000;\n}\n.tag[_ngcontent-%COMP%] {\n  margin-right: 0.25rem;\n}\na[_ngcontent-%COMP%]    > span[_ngcontent-%COMP%] {\n  margin-left: 0.25rem;\n  color: rgb(255, 255, 255);\n}\n#create-content[_ngcontent-%COMP%] {\n  margin-bottom: 1rem;\n  background-color: rgba(0, 0, 0, 0.338);\n  color: #4a4a4a;\n}\nnav[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  background-color: rgb(255, 255, 255);\n}\n.pagination-previous[disabled][_ngcontent-%COMP%], \n.pagination-next[disabled][_ngcontent-%COMP%], \n.pagination-link[disabled][_ngcontent-%COMP%] {\n  opacity: 0.8;\n}\n/*# sourceMappingURL=home-page.component.css.map */"] });
-var HomePageComponent = _HomePageComponent;
+};
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HomePageComponent, { className: "HomePageComponent", filePath: "src/app/home/home-page/home-page.component.ts", lineNumber: 14 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HomePageComponent, { className: "HomePageComponent", filePath: "src/app/home/home-page/home-page.component.ts", lineNumber: 15 });
 })();
 
 // src/app/home/post-reader/post-reader.component.ts
@@ -5670,7 +5685,7 @@ function PostReaderComponent_app_not_found_3_Template(rf, ctx) {
     \u0275\u0275element(0, "app-not-found");
   }
 }
-var _PostReaderComponent = class _PostReaderComponent {
+var PostReaderComponent = class _PostReaderComponent {
   constructor(postsService, toast, route) {
     this.postsService = postsService;
     this.toast = toast;
@@ -5712,33 +5727,36 @@ var _PostReaderComponent = class _PostReaderComponent {
     document.documentElement.scrollTop = 0;
     history.back();
   }
-};
-_PostReaderComponent.\u0275fac = function PostReaderComponent_Factory(t) {
-  return new (t || _PostReaderComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(ActivatedRoute));
-};
-_PostReaderComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostReaderComponent, selectors: [["app-post-reader"]], decls: 6, vars: 3, consts: [["class", "box", 3, "post", "isReaderMode", 4, "ngIf"], ["class", "box", 4, "ngIf"], [4, "ngIf"], [1, "button", 3, "click"], [1, "box", 3, "post", "isReaderMode"], [1, "box"]], template: function PostReaderComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div");
-    \u0275\u0275template(1, PostReaderComponent_app_post_1_Template, 1, 2, "app-post", 0)(2, PostReaderComponent_div_2_Template, 2, 0, "div", 1)(3, PostReaderComponent_app_not_found_3_Template, 1, 0, "app-not-found", 2);
-    \u0275\u0275elementStart(4, "button", 3);
-    \u0275\u0275listener("click", function PostReaderComponent_Template_button_click_4_listener() {
-      return ctx.goBack();
-    });
-    \u0275\u0275text(5, "Go Back");
-    \u0275\u0275elementEnd()();
+  static {
+    this.\u0275fac = function PostReaderComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _PostReaderComponent)(\u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService), \u0275\u0275directiveInject(ActivatedRoute));
+    };
   }
-  if (rf & 2) {
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.success && !ctx.loading);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.loading);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx.success && !ctx.loading);
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PostReaderComponent, selectors: [["app-post-reader"]], standalone: false, decls: 6, vars: 3, consts: [["class", "box", 3, "post", "isReaderMode", 4, "ngIf"], ["class", "box", 4, "ngIf"], [4, "ngIf"], [1, "button", 3, "click"], [1, "box", 3, "post", "isReaderMode"], [1, "box"]], template: function PostReaderComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "div");
+        \u0275\u0275template(1, PostReaderComponent_app_post_1_Template, 1, 2, "app-post", 0)(2, PostReaderComponent_div_2_Template, 2, 0, "div", 1)(3, PostReaderComponent_app_not_found_3_Template, 1, 0, "app-not-found", 2);
+        \u0275\u0275elementStart(4, "button", 3);
+        \u0275\u0275listener("click", function PostReaderComponent_Template_button_click_4_listener() {
+          return ctx.goBack();
+        });
+        \u0275\u0275text(5, "Go Back");
+        \u0275\u0275elementEnd()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.success && !ctx.loading);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.loading);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", !ctx.success && !ctx.loading);
+      }
+    }, dependencies: [NgIf, NotFoundComponent, PostComponent], styles: ["\n\nbutton[_ngcontent-%COMP%] {\n  background-color: rgba(255, 255, 255, 0.2);\n  -webkit-backdrop-filter: blur(50px);\n  backdrop-filter: blur(50px);\n}\nbutton[_ngcontent-%COMP%]:hover {\n  color: #b6ff79;\n}\n/*# sourceMappingURL=post-reader.component.css.map */"] });
   }
-}, dependencies: [NgIf, NotFoundComponent, PostComponent], styles: ["\n\nbutton[_ngcontent-%COMP%] {\n  background-color: rgba(255, 255, 255, 0.2);\n  -webkit-backdrop-filter: blur(50px);\n  backdrop-filter: blur(50px);\n}\nbutton[_ngcontent-%COMP%]:hover {\n  color: #b6ff79;\n}\n/*# sourceMappingURL=post-reader.component.css.map */"] });
-var PostReaderComponent = _PostReaderComponent;
+};
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostReaderComponent, { className: "PostReaderComponent", filePath: "src/app/home/post-reader/post-reader.component.ts", lineNumber: 12 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PostReaderComponent, { className: "PostReaderComponent", filePath: "src/app/home/post-reader/post-reader.component.ts", lineNumber: 13 });
 })();
 
 // src/app/home/tags-page/tags-page.component.ts
@@ -5795,7 +5813,7 @@ function TagsPageComponent_app_not_found_2_Template(rf, ctx) {
     \u0275\u0275element(0, "app-not-found");
   }
 }
-var _TagsPageComponent = class _TagsPageComponent {
+var TagsPageComponent = class _TagsPageComponent {
   constructor(route, postsService, toast) {
     this.route = route;
     this.postsService = postsService;
@@ -5823,25 +5841,28 @@ var _TagsPageComponent = class _TagsPageComponent {
       }
     });
   }
-};
-_TagsPageComponent.\u0275fac = function TagsPageComponent_Factory(t) {
-  return new (t || _TagsPageComponent)(\u0275\u0275directiveInject(ActivatedRoute), \u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService));
-};
-_TagsPageComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TagsPageComponent, selectors: [["app-tags-page"]], decls: 3, vars: 3, consts: [[4, "ngIf"], ["class", "box", 4, "ngIf"], [1, "box"], [1, "title"], [4, "ngFor", "ngForOf"], [1, "alternating", 3, "routerLink"], [1, "dash"]], template: function TagsPageComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275template(0, TagsPageComponent_div_0_Template, 2, 0, "div", 0)(1, TagsPageComponent_div_1_Template, 4, 2, "div", 1)(2, TagsPageComponent_app_not_found_2_Template, 1, 0, "app-not-found", 0);
+  static {
+    this.\u0275fac = function TagsPageComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _TagsPageComponent)(\u0275\u0275directiveInject(ActivatedRoute), \u0275\u0275directiveInject(PostsService), \u0275\u0275directiveInject(ToastyService));
+    };
   }
-  if (rf & 2) {
-    \u0275\u0275property("ngIf", !ctx.success && ctx.loading);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx.success && !ctx.loading);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx.success && !ctx.loading);
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TagsPageComponent, selectors: [["app-tags-page"]], standalone: false, decls: 3, vars: 3, consts: [[4, "ngIf"], ["class", "box", 4, "ngIf"], [1, "box"], [1, "title"], [4, "ngFor", "ngForOf"], [1, "alternating", 3, "routerLink"], [1, "dash"]], template: function TagsPageComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275template(0, TagsPageComponent_div_0_Template, 2, 0, "div", 0)(1, TagsPageComponent_div_1_Template, 4, 2, "div", 1)(2, TagsPageComponent_app_not_found_2_Template, 1, 0, "app-not-found", 0);
+      }
+      if (rf & 2) {
+        \u0275\u0275property("ngIf", !ctx.success && ctx.loading);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.success && !ctx.loading);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", !ctx.success && !ctx.loading);
+      }
+    }, dependencies: [NgForOf, NgIf, RouterLink, NotFoundComponent, DatePipe], styles: ["\n\nstrong[_ngcontent-%COMP%] {\n  color: rgb(204, 216, 248);\n}\nsmall[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\n.dash[_ngcontent-%COMP%] {\n  color: rgb(203, 198, 192);\n}\nh1[_ngcontent-%COMP%] {\n  text-shadow: 1px 1px #000;\n  color: rgb(255, 234, 216);\n}\n.alternating[_ngcontent-%COMP%] {\n  background-color: rgba(62, 62, 62, 0.6);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n  padding: 0.8rem;\n  display: inline-block;\n  width: 100%;\n}\n.alternating[_ngcontent-%COMP%]:hover {\n  box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%) inset, 0 0 0 1px #b6ff79 inset;\n  position: relative;\n}\n.alternating[_ngcontent-%COMP%]:nth-child(even) {\n  background-color: rgba(0, 0, 0, 0.36);\n}\n.alternating[_ngcontent-%COMP%]:last-child {\n  border-radius: 0px 0px 5px 5px;\n}\n.alternating[_ngcontent-%COMP%]:nth-child(2) {\n  border-radius: 5px 5px 0px 0px;\n}\n/*# sourceMappingURL=tags-page.component.css.map */"] });
   }
-}, dependencies: [NgForOf, NgIf, RouterLink, NotFoundComponent, DatePipe], styles: ["\n\nstrong[_ngcontent-%COMP%] {\n  color: rgb(204, 216, 248);\n}\nsmall[_ngcontent-%COMP%] {\n  color: rgb(142, 142, 142);\n}\n.dash[_ngcontent-%COMP%] {\n  color: rgb(203, 198, 192);\n}\nh1[_ngcontent-%COMP%] {\n  text-shadow: 1px 1px #000;\n  color: rgb(255, 234, 216);\n}\n.alternating[_ngcontent-%COMP%] {\n  background-color: rgba(62, 62, 62, 0.6);\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  color: rgb(249, 249, 249);\n  text-shadow: 1px 1px #000;\n  padding: 0.8rem;\n  display: inline-block;\n  width: 100%;\n}\n.alternating[_ngcontent-%COMP%]:hover {\n  box-shadow: 0 0.5em 1em -0.125em rgb(202 236 174 / 10%) inset, 0 0 0 1px #b6ff79 inset;\n  position: relative;\n}\n.alternating[_ngcontent-%COMP%]:nth-child(even) {\n  background-color: rgba(0, 0, 0, 0.36);\n}\n.alternating[_ngcontent-%COMP%]:last-child {\n  border-radius: 0px 0px 5px 5px;\n}\n.alternating[_ngcontent-%COMP%]:nth-child(2) {\n  border-radius: 5px 5px 0px 0px;\n}\n/*# sourceMappingURL=tags-page.component.css.map */"] });
-var TagsPageComponent = _TagsPageComponent;
+};
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(TagsPageComponent, { className: "TagsPageComponent", filePath: "src/app/home/tags-page/tags-page.component.ts", lineNumber: 12 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(TagsPageComponent, { className: "TagsPageComponent", filePath: "src/app/home/tags-page/tags-page.component.ts", lineNumber: 13 });
 })();
 
 // src/app/home/home-routing.module.ts
@@ -5866,32 +5887,42 @@ var routes = [
     component: TagsPageComponent
   }
 ];
-var _HomeRoutingModule = class _HomeRoutingModule {
+var HomeRoutingModule = class _HomeRoutingModule {
+  static {
+    this.\u0275fac = function HomeRoutingModule_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _HomeRoutingModule)();
+    };
+  }
+  static {
+    this.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({ type: _HomeRoutingModule });
+  }
+  static {
+    this.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({ imports: [RouterModule.forChild(routes), RouterModule] });
+  }
 };
-_HomeRoutingModule.\u0275fac = function HomeRoutingModule_Factory(t) {
-  return new (t || _HomeRoutingModule)();
-};
-_HomeRoutingModule.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({ type: _HomeRoutingModule });
-_HomeRoutingModule.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({ imports: [RouterModule.forChild(routes), RouterModule] });
-var HomeRoutingModule = _HomeRoutingModule;
 
 // src/app/home/home.module.ts
-var _HomeModule = class _HomeModule {
+var HomeModule = class _HomeModule {
+  static {
+    this.\u0275fac = function HomeModule_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _HomeModule)();
+    };
+  }
+  static {
+    this.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({ type: _HomeModule });
+  }
+  static {
+    this.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({ imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      //Disable angular routing for this module
+      HomeRoutingModule,
+      SharedModule
+    ] });
+  }
 };
-_HomeModule.\u0275fac = function HomeModule_Factory(t) {
-  return new (t || _HomeModule)();
-};
-_HomeModule.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({ type: _HomeModule });
-_HomeModule.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({ imports: [
-  CommonModule,
-  ReactiveFormsModule,
-  //Disable angular routing for this module
-  HomeRoutingModule,
-  SharedModule
-] });
-var HomeModule = _HomeModule;
 \u0275\u0275setComponentScope(PostEditorComponent, [NgIf, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, FormGroupDirective, FormControlName, PostComponent], []);
 export {
   HomeModule
 };
-//# sourceMappingURL=home.module-IQRWPX36.js.map
+//# sourceMappingURL=home.module-WGEXUMA2.js.map

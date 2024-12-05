@@ -4,7 +4,7 @@ import {
   map,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-RB76LCDH.js";
+} from "./chunk-E5V2QDAB.js";
 
 // src/app/shared/services/toasty.service.ts
 var ToastyMessage = class {
@@ -16,7 +16,7 @@ var ToastyMessage = class {
     this.vanish = vanishInSeconds || 0;
   }
 };
-var _ToastyService = class _ToastyService {
+var ToastyService = class _ToastyService {
   constructor() {
     this.messagesArray = [];
     this.i = 0;
@@ -48,15 +48,18 @@ var _ToastyService = class _ToastyService {
       this.messagesArray.splice(position, 1);
     }
   }
+  static {
+    this.\u0275fac = function ToastyService_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _ToastyService)();
+    };
+  }
+  static {
+    this.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _ToastyService, factory: _ToastyService.\u0275fac, providedIn: "root" });
+  }
 };
-_ToastyService.\u0275fac = function ToastyService_Factory(t) {
-  return new (t || _ToastyService)();
-};
-_ToastyService.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _ToastyService, factory: _ToastyService.\u0275fac, providedIn: "root" });
-var ToastyService = _ToastyService;
 
 // src/app/shared/services/authentication.service.ts
-var _AuthenticationService = class _AuthenticationService {
+var AuthenticationService = class _AuthenticationService {
   constructor(http) {
     this.http = http;
     this.authenticated = false;
@@ -162,15 +165,18 @@ var _AuthenticationService = class _AuthenticationService {
   getJWT() {
     return this.userJWT;
   }
+  static {
+    this.\u0275fac = function AuthenticationService_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _AuthenticationService)(\u0275\u0275inject(HttpClient));
+    };
+  }
+  static {
+    this.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _AuthenticationService, factory: _AuthenticationService.\u0275fac, providedIn: "root" });
+  }
 };
-_AuthenticationService.\u0275fac = function AuthenticationService_Factory(t) {
-  return new (t || _AuthenticationService)(\u0275\u0275inject(HttpClient));
-};
-_AuthenticationService.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _AuthenticationService, factory: _AuthenticationService.\u0275fac, providedIn: "root" });
-var AuthenticationService = _AuthenticationService;
 
 export {
   ToastyService,
   AuthenticationService
 };
-//# sourceMappingURL=chunk-LA75226S.js.map
+//# sourceMappingURL=chunk-IQUIHAZP.js.map
