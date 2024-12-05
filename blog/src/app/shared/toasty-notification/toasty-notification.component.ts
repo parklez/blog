@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ToastyMessage, ToastyService } from '../services/toasty.service';
 
 @Component({
-  selector: 'app-toasty-notification',
-  templateUrl: './toasty-notification.component.html',
-  styleUrls: ['./toasty-notification.component.css']
+    selector: 'app-toasty-notification',
+    templateUrl: './toasty-notification.component.html',
+    styleUrls: ['./toasty-notification.component.css'],
+    standalone: false
 })
 export class ToastyNotificationComponent implements OnInit {
 

@@ -6,9 +6,10 @@ import { ToastyService } from '../../shared/services/toasty.service';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
-  selector: 'app-signin-home',
-  templateUrl: './signin-home.component.html',
-  styleUrls: ['./signin-home.component.css']
+    selector: 'app-signin-home',
+    templateUrl: './signin-home.component.html',
+    styleUrls: ['./signin-home.component.css'],
+    standalone: false
 })
 export class SigninHomeComponent {
 

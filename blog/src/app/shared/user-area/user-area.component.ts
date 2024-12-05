@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
-  selector: 'app-user-area',
-  templateUrl: './user-area.component.html',
-  styleUrls: ['./user-area.component.css'],
+    selector: 'app-user-area',
+    templateUrl: './user-area.component.html',
+    styleUrls: ['./user-area.component.css'],
+    standalone: false
 })
 export class UserAreaComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean = false;

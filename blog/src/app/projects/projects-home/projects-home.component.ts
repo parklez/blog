@@ -5,9 +5,10 @@ import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-projects-home',
-  templateUrl: './projects-home.component.html',
-  styleUrls: ['./projects-home.component.css'],
+    selector: 'app-projects-home',
+    templateUrl: './projects-home.component.html',
+    styleUrls: ['./projects-home.component.css'],
+    standalone: false
 })
 export class ProjectsHomeComponent implements OnInit, OnDestroy {
   retrievedProjects: Projects = {

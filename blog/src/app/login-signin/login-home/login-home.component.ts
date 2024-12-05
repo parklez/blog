@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { ToastyService } from '../../shared/services/toasty.service';
 
 @Component({
-  selector: 'app-login-home',
-  templateUrl: './login-home.component.html',
-  styleUrls: ['./login-home.component.css']
+    selector: 'app-login-home',
+    templateUrl: './login-home.component.html',
+    styleUrls: ['./login-home.component.css'],
+    standalone: false
 })
 export class LoginHomeComponent {
 

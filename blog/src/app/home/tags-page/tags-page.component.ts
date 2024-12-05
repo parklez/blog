@@ -5,9 +5,10 @@ import { PostsService } from 'src/app/shared/services/posts.service';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 
 @Component({
-  selector: 'app-tags-page',
-  templateUrl: './tags-page.component.html',
-  styleUrl: './tags-page.component.css'
+    selector: 'app-tags-page',
+    templateUrl: './tags-page.component.html',
+    styleUrl: './tags-page.component.css',
+    standalone: false
 })
 export class TagsPageComponent implements OnInit {
 

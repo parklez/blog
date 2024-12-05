@@ -5,9 +5,10 @@ import { Post } from '../../shared/models/post';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-post-reader',
-  templateUrl: './post-reader.component.html',
-  styleUrl: './post-reader.component.css'
+    selector: 'app-post-reader',
+    templateUrl: './post-reader.component.html',
+    styleUrl: './post-reader.component.css',
+    standalone: false
 })
 export class PostReaderComponent implements OnInit{
 

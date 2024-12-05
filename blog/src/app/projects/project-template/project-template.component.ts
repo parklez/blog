@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Project } from 'src/app/shared/models/project';
 
 @Component({
-  selector: 'app-project-template',
-  templateUrl: './project-template.component.html',
-  styleUrl: './project-template.component.css'
+    selector: 'app-project-template',
+    templateUrl: './project-template.component.html',
+    styleUrl: './project-template.component.css',
+    standalone: false
 })
 
 export class ProjectTemplateComponent implements OnInit{

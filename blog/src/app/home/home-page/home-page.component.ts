@@ -7,9 +7,10 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css'],
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css'],
+    standalone: false
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   retrievedPosts: Posts = {

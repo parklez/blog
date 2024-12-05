@@ -5,9 +5,10 @@ import { ToastyService } from '../../shared/services/toasty.service';
 import { Post } from '../../shared/models/post';
 
 @Component({
-  selector: 'app-post-editor',
-  templateUrl: './post-editor.component.html',
-  styleUrls: ['./post-editor.component.css']
+    selector: 'app-post-editor',
+    templateUrl: './post-editor.component.html',
+    styleUrls: ['./post-editor.component.css'],
+    standalone: false
 })
 export class PostEditorComponent implements OnInit{
 
