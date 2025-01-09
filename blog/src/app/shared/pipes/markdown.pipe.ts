@@ -11,7 +11,7 @@ export class MarkdownPipe implements PipeTransform {
   
   transform(value: string, ...args: unknown[]): SafeHtml {
     if (value && value.length > 0) {
-      return this.sanitizer.bypassSecurityTrustHtml(marked(value));
+      return this.sanitizer.bypassSecurityTrustHtml(marked(value, {async: false}));
     }
     return value;
   }
