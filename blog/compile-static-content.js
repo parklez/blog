@@ -128,5 +128,5 @@ function compileTags(fileNamePrefix, contentDir, readFunction) {
 }
 
 compileTags("tags", postsDirectory, readPostTags);
-compilePages("projects", projectsDirectory, readProject);
+compilePages("projects", projectsDirectory, readProject, 100);
 compilePages("posts", postsDirectory, readPost);
