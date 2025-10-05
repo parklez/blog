@@ -29,8 +29,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   isEditorOpen: boolean = false;
 
-  message = "[01/06/24] This awesome scrollable text will show up during special events!"
-            + " - [01/19/24] It's been reworked to use pure, efficient CSS - Yay!"
+  message = "[04/10/25] Drink water! Improve your diet! Let's live healthy!"
+            + " - [04/10/25] This lazy panda writes 3 articles yearly on average!"
 
   tagsIndex: {name: string, count: number}[] = [];
 
@@ -43,7 +43,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const page = this.route.snapshot.queryParams.page 
+    const page = this.route.snapshot.queryParams.page
     this.getPosts(Number(page) ? Number(page) : 0);
     this.postsService.fetchTagsIndex().subscribe({
       next: (tags) => {
