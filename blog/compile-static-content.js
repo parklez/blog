@@ -95,6 +95,7 @@ function compileTags(fileNamePrefix, contentDir, readFunction) {
     const year = new Date(post.published).getFullYear();
 
     post.tags.forEach((tag) => {
+      tag = tag.trim();
       tags[tag] = tags[tag] || [];
       tags[tag].push(post);
     });
