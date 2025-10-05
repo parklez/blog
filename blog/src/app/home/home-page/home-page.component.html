@@ -23,11 +23,11 @@
     </div>
     <div class="column is-one-fifth" id="side-panel">
       <div id="about-panel" class="box">
-        <h1 class="title is-4">Welcome ~</h1>
+        <h1 class="title is-4">Welcome!</h1>
         You're in my personal blog where I write random articles and exibit my projects, thanks for visiting! ^_^
       </div>
       <div id="tags-panel" class="box">
-        <h1 class="title is-4">Tags</h1>
+        <h1 class="title is-4">🏷️ Tags</h1>
           <ng-container *ngFor="let tag of tagsIndex">
             <a class="tag" routerLink="/tags/{{tag.name}}">{{ tag.name.toUpperCase() }} <span> ({{ tag.count }})</span></a>
           </ng-container>
