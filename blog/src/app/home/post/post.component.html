@@ -1,50 +1,66 @@
-<article *ngIf="!isEditorOpen" class="media-content">
-  <span class="show-on-hover" *ngIf="isAuthenticated && !isDeleted && !isPreview">
-    [
-    <a (click)="toggleEditor()">Edit</a>
-    /
-    <a (click)="deletePost()">Trash</a>
-    ]
-  </span>
-  <span class="expand-content" *ngIf="!isDeleted && !isPreview && isCollapseable">
-    [
-    <a (click)="toggleCollapse()">{{ this.isCollapsed ?  'Show more': 'Show less' }}</a>
-    ]
-  </span>
-  <span class="show-on-hover" style="bottom: 0%" *ngIf="!isDeleted && !isPreview">
-    [
-    <a (click)="copyShareLink()">Share</a>
-    ]
-  </span>
-  <a *ngIf="!isPreview" (click)="setPreloadedPost()" routerLink="/post/{{post._id}}">
-    <strong>
-      {{ post.title }}
-    </strong>
-    <span class="dash">-</span>
-    <small>
-      {{ post.published | date }}
-    </small>
-  </a>
-  <!-- This prevents routing while using post-editor.
-      I'm favoring routerLink over (click) for crawlers -->
-  <a *ngIf="isPreview">
-    <strong>
-      {{ post.title }}
-    </strong>
-    -
-    <small>
-      {{ post.published | date }}
-    </small>
-  </a>
-  <br />
-  <br />
-  <!-- https://bulma.io/documentation/elements/content/
-  Use of innerHTML to make Angular render HTML instead of pure text:
-  https://angular.io/guide/security#sanitization-example -->
-  <div class="content" [innerHTML]="post.content | markdown"></div>
-  <div *ngIf="!isCollapsed">
-    <!-- This prevents the expand button from overlaping the content -->
-    <br>
-  </div>
-</article>
-<app-post-editor [(post)]="post" (cancelFunction)="toggleEditor()" *ngIf="isEditorOpen"></app-post-editor>
+@if (!isEditorOpen) {
+  <article class="media-content">
+    @if (isAuthenticated && !isDeleted && !isPreview) {
+      <span class="show-on-hover">
+        [
+        <a (click)="toggleEditor()">Edit</a>
+        /
+        <a (click)="deletePost()">Trash</a>
+        ]
+      </span>
+    }
+    @if (!isDeleted && !isPreview && isCollapseable) {
+      <span class="expand-content">
+        [
+        <a (click)="toggleCollapse()">{{ this.isCollapsed ?  'Show more': 'Show less' }}</a>
+        ]
+      </span>
+    }
+    @if (!isDeleted && !isPreview) {
+      <span class="show-on-hover" style="bottom: 0%">
+        [
+        <a (click)="copyShareLink()">Share</a>
+        ]
+      </span>
+    }
+    @if (!isPreview) {
+      <a (click)="setPreloadedPost()" routerLink="/post/{{post._id}}">
+        <strong>
+          {{ post.title }}
+        </strong>
+        <span class="dash">-</span>
+        <small>
+          {{ post.published | date }}
+        </small>
+      </a>
+    }
+    <!-- This prevents routing while using post-editor.
+    I'm favoring routerLink over (click) for crawlers -->
+    @if (isPreview) {
+      <a>
+        <strong>
+          {{ post.title }}
+        </strong>
+        -
+        <small>
+          {{ post.published | date }}
+        </small>
+      </a>
+    }
+    <br />
+    <br />
+    <!-- https://bulma.io/documentation/elements/content/
+    Use of innerHTML to make Angular render HTML instead of pure text:
+    https://angular.io/guide/security#sanitization-example -->
+    <div class="content" [innerHTML]="post.content | markdown"></div>
+    @if (!isCollapsed) {
+      <div>
+        <!-- This prevents the expand button from overlaping the content -->
+        <br>
+        </div>
+      }
+    </article>
+  }
+  @if (isEditorOpen) {
+    <app-post-editor [(post)]="post" (cancelFunction)="toggleEditor()"></app-post-editor>
+  }

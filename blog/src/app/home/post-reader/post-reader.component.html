@@ -1,6 +1,12 @@
 <div>
-    <app-post class="box" *ngIf="success && !loading" [post]="post" [isReaderMode]="true"></app-post>
-    <div class="box" *ngIf="loading">Loading, please wait!</div>
-    <app-not-found *ngIf="!success && !loading"></app-not-found>
-    <button (click)="goBack()" class="button">Go Back</button>
+  @if (success && !loading) {
+    <app-post class="box" [post]="post" [isReaderMode]="true"></app-post>
+  }
+  @if (loading) {
+    <div class="box">Loading, please wait!</div>
+  }
+  @if (!success && !loading) {
+    <app-not-found></app-not-found>
+  }
+  <button (click)="goBack()" class="button">Go Back</button>
 </div>

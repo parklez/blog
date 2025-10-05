@@ -1,11 +1,13 @@
 <div class="wrapper">
-  <aside *ngFor="let message of messages">
-    <div id="content"
-      class="notification roundy"
-      [ngClass]="message.style"
-    >
-      <button class="delete" (click)="dismiss(message.id)"></button>
-      {{ message.content }}
-    </div>
-  </aside>
+  @for (message of messages; track message) {
+    <aside>
+      <div id="content"
+        class="notification roundy"
+        [ngClass]="message.style"
+        >
+        <button class="delete" (click)="dismiss(message.id)"></button>
+        {{ message.content }}
+      </div>
+    </aside>
+  }
 </div>

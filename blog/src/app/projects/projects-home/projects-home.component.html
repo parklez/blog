@@ -1,15 +1,21 @@
-<div class="box" *ngIf="loading">Loading, please wait!</div>
+@if (loading) {
+  <div class="box">Loading, please wait!</div>
+}
 <div id="filters" class="box">
   View: [<a (click)="setViewAsGrid(true)">Grid</a>] [<a (click)="setViewAsGrid(false)">List</a>] - Sorting: [<a
-    (click)="sortByDate(true)">Newer</a>] [<a (click)="sortByDate(false)">Older</a>]
+  (click)="sortByDate(true)">Newer</a>] [<a (click)="sortByDate(false)">Older</a>]
 </div>
-<ng-container *ngIf="projects.length > 0">
+@if (projects.length > 0) {
   <div class="grid  is-col-min-10">
-    <div class="cell" *ngFor="let project of projects">
-      <app-project-template [project]="project"> </app-project-template>
-    </div>
+    @for (project of projects; track project) {
+      <div class="cell">
+        <app-project-template [project]="project"> </app-project-template>
+      </div>
+    }
   </div>
-</ng-container>
-<div *ngIf="!success">
-  <app-not-found></app-not-found>
-</div>
+}
+@if (!success) {
+  <div>
+    <app-not-found></app-not-found>
+  </div>
+}

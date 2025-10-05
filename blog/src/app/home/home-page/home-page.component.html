@@ -2,24 +2,32 @@
   <app-special-message message="{{message}}"></app-special-message>
   <div class="columns" style="min-height: 35rem;">
     <div id="page-content" class="column is-four-fifths">
-      <div *ngIf="isAuthenticated" id="create-content" class="box">
-        [
-        <a (click)="toggleEditor()">Toggle Creator</a>
-        ]
-      </div>
-      <div *ngIf="isEditorOpen" class="box">
-        <app-post-editor></app-post-editor>
-      </div>
-      <div *ngFor="let post of retrievedPosts.results" class="box">
-        <app-post [post]="post"></app-post>
-      </div>
-      <nav *ngIf="retrievedPosts.results.length" class="pagination">
-        <!-- https://angular.io/guide/attribute-binding
-        https://www.joshuacolvin.net/angular-conditional-attributes/
-        https://stackoverflow.com/a/36745752 -->
-        <a class="pagination-previous" [attr.disabled]="!previous ? previous : null" (click)="previous && goToPrevious()">Previous</a>
-        <a class="pagination-next" [attr.disabled]="!next ? next : null" (click)="next && goToNext()">Next page</a>
-      </nav>
+      @if (isAuthenticated) {
+        <div id="create-content" class="box">
+          [
+          <a (click)="toggleEditor()">Toggle Creator</a>
+          ]
+        </div>
+      }
+      @if (isEditorOpen) {
+        <div class="box">
+          <app-post-editor></app-post-editor>
+        </div>
+      }
+      @for (post of retrievedPosts.results; track post) {
+        <div class="box">
+          <app-post [post]="post"></app-post>
+        </div>
+      }
+      @if (retrievedPosts.results.length) {
+        <nav class="pagination">
+          <!-- https://angular.io/guide/attribute-binding
+          https://www.joshuacolvin.net/angular-conditional-attributes/
+          https://stackoverflow.com/a/36745752 -->
+          <a class="pagination-previous" [attr.disabled]="!previous ? previous : null" (click)="previous && goToPrevious()">Previous</a>
+          <a class="pagination-next" [attr.disabled]="!next ? next : null" (click)="next && goToNext()">Next page</a>
+        </nav>
+      }
     </div>
     <div class="column is-one-fifth" id="side-panel">
       <div id="about-panel" class="box">
@@ -28,9 +36,9 @@
       </div>
       <div id="tags-panel" class="box">
         <h1 class="title is-4">🏷️ Tags</h1>
-          <ng-container *ngFor="let tag of tagsIndex">
-            <a class="tag" routerLink="/tags/{{tag.name}}">{{ tag.name.toUpperCase() }} <span> ({{ tag.count }})</span></a>
-          </ng-container>
+        @for (tag of tagsIndex; track tag) {
+          <a class="tag" routerLink="/tags/{{tag.name}}">{{ tag.name.toUpperCase() }} <span> ({{ tag.count }})</span></a>
+        }
       </div>
     </div>
   </div>

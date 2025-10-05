@@ -1,15 +1,21 @@
 <div id="login">
-    [
-    <span *ngIf="isAuthenticated">
-        <a (click)="logOut()"> Log out </a>
+  [
+  @if (isAuthenticated) {
+    <span>
+      <a (click)="logOut()"> Log out </a>
     </span>
-    <span *ngIf="!isAuthenticated">
-        <a routerLink="login"> Log in </a>
-        /
-        <a routerLink="signup"> Sign Up </a>
+  }
+  @if (!isAuthenticated) {
+    <span>
+      <a routerLink="login"> Log in </a>
+      /
+      <a routerLink="signup"> Sign Up </a>
     </span>
-    ]
-    <span *ngIf="username">
-        <a> ~ {{ username }}</a>
+  }
+  ]
+  @if (username) {
+    <span>
+      <a> ~ {{ username }}</a>
     </span>
+  }
 </div>

@@ -1,39 +1,43 @@
 <!-- Forms -->
-<form *ngIf="!isPreview" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+@if (!isPreview) {
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <label class="label">{{this.post._id ? "Update this post" : "Write a new story"}}</label>
     <br>
-    <div class="field">
-    <div class="control">
-        <input class="input" type="text" placeholder="Title" formControlName="title"/>
-    </div>
-    </div>
-    <div class="field">
-    <div class="control">
-        <textarea class="textarea" placeholder="..." formControlName="content"></textarea>
-    </div>
-    </div>
-    <div class="field is-grouped">
-    <div class="control">
-        <button class="button is-link" type="submit" [disabled]="!postForm.valid">Submit</button>
-    </div>
-    <div class="control">
-        <button class="button is-danger is-light" type="reset" (click)="this.cancelFunction.emit()">{{this.post._id ? "Cancel" : "Clear"}}</button>
-    </div>
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" placeholder="Title" formControlName="title"/>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <textarea class="textarea" placeholder="..." formControlName="content"></textarea>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" type="submit" [disabled]="!postForm.valid">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-danger is-light" type="reset" (click)="this.cancelFunction.emit()">{{this.post._id ? "Cancel" : "Clear"}}</button>
+        </div>
+        <div>
+          <button class="button is-warning" type="button" (click)="togglePreview()" [disabled]="!postForm.valid">Preview</button>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown reference</a>
+      </div>
+    </form>
+  }
+  <!-- Preview  -->
+  @if (isPreview) {
     <div>
-        <button class="button is-warning" type="button" (click)="togglePreview()" [disabled]="!postForm.valid">Preview</button>
-    </div>
-    </div>
-    <div>
-    <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown reference</a>
-    </div>
-</form>
-<!-- Preview  -->
-<div *ngIf="isPreview">
-<app-post
-    [isPreview]="true"
-    [post]="getEditedPost()"></app-post>
-    <br>
-    <div>
-    <button class="button is-warning" type="button" (click)="togglePreview()">Go back to editor</button>
-    </div>
-</div>
+      <app-post
+        [isPreview]="true"
+      [post]="getEditedPost()"></app-post>
+      <br>
+        <div>
+          <button class="button is-warning" type="button" (click)="togglePreview()">Go back to editor</button>
+        </div>
+      </div>
+    }
