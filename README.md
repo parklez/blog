@@ -1,43 +1,31 @@
 # parklez.dev
-My personal "blog" of sorts for learning purposes, written in NodeJS & Angular.
+My personal "blog" of sorts for learning purposes, made with Angular framework.
 
-![early](front.png)
+![early](front-page.png)
 
+### How does this project works?
+- The Github Pages for this repository is available in the "`gh-pages`" branch. 
+- The Angular project is compiled in Github Action's CI/CD, the resulting files are commited the aforementioned branch.
+- The browsable contents are available in `_posts` & `_projects` directories. They're compiled by `blog/compile-static-content.js` during CI/CD and commited as JSON "assets" for later consumption by the front-end.
 
-## TO-DO list
-> Server-side
-- [x] Implement CRUD for posts
-- [x] Authentication (create, login, sign out)
-- [ ] Implement CRUD for projects
+### Setup
+- Use NodeJS compatible with Angular 20.
 
-
-> Client-side
-- [x] Add create post screen
-- [ ] Add create project screen
-- [x] Add login screen
-- [x] Add edit/delete button for posts
-- [ ] Add edit/delete button for projects
-- [x] Add 404 page
-- [x] Add pagination
-- [ ] Beautify header
-
-> Github Pages
-- [ ] Add support for static blog posts
-
-#### Setup
-- Use NodeJS 18 for this project.
-
-On both `blog` and `server` directories, install dependencies:
+On `blog` directory, install dependencies:
 ```sh
 npm install
 ```
 
-#### Local development
-On `blog` you can start the dev server using the following:
+### Running locally
+On `blog` directory you can start the dev server using the following command:
 ```sh
 npx ng start
 ```
-On `server` you can start it by doing:
+
+To "compile" the markdown content to json, run this script:
 ```sh
-npm run dev
+node compile-static-content.js
 ```
+
+### Misc. Versions
+- This blog used to have a real server with user functionality as well as connections with database for storing and retrieving content - You can find this version here: [server branch](https://github.com/parklez/blog/tree/server).
