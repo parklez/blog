@@ -43,7 +43,7 @@ It consists of few typical steps but in an order I personally enjoyed:
 
 There's also a personality test and some HR calls inbetween if things are going smoothly.
 
-I recommend checking out  their [blog post about the hiring process](https://hennge.com/global/info/henka/interview/202406-demystifying_hennges_hiring_process/) AND [the company intruduction](https://speakerdeck.com/hennge/company-introduction-deck-hennge)  for info - They also share some interesting statistics about how many people apply per position and how many make it to which screening step.
+I recommend checking out  their [blog post about the hiring process](https://hennge.com/global/info/henka/interview/202406-demystifying_hennges_hiring_process/) AND [the company introduction](https://speakerdeck.com/hennge/company-introduction-deck-hennge)  for info - They also share some interesting statistics about how many people apply per position and how many make it to which screening step.
 
 
 
@@ -53,7 +53,7 @@ I recommend checking out  their [blog post about the hiring process](https://hen
 
 **Having no doubt about the business AND their products will help you wonders during your interview, trust me.**
 
-Doing reputation research is also important as a way to balance out good and bad opinions about the company so you don't find yourself in a place you wouldn't want to be as far as expections go.
+Doing reputation research is also important as a way to balance out good and bad opinions about the company so you don't find yourself in a place you wouldn't want to be as far as expectations go.
 
 
 
@@ -66,12 +66,12 @@ Here are some suggestions for the challenges themselves, specifically self-paced
 - **Read the instructions as many times as you need**, pay attention to the wording of what is required and expected. This is easily overlooked!
 - Pay attention to the constraints and if your code should handle edge-cases/exceptions! I personally only handle if they specify the expected behavior, otherwise I just add a comment on the matter!
 - Use clean code principles: Appropriate naming for functions and variables, good use of parameters, well defined functions, and so on!
-- A well-written docstring/documentation - Don't leave doubts about the method, parameters, outputs and its caveats!
+- A well-written doc-string/documentation - Don't leave doubts about the method, parameters, outputs and its caveats!
 - Use type hinting in Python, it's a must these days!
 - Don't over-engineer something that can be simple! It's less prone for failure/mistakes down the line! No one wants to deal with code no one can easily understand or predict!
 - Make sure to use the language's set of good practices and safety measures (basic stuff as how to properly initialize and deal with variables, limitations and so on)
 - Make unit tests in case you're given examples of inputs and outputs!
-- Use Linters/Static code analysers such as Pylint, Flake8, Mypy, etc...
+- Use Linters/Static code analyzers such as Pylint, Flake8, Mypy, etc...
 - Use code formatters such as Black, isort, autopep8, etc...
 - Test your solution and double check for any detail that you might have missed!
 
@@ -97,7 +97,7 @@ It also works well for suggesting improvements but **make sure you're the one ma
 
 ### My tips for Resumés
 
-Japanese companies hiring abrod will likely be accepting western-style resumés so there's no secret here. I'll just reiterate on some obvious points and how I crafted my own resumé painlessly.
+Japanese companies hiring abroad will likely be accepting western-style resumés so there's no secret here. I'll just reiterate on some obvious points and how I crafted my own resumé painlessly.
 
 - Make sure to tailor it specifically for the job role, including skills and experiences that correlate to what the company is looking for.
 - Make sure to include your Github and LinkedIn. It's ok to add a third link for your own blog or something relevant like LeetCode.
@@ -134,14 +134,14 @@ According to HENNGE's [own article](https://hennge.com/global/info/henka/intervi
 - Generally, the cover letter consists of a single page or an extra paragraph at most. My paragraphs were written with these ideas respectively:
   1. The reason why I want to join the company and move to Japan.
   2. The reason why I think I'm a good candidate for the role listed.
-  3. My achivements and milestones from my experience and how they translate to the company I'm applying.
+  3. My achievements and milestones from my experience and how they translate to the company I'm applying.
   4. Short message thanking for the time and opportunity.
 
 
 
 ### My tips for casual interviews
 
-As far as japanese etiquette goes for interviews, I was dressing a suit, white shirt and black tie while sitting straight. I don't think the dressing code it's required these days but you never know how traditional the company is regarding this expectation.
+As far as Japanese etiquette goes for interviews, I was dressing a suit, white shirt and black tie while sitting straight. I don't think the dressing code it's required these days but you never know how traditional the company is regarding this expectation.
 
 
 
@@ -157,7 +157,7 @@ Here you say your nome, where you're from, your higher education, your past few 
 
 - > Why did you choose Japan to work in/relocate to?
 
-This varies from people to people but it's important to make it clear that you're no stranger to Japan's culture and is deeply invested in a long-term relationhip with the country and do not plan on leaving soon. Don't be generic or disconnected with reality by saying you just like "anime" or "food".
+This varies from people to people but it's important to make it clear that you're no stranger to Japan's culture and is deeply invested in a long-term relationship with the country and do not plan on leaving soon. Don't be generic or disconnected with reality by saying you just like "anime" or "food".
 
 
 
@@ -206,13 +206,13 @@ The interviewers are technical seniors so you can imagine the questions will lik
 
 - > Brief introduction of yourself 
 
-- > Do you know what is <tool or concept>?
+- > Do you know what is `tool` or `concept`?
 
-- > Are you familiar with <tool or concept>?
+- > Are you familiar with `tool` or `concept`?
 
-- > Do you have examples of using <tool or concept> in the past?
+- > Do you have examples of using `tool` or `concept` in the past?
 
-- > How long have you been using <tool or concept> for?
+- > How long have you been using `tool` or `concept` for?
 
 - > What are some projects or solutions you're proud of?
 
@@ -250,7 +250,7 @@ I'm quite demanding on myself regarding how I do things - I always want to do my
 - Despite my sincere interest with SecOps, I don't have strong certificates or an awfully specific track record on the matter, such as doing penetration tests and so on.
 - I never deployed or used resources on AWS due to my fear of being charged a ton by accident, so I couldn't say I had experience specifically with it.
 
-All in all, they're probably used to candidas being extremely nervous so they probably don't mind as long as you're polite, answer questions truthfully and do your best. In that regard, I have to give myself some credit for telling them everything they needed to know and having the experience I worked hard on for myself. It's just a matter of being more prepared the next time around.
+All in all, they're probably used to candidates being extremely nervous so they probably don't mind as long as you're polite, answer questions truthfully and do your best. In that regard, I have to give myself some credit for telling them everything they needed to know and having the experience I worked hard on for myself. It's just a matter of being more prepared the next time around.
 
 
 
